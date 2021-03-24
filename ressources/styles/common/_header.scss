@@ -1,0 +1,123 @@
+@import "colours";
+@import "buttons";
+@import "responsive";
+
+.desktop-header {
+  display: none;
+}
+
+.mobile-header {
+  background: $black-background;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  align-items: center;
+  padding-left: 10%;
+  box-sizing: border-box;
+}
+
+.runzik-logo {
+  width: 67px;
+  height: 34px;
+  margin-left: auto;
+}
+
+.cart-link {
+  @extend %button;
+  margin-right: 20px;
+  margin-left: auto;
+}
+
+.cart-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-menu {
+  width: 100%;
+  background-color: $black-background;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  .menu-top-line {
+    width: 75%;
+    height: 3px;
+    margin: 5px auto;
+    background-color: $lightGrey;
+  }
+}
+
+.bottom-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mobile-menu-icon {
+  width: 30px;
+  height: 25px;
+}
+
+@media #{$media-up} {
+  .mobile-header {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .desktop-header {
+    display: block;
+  }
+
+  .desktop-menu {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .logo-container {
+    img {
+      height: 60px;
+      width: 115px;
+    }
+  }
+
+  .tabs-menu {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    .menu-icon {
+      height: 32px;
+      width: 35px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .navbar {
+    ul {
+      display: flex;
+    }
+
+    li {
+      list-style-type: none;
+      margin: 20px;
+      text-transform: uppercase;
+    }
+
+    a {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}

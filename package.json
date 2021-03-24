@@ -1,0 +1,13 @@
+{
+  "name": "runzik",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "sass": "node-sass -w ressources/styles/ -o ressources/css/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
