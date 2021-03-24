@@ -16,7 +16,8 @@
 
         <div class="banner-container">
             <img class="brand-banner" src="ressources/images/banners/brand-banner.png" alt="brand-banner">
-            <h1>Comment <span class="orange-highlight">l'aventure</span> à <span class="orange-highlight">
+            <h1 class="main-title">Comment <span class="orange-highlight">l'aventure</span> à <span
+                    class="orange-highlight">
                     commencé</span></h1>
         </div>
 
@@ -61,10 +62,11 @@
                 </div>
             </div>
             <div class="yellow-box"></div>
+            <img class="man-watch-picture" src="ressources/images/photos/man-using-watch.png" alt="brand-banner">
         </section>
 
 
-        <section>
+        <section class="second-part">
             <div class="second-section">
                 <div class="white-side-line"></div>
                 <div class="content-container">
@@ -96,6 +98,7 @@
                     </div>
                 </div>
             </div>
+            <img class="running-woman-picture" src="ressources/images/photos/woman-running.png">
         </section>
 
         <section>

@@ -16,13 +16,14 @@
   width: 100%;
   display: flex;
   position: relative;
-  h1 {
+  .main-title {
     color: $white;
-    font-size: $mobile-main-title-font-size;
+    font-size: $big-size;
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 49%;
-    width: 142px;
+    width: 494px;
+    font-family: "Oswald";
   }
 }
 
@@ -36,7 +37,6 @@
 
 %section {
   width: 100%;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -78,10 +78,19 @@
   p {
     color: $white;
     font-size: 12px;
+    font-family: "roboto";
   }
 }
 
 .yellow-box {
+  display: none;
+}
+
+.man-watch-picture {
+  display: none;
+}
+
+.running-woman-picture {
   display: none;
 }
 
@@ -112,12 +121,38 @@
 }
 
 @media #{$media-up} {
+  .main-title {
+    text-transform: uppercase;
+  }
+
   .yellow-box {
     display: block;
     width: 27%;
     background-color: $yellow;
   }
   .first-part {
+    display: flex;
+    position: relative;
+    height: 75%;
+  }
+
+  .second-part {
+    display: flex;
+    height: 83%;
+  }
+
+  .man-watch-picture {
+    display: block;
+    position: absolute;
+    top: 85px;
+    right: 88px;
+    height: 300px;
+  }
+
+  .running-woman-picture {
+    display: block;
+    height: auto;
+    width: 21.3%;
   }
 }
 //   .brand-banner {
