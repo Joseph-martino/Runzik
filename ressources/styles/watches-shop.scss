@@ -121,6 +121,32 @@ body {
 }
 
 @media #{$media-up} {
+  .banner-container {
+    display: block;
+    position: relative;
+  }
+
+  .banner-title {
+    position: absolute;
+    top: 37%;
+    left: 16%;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+  }
+
+  .orange-highlight {
+    color: $orange;
+  }
+
+  .banner-text {
+    position: absolute;
+    top: 53%;
+    left: 16%;
+    color: white;
+    font-style: italic;
+    font-size: 22px;
+  }
   .products-research-options-container {
     display: flex;
     justify-content: space-around;

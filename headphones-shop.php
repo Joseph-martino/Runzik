@@ -17,7 +17,7 @@
 
         <div class="banner-container">
             <?php
-            $watch= "watch";
+            $headphone= "headphone";
 
             ?>
             <img id=.<?php $watch ?> class="watches-shop-banner" src="ressources/images/banners/watches-shop-banner.png"

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="ressources/css/watches-shop.css" type="text/css" />
-        <title>Montres Runzik</title>
+        <title>Brassards Runzik</title>
     </head>
 
     <body>
@@ -17,13 +17,13 @@
 
         <div class="banner-container">
             <?php
-            $watch= "watch";
+            $armband= "armband";
 
             ?>
-            <img id=.<?php $watch ?> class="watches-shop-banner" src="ressources/images/banners/watches-shop-banner.png"
-                alt="watches shop banner">
+            <img id=.<?php $armband ?> class="<watches-shop-banner"
+                src="ressources/images/banners/watches-shop-banner.png" alt="watches shop banner">
             <h1 class="banner-title">NOS <span class="orange-highlight">MONTRES</span></h1>
-            <p class="banner-text">Découvrez notre sélection de montres</p>
+            <p class="banner-text">Découvrez notre sélection de brassards</p>
         </div>
 
         <?php
