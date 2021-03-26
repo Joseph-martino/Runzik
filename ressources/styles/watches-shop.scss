@@ -1,0 +1,213 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/responsive";
+
+html,
+body {
+  background-color: #2c2626;
+}
+
+.banner-container {
+  display: none;
+}
+
+.brand-research-container {
+  margin-left: 39px;
+}
+
+.subtitle {
+  margin: 20px 0;
+  font-family: "play";
+}
+
+.brand-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.brand-card {
+  width: 62%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #211e1e;
+  border-radius: 10px;
+}
+
+.brand-select-button {
+  background-color: transparent;
+}
+
+.runzik-card-logo {
+  width: 72px;
+  height: 37px;
+}
+
+.beats-card-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.jbl-card-logo {
+  width: 60px;
+  height: 40px;
+}
+
+.scroll-list-container {
+  display: none;
+}
+
+.products-grid-container {
+  padding-bottom: 30px;
+}
+
+.products-line-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3%;
+  overflow: auto;
+}
+
+.product-card {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #211e1e;
+  justify-content: center;
+  border-radius: 20px;
+  justify-self: center;
+  padding: 16px 0;
+  .add-to-wishlist-button {
+    margin-left: auto;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    margin-right: 5px;
+  }
+}
+
+.watch {
+  width: 100%;
+}
+
+.miniature-product-container {
+  display: flex;
+}
+
+.miniature-product {
+  height: 30px;
+}
+
+.product-name {
+  font-weight: bold;
+  margin: 11px;
+}
+
+.product-price {
+  color: $white;
+}
+
+.see-more-button {
+  background-color: #cd2222;
+  color: $white;
+  width: 75%;
+  padding: 3px 0;
+}
+
+@media #{$media-up} {
+  .products-research-options-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .brand-research-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+  }
+
+  .brand-cards-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .subtitle {
+    margin: 25px 0px;
+    font-family: "play";
+  }
+
+  .brand-card {
+    width: 20%;
+    height: 87px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #211e1e;
+    border-radius: 10px;
+  }
+
+  .runzik-card-logo {
+    width: 87px;
+    height: 48px;
+  }
+
+  .beats-card-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .jbl-card-logo {
+    width: 60px;
+    height: 40px;
+  }
+
+  .scroll-list-container {
+    display: block;
+    label {
+      color: $white;
+    }
+  }
+
+  #product-select {
+    background-color: transparent;
+    border: solid $white 2px;
+  }
+
+  .scroll-list-options {
+    color: $white;
+  }
+
+  .products-line-container {
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 5%;
+    margin-right: 5%;
+    row-gap: 3%;
+  }
+
+  .product-card {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #211e1e;
+    justify-content: center;
+    border-radius: 20px;
+    justify-self: center;
+  }
+
+  .wishlist-icon {
+    height: 30px;
+  }
+
+  .watch {
+    width: 100%;
+  }
+}

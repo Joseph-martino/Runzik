@@ -18,11 +18,12 @@
   position: relative;
   .main-title {
     color: $white;
-    font-size: $big-size;
+    font-size: $mobile-main-title-font-size;
+    text-transform: uppercase;
     position: absolute;
-    top: 45%;
-    left: 49%;
-    width: 494px;
+    top: 38%;
+    left: 50%;
+    width: 153px;
     font-family: "Oswald";
   }
 }
@@ -121,8 +122,16 @@
 }
 
 @media #{$media-up} {
-  .main-title {
-    text-transform: uppercase;
+  .banner-container {
+    .main-title {
+      text-transform: uppercase;
+      font-size: $big-size;
+      position: absolute;
+      top: 45%;
+      left: 49%;
+      width: 494px;
+      font-family: "Oswald";
+    }
   }
 
   .yellow-box {
@@ -155,17 +164,3 @@
     width: 21.3%;
   }
 }
-//   .brand-banner {
-//     width: 100%;
-//   }
-
-//   .banner-container {
-//     position: absolute;
-//   }
-
-//   .main-title {
-//     position: relative;
-//     top: 0;
-//     left: 0;
-//   }
-// }
