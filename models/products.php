@@ -35,7 +35,7 @@ $headphones = new ProductList(
      $allHeadphones);
 $armbands = new ProductList(
     new ProductGenericInfos("brassard", "brassards", $types[2]),
- []);
+ [$allArmbands]);
 
 $productList = array(
     $types[0] => $watches,
