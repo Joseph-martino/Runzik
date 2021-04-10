@@ -1,0 +1,346 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/mixins";
+@import "common/fonts";
+@import "common/responsive";
+
+.banner-container {
+    display: none;
+}
+
+.mobile-banner {
+    width: 100%;
+}
+
+.mobile-banner-container {
+    position: relative;
+}
+
+.mobile-watch-banner {
+    position: absolute;
+    top: 36%;
+    left: 30%;
+}
+
+.mobile-banner-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2C2626;
+    padding: 32px 0;
+}
+
+.product-information-picture {
+    display: none;
+}
+
+.section-title {
+    background-color: #F6AF33;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-information-text-container {
+    background-color: #2C2626;
+    padding: 20px
+}
+
+.product-informations-text-container {
+    display: none;
+}
+
+.product-features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.second-banner {
+    display: none;
+}
+
+.technology-container {
+    position: relative;
+}
+
+.technology-explanations-container {
+    background: radial-gradient(circle, #423939 0%, #181717 35%);
+}
+
+.technology-text {
+    padding: 30px;
+    width: 90%;
+    padding-top: 63px;
+
+    h3 {
+        font-size: 12px;
+        width: 65%;
+        font-weight: bold;
+        color: $white
+    }
+
+    p {
+        font-size: 10px;
+        width: 65%;
+        color: $white;
+    }
+}
+
+.desktop-pictures-container {
+    display: none;
+}
+
+.product-picture {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: 42%;
+}
+
+.mobile-add-to-cart-menu {
+    display: flex;
+    
+}
+
+
+
+
+@media #{$media-up} {
+
+    .mobile-banner-container {
+        display: none;
+    }
+
+    .banner-container {
+        display: block;
+        width: 100%;
+        position: relative;
+    }
+    
+    .desktop-page-banner {
+        width: 100%;
+    }
+
+    .banner-product {
+        position: absolute;
+        top: 28%;
+        right: 15%;
+    }
+    
+    .banner-title {
+        position: absolute;
+        left: 8%;
+        top: 38%;
+        color: white;
+
+        h1 {
+            font-size: 55px;
+            margin: 0;
+        }
+        .product-description {
+            font-size: 30px;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+
+        }
+    }
+    
+    .colours-choices-container {
+        position: absolute;
+        top: 58%;
+        left: 7%;
+    }
+    
+    .quantities-container {
+        position: absolute;
+        top: 64%;
+        left: 16%;
+        input {
+            background-color: transparent;
+        }
+    }
+
+    #product-colour-text {
+        color: $white;
+    }
+
+    .quantity-input-container {
+        background-color: transparent;
+        border: 1px solid white;
+        width: 20%;
+
+    }
+
+    .blue-button {
+        @include button($blue);
+        margin: 60px 0;
+        width: 100%;
+    }
+    
+    
+    .product-informations-container {
+        width: 100%;
+        display: flex;
+    }
+    
+    .product-information-picture {
+        display: block;
+        width: 50%;
+    }
+    
+    .informations-container {
+        width: 50%;
+    }
+    
+    .section-title {
+        background-color: #F6AF33;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 130px;
+        padding: 0;
+    
+        h2 {
+            width: 25%;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+    
+        }
+        
+    }
+
+    .mobile-information-text-container {
+        display: none;
+    }
+    
+    .product-informations-text-container {
+        display: block;
+        padding: 72px;
+        background-color: #2C2626;
+    }
+    
+    .product-informations-content-subtitle {
+        display: flex;
+        align-items: center;
+        color: white
+    }
+    
+    .white-text {
+        color: white;
+    }
+    
+    .orange-highlight {
+        color: $orange;
+    }
+    
+    .checkmark{
+        width: 30px;
+        height: 30px;
+    }
+    
+    .product-features-container {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    
+    .feature-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        justify-content: center;
+        h3 {
+            color: white;
+        }
+    }
+    
+    .odd-numbers-box {
+        background-color: #D95B00;
+    }
+    
+    .even-numbers-box {
+        background-color: #2C2626;
+        
+    }
+    
+    .second-banner {
+        display: block;
+        width: 100%;
+        height: 300px;
+    }
+    
+    
+    .technology-container {
+        display:flex;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .product-technicals-details-title{
+        background-color: $lightYellow;
+        width: 100%;
+        height: 300px;
+    }
+    
+    .technology-explanations-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        background: radial-gradient(circle, #423939 0%, #181717 35%);
+    }
+    
+    .technology-text {
+        width: 40%;
+        margin: 60px 36px 60px 102px;
+        color: white;
+        h3 {
+            font-size: 19px;
+        width: 100%;
+        font-weight: bold;
+        color: white;
+        }
+
+        p {
+            font-size: 17px;
+            width: 100%;
+            color: white;
+        }
+    }
+
+    .desktop-pictures-container {
+        display: block;
+    }
+    
+    .technology-pictures-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .product-picture {
+        position: absolute;
+        top:0;
+        right:0;
+        width: 33%;
+    }
+
+    .mobile-add-to-cart-menu {
+        display: none;
+    }
+
+}
+
+

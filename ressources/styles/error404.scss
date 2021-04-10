@@ -1,0 +1,18 @@
+@import "common/reset";
+
+
+html, body {
+    background: rgb(34,32,32);
+    background-color: linear-gradient(321deg, rgba(34,32,32,1) 0%, rgba(65,59,59,1) 0%);
+}
+
+.erro-404-banner {
+    height: 70%;
+}
+
+.test {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
