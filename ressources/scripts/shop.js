@@ -1,7 +1,7 @@
-// let prices = document.getElementsByClassName("product-price");
-// let list = [];
+// let prices = document.getElementById("test").value;
+
 // console.log(prices);
-//         console.log(list);
+
 
 // let tableau = [];
 
@@ -24,18 +24,15 @@
 // // }
 
 
+let wishlistButton = document.getElementsByClassName("fas");
 
+    for( let i = 0; i < wishlistButton.length; i++) {
+        wishlistButton[i].addEventListener("click", function(event){
+            wishlistButton[i].classList.toggle("wishlist-unselected");
+            wishlistButton[i].classList.toggle("wishlist-selected");
+        })
 
-
-// let wishlistButton = document.getElementsByClassName("fas");
-
-//     for( let i = 0; i < wishlistButton.length; i++) {
-//         wishlistButton[i].addEventListener("click", function(event){
-//             wishlistButton[i].classList.toggle("fas-selected");
-//             wishlistButton[i].classList.toggle("fas");
-//         })
-
-//     }
+    }
 
  
 

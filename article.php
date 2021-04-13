@@ -1,3 +1,7 @@
+<?php 
+DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +9,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/article.css" type="text/css" />
-    <title>Montre</title>
+    <title><?php echo "test"; ?></title>
     
 </head>
     <body>
         <?php
-        include("layout/header.php");
+        include(ROOT_PATH ."layout/header.php");
         ?>
 
         <?php
-            require("models/products.php");
+            require_once(ROOT_PATH ."services/productManager.php");
         ?>
 
         <?php
-            $selectedProduct = $_GET["product"];
-            $selectedProductIndex = $_GET["index"];
-            $currentProduct = $productList[$seletedProduct]->items[$selectedProductIndex];
+            require_once(ROOT_PATH . "models/products.php");
         ?>
 
-        <script>
-            const productType = "<?php echo $selectedProduct ?>";
-        </script>
+        <?php
+           $selectedProduct = "";
+           $selectedProductId = "";
+           if (isset($_GET["product"])) {                
+               $selectedProduct = $_GET["product"];
+           }
+
+           if (isset($_GET["id"])) {                
+            $selectedProductId = $_GET["id"];
+        }
+           $currentProduct = getProduct($selectedProduct, $id);
+        ?>
+
+       
 
         <div class="mobile-banner-container">
             <div class="switch-container">
@@ -37,19 +50,19 @@
             <img class="mobile-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner-font" alt="mobile-banner">
             <img class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner" alt="<?php echo $currentProduct->infos->type ?>-banner">
             <div class="mobile-banner-title">
-                <p class="product-name"><?php echo $currentProduct->infos->name ?> Run’Zik S Plus</p>
+                <p class="product-name"><?php echo $currentProduct->items[$selectedProductId]->getName() ?></p>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
-                <p class="product-price"><?php echo $currentProduct->infos->price ?>€</p>
+                <p class="product-price"><?php echo $currentProduct->items[$selectedProductId]->getPrice() ?>€</p>
             </div>   
         </div>
         
         <div class="banner-container">
             <img class="desktop-page-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-banner-background" alt="product banner">
-            <img id ="banner-product" class="banner-product" src="ressources/images/banners/banner-<?php echo $currentProduct->infos->type ?>" alt="banner-<?php echo $currentProduct->infos->type ?>">
+            <img id ="banner-product" class="banner-product" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-banner".$selectedProductId ?>" alt="banner-<?php echo $currentProduct->infos->type ?>">
             <div class=banner-title>
-                <h1><?php echo $currentProduct->infos->name ?> Run’Zik S Plus</h1>
+                <h1><?php echo $currentProduct->items[$selectedProductId]->getName() ?></h1>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
-                <p class="price"><?php echo $currentProduct->infos->price ?>€</p>
+                <p class="price"><?php echo $currentProduct->items[$selectedProductId]->getPrice() ?>€</p>
             </div>
             
             
@@ -64,11 +77,11 @@
                         switch($i) {
                             case 0:
                                 $radioId = $i;
-                                $radioValue = $currentProduct->infos->colours[0];
+                                $radioValue = $currentProduct->items[$selectedProductId]->getColour1();
                                 break;
                             case 1:
                                 $radioId = $i;
-                                $radioValue = $currentProduct->infos->colours[1];
+                                $radioValue = $currentProduct->items[$selectedProductId]->getColour2();
                                 break;                 
                         }
                         echo "<input type=\"radio\" id=\"".$radioId."\" name=\"product-colour\" value=\"".$radioValue."\">
@@ -83,12 +96,39 @@
                    
                     <div class="add-to-cart-button-container">
                     <input class="blue-button" type="submit" value="Ajouter au panier">
-
                     </div>
                     
                 </form>
             </div>           
         </div>
+
+        <script>
+            const productTest = "<?php echo $selectedProduct ?>";
+            const productId = "<?php echo $selectedProductId ?>";
+            let bannerPicture = document.getElementById("banner-product");
+            let productColourText = document.getElementById("product-colour-text");
+
+            const colors = document.querySelectorAll('input[name="product-colour"]'); 
+                if (colors.length) {
+                    colors.forEach(function (elem) {
+                    elem.addEventListener("change", function(event) {
+                        console.log(elem.id);
+                        
+
+                        productColourText.innerHTML = elem.value;
+                        if(elem.id === "0" || event.target.value === undefined) {
+        
+                            bannerPicture.src = "ressources/images/banners/" + productTest + "-banner" + productId + ".png";
+                            
+                        } else if (elem.id === "1") {
+                            bannerPicture.src = "ressources/images/banners/" + productTest + "-banner" + productId + "-colour2.png";
+                        
+                        }
+                    });
+                    });
+                }
+       
+        </script> 
 
         <section class="product-informations-container">
             <img class="product-information-picture" src="ressources/images/photos/<?php echo $currentProduct->infos->type ?>-product-side-picture" alt="sitting man picture">
@@ -172,7 +212,7 @@
             </div>
         </section>
 
-        <img class="second-banner"src="ressources/images/products/<?php echo $currentProduct->infos->type ?>-article-picture.png" alt="<?php echo $currentProduct->infos->type ?>">
+        <img class="second-banner"src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-article-picture.png" alt="<?php echo $currentProduct->infos->type ?>">
 
         
         <section class="technology-container">

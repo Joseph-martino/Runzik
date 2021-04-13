@@ -29,18 +29,21 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
         ?>
         
         <?php
+            $sortDesc = false;
+            if(isset($_POST["products-prices"])) {
+                $sortDesc = $_POST["products-prices"] === "desc";
+            }
+        ?>
+
+        <?php
             $selectedProduct = "";
             if (isset($_GET["product"])) {                
                 $selectedProduct = $_GET["product"];
             }
   
             $brands = getBrands();
-            for($i = 0; $i < count($brands); $i++){
-            $brands[$i];
-            
-            }
-
-            $currentProduct = getProducts($selectedProduct);
+           
+            $currentProduct = getProducts($selectedProduct, $sortDesc);
         ?>
 
         <div class="banner-container"> 
@@ -57,7 +60,7 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                     <div class="brand-cards-container">
                         <?php
                             for($i = 0; $i < count($brands); $i++) {
-                                $brandName = $brands[$i];
+                                $brandName = $brands[$i]->getName();
                                 echo "<div class=\"brand-card\">
                                     <img class=\"brand-card-logo\" src=\"ressources/images/logos/logo-".$brandName.".png\" alt=\"".$brandName." logo\">
                                     <input type=\"checkbox\" id=\"".$brandName."-products\" name=\"brand-products\">
@@ -70,12 +73,16 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
             </div>
 
             <div class="scroll-list-container">
-                <label for="product-select">Trier les produits</label>
-                <select name="product" id="product-select">
-                    <option value="ascending-price">Prix croissant</option>
-                    <option value="decreasing-price ">Prix décroissant</option>
-                </select>
+                <form action="#" method="POST">
+                    <label for="product-select">Trier les produits</label>
+                    <select name="products-prices" id="product-select" onChange = "submit()">
+                        <option value="">Trier par:</option>
+                        <option value="asc">Prix croissant</option>
+                        <option value="desc">Prix décroissant</option>
+                    </select>
+                </form>
             </div>
+
         </div>
 
         <div class="products-grid-container">
@@ -85,7 +92,7 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                 for($i = 0; $i < count($currentProduct->items); $i++){
                         $currentItem = $currentProduct->items[$i];
                         echo "<div class=\"product-card\">
-                        <button <i class=\"fas fa-heart\"></i></button>
+                        <button <i class=\"fas fa-heart test-colour\"></i></button>
 
                         <img class=\"".$currentProduct->infos->type."\" src=\"".$currentItem->getImage()."\" alt=\"".$currentProduct->infos->type." picture\">
 
@@ -97,7 +104,7 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                         </div>
                         <h2 class=\"product-name\">".$currentItem->getName()."</h2>
                         <p class=\"product-price\">".$currentItem->getPrice()."€</p>
-                        <a class=\"red-button\" href=\"article.php?produit=$selectedProduct\"><p class=\"button-content\">Découvrir</p></a>
+                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=$i\"><p class=\"button-content\">Découvrir</p></a>
                     </div>";
                     }
                 ?>

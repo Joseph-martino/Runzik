@@ -2,7 +2,7 @@
 @import "buttons";
 @import "responsive";
 
-.desktop-header {
+.desktop-menu {
   display: none;
 }
 
@@ -69,16 +69,12 @@
     display: none;
   }
 
-  .desktop-header {
-    display: block;
-  }
-
   .desktop-menu {
     display: flex;
-    position: fixed;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #2c2626;
   }
 
   .logo-container {
@@ -129,6 +125,7 @@
   .submenu {
     display: none;
     background-color: $footerBlack;
+    flex-direction: column;
     li {
       :hover {
         display: block;

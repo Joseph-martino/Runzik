@@ -1,3 +1,7 @@
+<?php 
+DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

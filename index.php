@@ -1,3 +1,7 @@
+<?php 
+DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +16,7 @@
     <body>
 
         <?php
-            include("common/menu.php");
+            include( ROOT_PATH . "layout/header.php");
         ?>
         
 

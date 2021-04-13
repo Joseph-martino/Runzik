@@ -29,8 +29,6 @@
     </div>
 </div>
 
-
-<div class="desktop-header">
     <div class="desktop-menu">
         <div class="logo-container">
             <img src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo">
@@ -39,7 +37,7 @@
         <div class="tabs-menu">
             <nav class="navbar">
                 <ul>
-                    <li><a href="brand.php">La marque</a></li>
+                    <li><a href="runzik.php">La marque</a></li>
                     <li><a href="#">La boutique</a>
                         <ul class="submenu">
                         <?php 
@@ -64,5 +62,3 @@
             <a href="cart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
         </div>
     </div>
-
-</div>
