@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS productTypes
+(
+    id INT UNSIGNED PRIMARY KEY NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    displayName VARCHAR(30) NOT NULL,
+    displayNamePlural VARCHAR(30) NOT NULL
+) ENGINE=INNODB;

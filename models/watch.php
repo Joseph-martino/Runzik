@@ -3,27 +3,34 @@ require_once("product.php");
 
 class Watch implements iProduct {
 
-    private $price;
-    private $title;
-    private $image;
-    private $brand;
-    private $colors;
+   private $name;
+   private $price;
+   private $image;
+   private $quantity;
+   private $colour1;
+   private $colour2;
+   private $brand;
 
-    public function __construct($title, $price, $image, $brand, $colors)
+    public function __construct($name, $price, $image, $quantity, $colour1, $colour2, $brand)
     {
-        $this->title = $title;
+        $this->name = $name;
         $this->price = $price;
         $this->image = $image;
+        $this->quantity = $quantity;
+        $this->colour1 = $colour1;
+        $this->colour2 = $colour2;
         $this->brand = $brand;
-        $this->colors = $colors;
     }
 
-    public function getPrice() {
-       return $this->price;
-     }
 
-     public function getTitle() {
-        return $this->title;
+    public function getName() 
+    {
+      return $this->name;
+    }
+
+    public function getPrice() 
+    {
+       return $this->price;
      }
 
      public function getImage()
@@ -31,27 +38,26 @@ class Watch implements iProduct {
         return $this->image;
      }
 
+     public function getQuantity()
+     {
+        return $this->quantity;
+     }
+
+     public function getColour1()
+     {
+        return $this->colour1;
+     }
+
+     public function getColour2()
+     {
+        return $this->colour2;
+     }
+
      public function getBrand()
      {
         return $this->brand;
      }
-
-     public function getColors()
-     {
-        return $this->colors;
-     }
+  
 }
-
-
-$allWatches = [
-   new Watch("Montre Run’Zik S Plus", 100, "ressources/images/products/watch1.png", "Runzik", ["Crystal blue", "Fire red"]), 
-   new Watch("Montre Hanuman 4 Power +", 399, "ressources/images/products/watch2.png", "Hanuman", ["Night black", "Diamand white"]), 
-   new Watch("Montre Beats Cosmos 7 pro", 299, "ressources/images/products/watch3.png", "Beats", ["Love Pink", "Lemon Yellow"] ),
-   new Watch("Montre Hanuman Pro GT ", 899, "ressources/images/products/watch4.png", "Hanuman", ["Love Pink", "Lemon Yellow"] ),
-   new Watch("Montre Beats Sport SE ", 479, "ressources/images/products/watch5.png", "Beats", ["Love Pink", "Lemon Yellow"] ),
-   new Watch("Montre Runzik T++", 599, "ressources/images/products/watch6.png", "Runzik", ["Love Pink", "Lemon Yellow"] )  
-
-
-];
 
 ?>

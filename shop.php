@@ -1,3 +1,7 @@
+<?php 
+DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,17 +17,30 @@
     <body>
 
         <?php
-            include("layout/header.php");
+            include(ROOT_PATH ."layout/header.php");
         ?>
 
         <?php
-            require("models/products.php");
+            require_once(ROOT_PATH ."services/productManager.php");
+        ?>
+
+        <?php
+            require_once(ROOT_PATH ."services/brandManager.php");
         ?>
         
         <?php
-            $selectedProduct = $_GET["product"];
-            $brands = ["runzik", "beats", "hanuman"];
-            $currentProduct = $productList[$selectedProduct];
+            $selectedProduct = "";
+            if (isset($_GET["product"])) {                
+                $selectedProduct = $_GET["product"];
+            }
+  
+            $brands = getBrands();
+            for($i = 0; $i < count($brands); $i++){
+            $brands[$i];
+            
+            }
+
+            $currentProduct = getProducts($selectedProduct);
         ?>
 
         <div class="banner-container"> 
@@ -42,13 +59,14 @@
                             for($i = 0; $i < count($brands); $i++) {
                                 $brandName = $brands[$i];
                                 echo "<div class=\"brand-card\">
-                                    <img class=\"".$brandName."-card-logo\" src=\"ressources/images/logos/logo-".$brandName.".png\" alt=\"".$brandName." logo\">
+                                    <img class=\"brand-card-logo\" src=\"ressources/images/logos/logo-".$brandName.".png\" alt=\"".$brandName." logo\">
                                     <input type=\"checkbox\" id=\"".$brandName."-products\" name=\"brand-products\">
                                 </div>";
                                 }
                         ?>
                     </div>
                 <h2 class="subtitle">Choisir un produit</h2>
+        
             </div>
 
             <div class="scroll-list-container">
@@ -77,7 +95,7 @@
                                 <img class=\"miniature-product\" src=\"ressources/images/products/miniature-".$currentProduct->infos->type.".png\"
                                 alt=\"".$currentProduct->infos->type." picture\">
                         </div>
-                        <h2 class=\"product-name\">".$currentItem->getTitle()."</h2>
+                        <h2 class=\"product-name\">".$currentItem->getName()."</h2>
                         <p class=\"product-price\">".$currentItem->getPrice()."€</p>
                         <a class=\"red-button\" href=\"article.php?produit=$selectedProduct\"><p class=\"button-content\">Découvrir</p></a>
                     </div>";

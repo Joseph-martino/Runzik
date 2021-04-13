@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS headphones
     name VARCHAR(30) NOT NULL,
     price INT UNSIGNED NOT NULL,
     image VARCHAR(100) NOT NULL,
+    quantity INT UNSIGNED,
     colour1 VARCHAR(50) NOT NULL,
     colour2 VARCHAR(50) NOT NULL,
     brandId INT UNSIGNED NOT NULL,

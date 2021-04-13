@@ -1,3 +1,32 @@
+// let prices = document.getElementsByClassName("product-price");
+// let list = [];
+// console.log(prices);
+//         console.log(list);
+
+// let tableau = [];
+
+// for (let i = 0; i < prices.length; i++) {
+//     tableau.push(prices[i].value);
+// }
+
+// console.log(tableau);
+
+// // for(let i = 0; i < prices.length; i++){
+// //     let min = prices[0];
+// //     if(min < prices[i]){
+// //         prices.splice(min);
+// //         list.push(min);
+// //         console.log(prices);
+// //         console.log(list);
+        
+// // } 
+
+// // }
+
+
+
+
+
 // let wishlistButton = document.getElementsByClassName("fas");
 
 //     for( let i = 0; i < wishlistButton.length; i++) {

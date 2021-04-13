@@ -11,7 +11,7 @@
 
     <body>
         <?php
-        include("layout/header.php");
+        include(ROOT_PATH ."layout/header.php");
         ?>
 
         <div class="banner-container">
@@ -114,7 +114,7 @@
 
 
         <?php
-        include("layout/footer.php");
+        include(ROOT_PATH ."layout/footer.php");
         ?>
 
 

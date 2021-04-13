@@ -1,10 +1,13 @@
 <?php
 
 interface iProduct {
+    public function getName();
     public function getPrice();
-    public function getTitle();
     public function getImage();
-    public function getColors();
+    public function getQuantity();
+    public function getColour1();
+    public function getColour2();
+    public function getBrand();
 }
 
 ?>

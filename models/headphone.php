@@ -1,58 +1,62 @@
 <?php
 require_once("product.php");
 
+
 class Headphone implements iProduct {
 
+    private $name;
     private $price;
-    private $title;
     private $image;
+    private $quantity;
+    private $colour1;
+    private $colour2;
     private $brand;
-    private $colors;
 
-    public function __construct($title, $price, $image, $brand, $colors)
+    public function __construct($name, $price, $image, $quantity, $colour1, $colour2, $brand)
     {
-        $this->title = $title;
+        $this->name = $name;
         $this->price = $price;
         $this->image = $image;
+        $this->quantity = $quantity;
+        $this->colour1 = $colour1;
+        $this->colour2 = $colour2;
         $this->brand = $brand;
-        $this->colors = $colors;
     }
 
+
+    public function getName() {
+      return $this->name;
+   }
+
     public function getPrice() {
-        return $this->price;
-      }
- 
-      public function getTitle() {
-         return $this->title;
-      }
- 
-      public function getImage()
-      {
-          return $this->image;
-      }
+       return $this->price;
+     }
 
-      public function getBrand()
-      {
-         return $this->brand;
-      }
-
-      public function getColors()
+     public function getImage()
      {
-        return $this->colors;
+        return $this->image;
+     }
+
+     public function getQuantity()
+     {
+        return $this->quantity;
+     }
+
+     public function getColour1()
+     {
+        return $this->colour1;
+     }
+
+     public function getColour2()
+     {
+        return $this->colour2;
+     }
+
+     public function getBrand()
+     {
+        return $this->brand;
      }
 
 }
-
-$allHeadphones = [
-    new Headphone("Casque Run’Zik X", 350, "ressources/images/products/watch1.png", "Runzik", ["Crystal blue", "Fire red"]), 
-    new Headphone("Casque Hanuman DG1991", 799, "ressources/images/products/watch2.png", "Hanuman", ["Night black", "Diamand white"]), 
-    new Headphone("Casque UltraV", 299, "ressources/images/products/watch3.png", "Beats", ["Love Pink", "Lemon Yellow"] ),
-    new Headphone("Casque Hanuman GTX 9000 ", 899, "ressources/images/products/watch4.png", "Hanuman", ["Love Pink", "Lemon Yellow"] ),
-    new Headphone("Cadque Beats Warrior 41WH ", 479, "ressources/images/products/watch5.png", "Beats", ["Love Pink", "Lemon Yellow"] ),
-    new Headphone("Casque Runzik T300", 399, "ressources/images/products/watch6.png", "Runzik", ["Love Pink", "Lemon Yellow"] )  
- ];
-
-
-
 
 ?>

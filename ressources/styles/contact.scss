@@ -1,0 +1,33 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+
+
+body {
+  background: url("ressources/images/banners/contact-background.png");
+}
+
+.main-container {
+    display: flex;
+}
+
+.title-wrapper {
+    width: 50%;
+    text-align: center;
+}
+
+.form-wrapper {
+    width: 50%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+

@@ -1,3 +1,10 @@
+<?php 
+    require_once(ROOT_PATH ."services/productTypeManager.php");
+
+    $types = getProductTypes();
+?>
+
+
 <div class="mobile-header">
     <img class="runzik-logo" src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo">
     <a class="cart-link" href="cart.php"><img class="cart-icon" src="ressources/images/icons/cart-icon.png"
@@ -35,9 +42,15 @@
                     <li><a href="brand.php">La marque</a></li>
                     <li><a href="#">La boutique</a>
                         <ul class="submenu">
-                            <li><a href="shop.php?product=watch">Montres</a></li>
-                            <li><a href="shop.php?product=headphone">Casques</a></li>
-                            <li><a href="shop.php?product=armband">Brassards</a></li>
+                        <?php 
+                            
+                            for($i = 0; $i < count($types); $i++) {
+                                $type = $types[$i];
+                                echo "
+                                <li><a href=\"shop.php?product=".$type->type."\">".$type->pluralName."</a></li>
+                                ";
+                                }
+                        ?>
                         </ul>
                 
                 
