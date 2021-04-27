@@ -1,5 +1,6 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,12 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
             if(isset($_POST["products-prices"])) {
                 $sortDesc = $_POST["products-prices"] === "desc";
             }
+
+            $selectedBrands = [];
+            if(isset($_POST["brand-products"])) {
+                 $selectedBrands = $_POST["brand-products"];
+            }
+
         ?>
 
         <?php
@@ -41,9 +48,9 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                 $selectedProduct = $_GET["product"];
             }
   
-            $brands = getBrands();
-           
-            $currentProduct = getProducts($selectedProduct, $sortDesc);
+            $brands = BrandManager::getBrands();  
+            $currentProduct = ProductManager::getProducts($selectedProduct, $selectedBrands, $sortDesc);
+
         ?>
 
         <div class="banner-container"> 
@@ -57,17 +64,17 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
         <div class="products-research-options-container">
                 <div class="brand-research-container">
                     <h2 class="subtitle">Choisir une marque</h2>
-                    <div class="brand-cards-container">
+                    <form class="brand-cards-container" action="#" method="POST">
                         <?php
                             for($i = 0; $i < count($brands); $i++) {
                                 $brandName = $brands[$i]->getName();
                                 echo "<div class=\"brand-card\">
                                     <img class=\"brand-card-logo\" src=\"ressources/images/logos/logo-".$brandName.".png\" alt=\"".$brandName." logo\">
-                                    <input type=\"checkbox\" id=\"".$brandName."-products\" name=\"brand-products\">
+                                    <input type=\"checkbox\" id=\"".$brandName."-products\" name=\"brand-products[]\" value= \"".$brandName."\" onclick=\"submit()\">
                                 </div>";
                                 }
                         ?>
-                    </div>
+                    </form>
                 <h2 class="subtitle">Choisir un produit</h2>
         
             </div>
@@ -97,14 +104,14 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                         <img class=\"".$currentProduct->infos->type."\" src=\"".$currentItem->getImage()."\" alt=\"".$currentProduct->infos->type." picture\">
 
                         <div class=\"miniature-product-container\">
-                            <img class=\"miniature-product\" src=\"ressources/images/products/miniature-".$currentProduct->infos->type.".png\"
+                                <img class=\"miniature-product\" src=\"ressources/images/products/miniature-".$currentProduct->infos->type.$currentItem->getId().".png\"
                                 alt=\"".$currentProduct->infos->type." picture\">
-                                <img class=\"miniature-product\" src=\"ressources/images/products/miniature-".$currentProduct->infos->type.".png\"
+                                <img class=\"miniature-product\" src=\"ressources/images/products/miniature-".$currentProduct->infos->type.$currentItem->getId()."-colour2.png\"
                                 alt=\"".$currentProduct->infos->type." picture\">
                         </div>
                         <h2 class=\"product-name\">".$currentItem->getName()."</h2>
                         <p class=\"product-price\">".$currentItem->getPrice()."€</p>
-                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=$i\"><p class=\"button-content\">Découvrir</p></a>
+                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=".$currentItem->getId()."\"><p class=\"button-content\">Découvrir</p></a>
                     </div>";
                     }
                 ?>

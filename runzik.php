@@ -1,5 +1,6 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+session_start();
 ?>
 
 <!DOCTYPE html>

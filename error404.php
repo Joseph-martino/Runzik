@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="ressources/css/error404.css" type="text/css" />
     <title>Erreur 404</title>
 </head>
-<body>
-<div class="test">
-<img class="error-404-banner" src="ressources/images/banners/error404-banner.png" alt="error 404 banner">
+    <body>
+        <section class="test">
+            <div class="text-container">
+                <h1 class="main-title">Cette page n’existe pas</h1>
+                <p class="text">La page que vous recherchez semble introuvable. Sans détour, il n'est point de voyage... 
+                Retournez à la page d'accueil.
+                </p>
+                <a href="index.php">Revenir à l'acceuil</a>
+            </div>
 
-</div>
+            <div class="banner-container">
+                <img class="error-404-banner" src="ressources/images/banners/error404-banner.png" alt="error 404 banner">
+            </div>
+        </section>
+ 
     
     
-</body>
+    </body>
 </html>

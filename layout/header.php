@@ -1,7 +1,7 @@
 <?php 
     require_once(ROOT_PATH ."services/productTypeManager.php");
 
-    $types = getProductTypes();
+    $types = ProductTypeManager::getProductTypes();
 ?>
 
 
@@ -57,8 +57,15 @@
                 </ul>
             </nav>
 
+            <?php if(!isset($_SESSION["user"])): ?>
             <a href="login.php"><img class="menu-icon" src="ressources/images/icons/login-icon.png"
                     alt="login icon"></a>
+
+            <?php else: ?>
+                <p>Bonjour <?php echo $_SESSION["user"]["pseudo"]?></p>
+                <a href="logout.php"><img class="menu-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
+            <?php endif;?>
+            
             <a href="cart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
         </div>
     </div>

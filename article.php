@@ -1,5 +1,6 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,18 +28,16 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
 
         <?php
            $selectedProduct = "";
-           $selectedProductId = "";
            if (isset($_GET["product"])) {                
                $selectedProduct = $_GET["product"];
            }
 
+           $selectedProductId = "";
            if (isset($_GET["id"])) {                
             $selectedProductId = $_GET["id"];
         }
-           $currentProduct = getProduct($selectedProduct, $id);
+           $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
         ?>
-
-       
 
         <div class="mobile-banner-container">
             <div class="switch-container">
@@ -50,19 +49,19 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
             <img class="mobile-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner-font" alt="mobile-banner">
             <img class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner" alt="<?php echo $currentProduct->infos->type ?>-banner">
             <div class="mobile-banner-title">
-                <p class="product-name"><?php echo $currentProduct->items[$selectedProductId]->getName() ?></p>
+                <p class="product-name"><?php echo $currentProduct->items->getName() ?></p>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
-                <p class="product-price"><?php echo $currentProduct->items[$selectedProductId]->getPrice() ?>€</p>
+                <p class="product-price"><?php echo $currentProduct->items->getPrice() ?>€</p>
             </div>   
         </div>
         
         <div class="banner-container">
             <img class="desktop-page-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-banner-background" alt="product banner">
-            <img id ="banner-product" class="banner-product" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-banner".$selectedProductId ?>" alt="banner-<?php echo $currentProduct->infos->type ?>">
+            <img id ="banner-product" class="banner-product" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-banner".$currentProduct->items->getId() ?>" alt="banner-<?php echo $currentProduct->infos->type ?>">
             <div class=banner-title>
-                <h1><?php echo $currentProduct->items[$selectedProductId]->getName() ?></h1>
+                <h1><?php echo $currentProduct->items->getName() ?></h1>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
-                <p class="price"><?php echo $currentProduct->items[$selectedProductId]->getPrice() ?>€</p>
+                <p class="price"><?php echo $currentProduct->items->getPrice() ?>€</p>
             </div>
             
             
@@ -77,11 +76,11 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                         switch($i) {
                             case 0:
                                 $radioId = $i;
-                                $radioValue = $currentProduct->items[$selectedProductId]->getColour1();
+                                $radioValue = $currentProduct->items->getColour1();
                                 break;
                             case 1:
                                 $radioId = $i;
-                                $radioValue = $currentProduct->items[$selectedProductId]->getColour2();
+                                $radioValue = $currentProduct->items->getColour2();
                                 break;                 
                         }
                         echo "<input type=\"radio\" id=\"".$radioId."\" name=\"product-colour\" value=\"".$radioValue."\">
@@ -112,9 +111,7 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
                 if (colors.length) {
                     colors.forEach(function (elem) {
                     elem.addEventListener("change", function(event) {
-                        console.log(elem.id);
-                        
-
+                       
                         productColourText.innerHTML = elem.value;
                         if(elem.id === "0" || event.target.value === undefined) {
         

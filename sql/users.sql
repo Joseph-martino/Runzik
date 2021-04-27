@@ -1,14 +1,14 @@
-CREATE TABLE IF NOT EXISTS users (
-    id INT UNSIGNED PRIMARY KEY NOTT NULL,
-    pseudo VARCHAR(20) NOT NULL,
-    firstname VARCHAR(20) NOT NULL,
-    name VARCHAR(30) NOT NULL,
-    mail VARCHAR(255) NOT NULL,
-    password VARCHAR(255),
-    role VARCHAR(255),
-    wishlistID INT UNSIGNED NULL;
-    cartId INT UNSIGNED,
-    CONSTRAINT FK_users_carts
-    FOREIGN KEY (cartId)
-    REFERENCES carts(id)
-) ENGINE = INNODB;
+CREATE TABLE IF NOT EXISTS users 
+(
+    id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(20) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    firstName VARCHAR(50),
+    lastName VARCHAR(50),
+    password VARCHAR(255) NOT NULL,
+    isAdmin BOOLEAN NOT NULL,
+    adressId INT UNSIGNED,
+    CONSTRAINT FK_users_addresses
+        FOREIGN KEY (adressId)
+        REFERENCES addresses(id)
+) ENGINE=INNODB;

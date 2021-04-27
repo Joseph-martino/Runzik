@@ -7,29 +7,20 @@
 @import "common/mixins";
 @import "common/responsive";
 
-
-body {
-    background-image: url("../images/banners/contact-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .main-container {
     display: flex;
 }
 
-.title-wrapper {
-    width: 50%;
-    text-align: center;
+.subscription {
+    background: linear-gradient(253deg, rgba(2,0,36,1) 0%, rgba(44,38,38,1) 35%);
+    width: 53%;
 }
 
-.form-wrapper {
-    width: 50%;
+.login {
+    width: 47%;
 }
 
-.form {
+form {
     display: flex;
     flex-direction: column;
-    width: 40%;
 }
-
