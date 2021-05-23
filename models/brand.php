@@ -9,7 +9,7 @@ class Brand {
 
     public function getName(){
         return $this->name;
-    } 
+    }
 
 }
 

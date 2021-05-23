@@ -1,7 +1,14 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+require_once(ROOT_PATH ."services/pdo.php");
+require_once(ROOT_PATH ."services/pdoManager.php");
+require_once(ROOT_PATH ."services/authentificationManager.php");
 session_start();
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +27,12 @@ session_start();
 
         <?php
             require_once(ROOT_PATH ."services/productManager.php");
+            require_once(ROOT_PATH ."services/cartManager.php");
         ?>
 
         <?php
             require_once(ROOT_PATH . "models/products.php");
+            require_once(ROOT_PATH . "models/cart.php");
         ?>
 
         <?php
@@ -37,6 +46,10 @@ session_start();
             $selectedProductId = $_GET["id"];
         }
            $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
+           var_dump($_SESSION["user"]);
+           $cartId = $_SESSION["user"]["cart"]->getId();
+           var_dump($cartId);
+
         ?>
 
         <div class="mobile-banner-container">
@@ -91,11 +104,30 @@ session_start();
    
                         <input class="quantity-input-container" type="number" id="quantity" name="product-quantity">
                         <label for="quantity"></label>
+                        <input type="hidden" name="add-to-cart" value="true">
                         <p id="product-colour-text"></p>
                    
                     <div class="add-to-cart-button-container">
-                    <input class="blue-button" type="submit" value="Ajouter au panier">
+                        <input id="button-test" class="blue-button" type="submit" value="Ajouter au panier">
                     </div>
+
+                    <?php
+                        // if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
+                        //     $basket= new Cart(2);
+                        //     var_dump($basket);  
+                        // }
+
+                        if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
+                            if(isset($_SESSION["user"])) {
+                                CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
+                                // mettre le cartId en paramètre
+                                // CartManager::addProductToCart($selectedProductId, $_POST["product-quantity"]);
+                            } else {
+                                echo "Connectez-vous";
+                            }
+                           
+                        }
+                    ?>
                     
                 </form>
             </div>           

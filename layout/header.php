@@ -31,7 +31,7 @@
 
     <div class="desktop-menu">
         <div class="logo-container">
-            <img src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo">
+            <a href="index.php"><img src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo"></a>
         </div>
 
         <div class="tabs-menu">
@@ -63,9 +63,10 @@
 
             <?php else: ?>
                 <p>Bonjour <?php echo $_SESSION["user"]["pseudo"]?></p>
+                <a href="profile.php"><img class="menu-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
                 <a href="logout.php"><img class="menu-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
             <?php endif;?>
             
-            <a href="cart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
+            <a href="myCart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
         </div>
     </div>

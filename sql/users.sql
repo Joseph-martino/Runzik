@@ -11,4 +11,5 @@ CREATE TABLE IF NOT EXISTS users
     CONSTRAINT FK_users_addresses
         FOREIGN KEY (adressId)
         REFERENCES addresses(id)
+        ON DELETE CASCADE
 ) ENGINE=INNODB;

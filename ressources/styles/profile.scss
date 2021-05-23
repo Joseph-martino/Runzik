@@ -1,0 +1,78 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+
+html, body {
+    background: rgb(34,32,32);
+    background: linear-gradient(142deg, rgba(34,32,32,1) 35%, rgba(65,59,59,1) 100%);
+    color: $white;
+}
+
+.horizontal-separator {
+    background-color: $lightYellow;
+    height: 2px;
+    margin: 5px;
+}
+
+.top-line {
+    width: 85%;
+}
+
+.middle-line {
+    width: 80%;
+}
+
+.bottom-line {
+    width: 75%;
+}
+
+.sections-container {
+    display: flex;
+}
+
+section {
+    width: 50%;
+}
+
+.user-general-informations-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex;
+}
+
+.user-general-informations-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $pink;
+}
+
+.line {
+    display: flex;
+}
+
+.modify-background {
+    background-color: transparent;
+}
+
+.user-contact-informations-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $blue;
+}
+
+table {
+    border-collapse: collapse;
+
+    thead {
+        background-color: white;
+        color: black;
+    }
+}

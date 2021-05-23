@@ -1,0 +1,152 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+
+
+
+@media #{$media-up} {
+  .banner-container {
+    display: block;
+    position: relative;
+  }
+
+  .main-page-banner {
+    width: 100%;
+  }
+
+  .banner-title {
+    position: absolute;
+    top: 47%;
+    right: 17%;
+    font-weight: bold;
+    font-size: 45px;
+    width: 31%;
+    color: white;
+  }
+
+  .banner-button {
+    @include button($blue);
+    width: 15%;
+    position: absolute;
+    top: 65%;
+    right: 33%;
+  }
+
+  .orange-highlight {
+    color: $orange;
+  }
+
+  .banner-text {
+    
+    position: absolute;
+    top: 53%;
+    left: 16%;
+    font-style: italic;
+  }
+
+  .new-releases {
+    background-color: $black-background;
+    position: relative;
+  }
+
+  .new-realeases-title {
+    color: $white;
+  }
+
+  .handwritten-font-effect {
+    font-family: "Rock-Salt";;
+  }
+
+  .pink-highlight {
+    color: $pink;
+  }
+
+  .sound-effect-picture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vertical-separator {
+    height: 2px;
+    width: 30px;
+    color: $pink;
+  }
+
+  .new-trend-release {
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    img {
+      height: 450px;
+    }
+  }
+
+  .products-thumbnails-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  .last-trends-container {
+    background-color: $lightBlack;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+  }
+
+  .trends-products-container {
+    display: flex;
+  }
+
+  .trend-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    a {
+      @include button($redButtonColour);
+    }
+  }
+
+  .stay-tune-section-container {
+    display: flex;
+    background-color: $black-background;
+  }
+
+  .picture-container {
+    width: 50%;
+    height: auto;
+  }
+
+  .stay-tune-text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    color: $white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stay-tune-text-container {
+    width: 70%;
+  }
+
+  .stay-tune-title {
+    font-size: 45px;
+    color: $white;
+  }
+
+  .stay-tune-title-subtitle {
+    font-size: 35px;
+    color: $white;
+  }
+}
