@@ -1,9 +1,11 @@
 <?php
+require_once(ROOT_PATH ."models/product.php");
 
 class Cart {
     private $id;
-    private $product;
+    // private $allProducts = [];
 
+    //$totalQuantity à ajouter au constructeur
     public function __construct($id) {
         $this->id = $id;
     }
@@ -11,6 +13,14 @@ class Cart {
     public function getId() {
         return $this->id;
     }
+
+    public function addProduct($product) {
+        $this->allProducts[] = $product;
+    }
+
+    // public function  getAllProducts() {
+    //     return $this->allProducts;
+    // }
 
 
 }

@@ -1,6 +1,6 @@
 INSERT IGNORE INTO users (id, username, email, password, isAdmin)
 VALUES
-(1, 'Bully', 'bullyMaguire@gmail.com', 'test', true),
+(1, 'Bully', 'bullymaguire@gmail.com', 'test', true),
 (2, 'Nikos', 'nico.s@gmail.com', 'test2', false);
 
 INSERT IGNORE INTO wishlists (id, userId)

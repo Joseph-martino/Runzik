@@ -39,25 +39,54 @@
 
         <div class="main-container">
             <section class="subscription">
-                <div>
-                    <h2>Rejoignez le <span>mouvement</span></h2>
-                    <div class="orange-horizontal-line"></div>
+                <div class="subscription-content-container">
+                    <div class="form-header-container">
+                        <h2>Rejoignez le <span class="orange-highlight">mouvement</span></h2>
+                        <div class="separator-container">
+                            <div class="orange-horizontal-line"></div>
+                        </div>
+                        
+                    </div>
+
+                    <form action="#" method="POST">
+                        <label for="pseudo">Pseudo</label>
+                        <input type="text" name="nickname" id="pseudo">
+
+                        <label for="mail">Adresse email</label>
+                        <input type="email" name="email" id="mail">
+
+                        <label for="pass">Mot de passe</label>
+                        <input type="password" name="password" id="pass">
+
+                        <div class="GDPR-verification-container">
+                            <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
+                            <label for="grpr-verification">j'ai lu et j'accepte les termes et conditions</label>
+                        </div>
+
+                        <input type="hidden" name="action" value="register">
+
+                        <button type="submit">S'enregistrer</button>
+                    </form>
+                </div>
+                <div class="register-separator-container">
+                    <div class="white-separator"></div>
+                    <div>
+                        <p>OU</p>
+                    </div>
+                    <div class="white-separator"></div>
                 </div>
 
-                <form action="#" method="POST">
-                    <label for="pseudo">Pseudo</label>
-                    <input type="text" name="nickname" id="pseudo">
+                <div class="social-network-register">
+                    <h3>Connectez-vous avec</h3>
+                    <div class="social-network-icons-container">
+                        <img src="ressources/images//icons/register-facebook-icon.png" alt="Facebook icon">
+                        <img src="ressources/images//icons/register-google-icon.png" alt="Google icon">
+                        <img src="ressources/images//icons/register-twitter-icon.png" alt="Twitter icon">
+                    </div>
+                </div>
 
-                    <label for="mail">Adresse email</label>
-                    <input type="email" name="email" id="mail">
-
-                    <label for="pass">Mot de passe</label>
-                    <input type="password" name="password" id="pass">
-
-                    <input type="hidden" name="action" value="register">
-
-                    <button type="submit">S'enregistrer</button>
-                </form>
+            
+                
             </section>
 
             <section class="login">

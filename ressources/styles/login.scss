@@ -8,12 +8,49 @@
 @import "common/responsive";
 
 .main-container {
+    background: linear-gradient(253deg, rgba(2,0,36,1) 0%, rgba(44,38,38,1) 35%);
     display: flex;
+    color: $white;
 }
 
 .subscription {
-    background: linear-gradient(253deg, rgba(2,0,36,1) 0%, rgba(44,38,38,1) 35%);
     width: 53%;
+}
+
+.subscription-content-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.form-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        color: $white;
+        font-size: 45px;
+    }
+}
+
+.orange-highlight {
+    color: $orange;
+}
+
+.separator-container {
+    width: 80%;
+    display: flex;
+    margin-left: 8%;
+    margin-top: 2%;
+    justify-content: flex-start;
+}
+
+.orange-horizontal-line {
+    height: 2px;
+    width: 20%;
+    background-color: $orange;
 }
 
 .login {
@@ -23,4 +60,63 @@
 form {
     display: flex;
     flex-direction: column;
+    color: $white;
+
+    label {
+        margin: 2% 0 2% 0;
+    }
+
+    input {
+        margin: 1% 0 1% 0;
+        padding: 1%;
+    }
+
+    button {
+        @include button($orange);
+        width: 100%;
+    }
+
+    .GDPR-verification-container {
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+    }
+}
+
+.checkbox {
+    margin-right: 5px;
+}
+
+.register-separator-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.white-separator {
+    height: 2px;
+    width: 45%;
+    background-color: white;
+}
+
+.social-network-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+.social-network-icons-container {
+    display: flex;
+    justify-content: space-around;
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
 }

@@ -16,7 +16,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ressources/css/article.css" type="text/css" />
+    <link rel="stylesheet" href="ressources/css/article.css" type="text/css"/>
     <title><?php echo "test"; ?></title>
     
 </head>
@@ -48,6 +48,7 @@ session_start();
            $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
            var_dump($_SESSION["user"]);
            $cartId = $_SESSION["user"]["cart"]->getId();
+           $cartTest = $_SESSION["user"]["cart"];
            var_dump($cartId);
 
         ?>
@@ -120,6 +121,14 @@ session_start();
                         if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
                             if(isset($_SESSION["user"])) {
                                 CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
+                                 $test = CartManager::getProductTest($selectedProductId);
+                                 var_dump($test);
+                                 $cartTest->addProduct($test);
+                                 $cartAllproducts = $cartTest->getAllProducts();
+                                 var_dump($cartAllproducts);
+                                // $product = $_SESSION["user"]["cart"]->addProduct(new Product($selectedProductId, ));
+
+
                                 // mettre le cartId en paramètre
                                 // CartManager::addProductToCart($selectedProductId, $_POST["product-quantity"]);
                             } else {
