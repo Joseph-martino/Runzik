@@ -55,8 +55,8 @@
                                     foreach($cartProducts as $cartProduct) {
                                         echo "<tr>";
                                         echo "<td>".$cartProduct->getProductName()."</td>";
-                                        echo "<td>".$cartProduct->getProductPrice()."</td>";
                                         echo "<td>".$cartProduct->getQuantity()."</td>";
+                                        echo "<td>".$cartProduct->getProductPrice()."</td>";
                                         echo "</tr>";
                                     }
                                 ?>
