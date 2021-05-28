@@ -103,7 +103,7 @@ session_start();
                     
                 ?>
    
-                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity">
+                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="0">
                         <label for="quantity"></label>
                         <input type="hidden" name="add-to-cart" value="true">
                         <p id="product-colour-text"></p>
@@ -121,11 +121,11 @@ session_start();
                         if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
                             if(isset($_SESSION["user"])) {
                                 CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
-                                 $test = CartManager::getProductTest($selectedProductId);
-                                 var_dump($test);
-                                 $cartTest->addProduct($test);
-                                 $cartAllproducts = $cartTest->getAllProducts();
-                                 var_dump($cartAllproducts);
+                                //  $test = CartManager::getProductTest($selectedProductId);
+                                //  var_dump($test);
+                                //  $cartTest->addProduct($test);
+                                //  $cartAllproducts = $cartTest->getAllProducts();
+                                //  var_dump($cartAllproducts);
                                 // $product = $_SESSION["user"]["cart"]->addProduct(new Product($selectedProductId, ));
 
 

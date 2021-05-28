@@ -18,9 +18,9 @@ class Cart {
         $this->allProducts[] = $product;
     }
 
-    // public function  getAllProducts() {
-    //     return $this->allProducts;
-    // }
+    public function  getAllProducts() {
+       return $this->allProducts;
+     }
 
 
 }

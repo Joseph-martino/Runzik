@@ -264,7 +264,6 @@ if(!empty($_POST)) {
                           <tr>
                               <th>Produit</th>
                               <th>Quantité</th>
-                              <th>Date</th>
                               <th>Prix</th>   
                           </tr>
                       </thead>

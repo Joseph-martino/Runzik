@@ -101,6 +101,8 @@ class Authentication {
                 $cartId = $user["cartId"];
                 $cart = new Cart($cartId);
                 echo $cartId;
+                $quantity = $user["quantity"];
+               
                 
                 if(!$user){
                     echo "L'utilisateur et/ou le mot de passe est incorrect";
@@ -116,7 +118,9 @@ class Authentication {
                     "pseudo" => $user["username"],
                     "email" => $user["email"],
                     "isAdmin" => $user["isAdmin"],
-                    "cart" => $cart    
+                    "quantity" => $quantity,
+                    "cart" => $cart
+                       
                 ];
 
                 var_dump($_SESSION["user"]);

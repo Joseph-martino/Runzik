@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS cartsProducts
     cartId INT UNSIGNED NOT NULL,
     productId INT UNSIGNED NOT NULL,
     quantity INT UNSIGNED,
+    PRIMARY KEY(cartId, productId),
     CONSTRAINT FK_cartProducts_carts
         FOREIGN KEY (cartId)
         REFERENCES carts(id),

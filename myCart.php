@@ -4,8 +4,10 @@
     require_once(ROOT_PATH ."services/pdoManager.php");
     require_once(ROOT_PATH ."services/productManager.php");
     require_once(ROOT_PATH ."services/cartManager.php");
+    require_once(ROOT_PATH . "models/product.php");
     require_once(ROOT_PATH . "models/products.php");
     require_once(ROOT_PATH . "models/cart.php");
+    require_once(ROOT_PATH . "models/cartProduct.php");
     
     session_start();
     if(!isset($_SESSION["user"])){
@@ -13,9 +15,8 @@
        exit;
    }
     var_dump($_SESSION["user"]);
-    var_dump($_SESSION["user"]["cart"]->getId());
-    $allProductsInCart = $_SESSION["user"]["cart"]->getAllProducts();
-    var_dump($allProductsInCart);
+    // $allProductsInCart = $_SESSION["user"]["cart"]->getAllProducts();
+    // var_dump($allProductsInCart);
 
 ?>
 
@@ -47,23 +48,18 @@
                         </tr>
 
                         <tbody>
-                            <?php
-                            for($i = 0; $i < count($allProductsInCart); $i++){
-                                echo $allProductsInCart[$i]->getName();
-                                echo $allProductsInCart[$i]->getPrice();
-                                echo "<br>";
-                            }
-
-                                // foreach($allProductsInCart as $product) {
-                                //    echo "<tr>
-                                //             <td>".$product->getId()."</td>
-                                //             <td>".$product["price"]."</td>
-                                //         </tr>";
-                                // }
-
-                            ?>
-
-
+                                <?php
+                                    $cartId = $_SESSION["user"]["cart"]->getId();
+                                    $cartProducts = CartManager::getCartProducts($cartId);
+                                   
+                                    foreach($cartProducts as $cartProduct) {
+                                        echo "<tr>";
+                                        echo "<td>".$cartProduct->getProductName()."</td>";
+                                        echo "<td>".$cartProduct->getProductPrice()."</td>";
+                                        echo "<td>".$cartProduct->getQuantity()."</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
                         </tbody>
                     </thead>
                 </table>
