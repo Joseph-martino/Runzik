@@ -103,7 +103,7 @@ session_start();
                     
                 ?>
    
-                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="0">
+                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="1">
                         <label for="quantity"></label>
                         <input type="hidden" name="add-to-cart" value="true">
                         <p id="product-colour-text"></p>

@@ -1,3 +1,9 @@
+<?php 
+DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,10 @@
     <title>Contact</title>
 </head>
     <body>
+
+        <?php
+            include(ROOT_PATH ."layout/header.php");
+        ?>
         <div class="main-container">
             <section class="title-wrapper">
                 <h1>On se tient au <span>courant</span></h1>

@@ -2,6 +2,7 @@
 
 require_once(ROOT_PATH ."services/pdoManager.php");
 require_once(ROOT_PATH ."models/cart.php");
+require_once(ROOT_PATH ."models/wishlist.php");
 class Authentication {
 
     public static function register($nickname, $email, $password){
@@ -47,14 +48,17 @@ class Authentication {
                         $userId = PDOManager::execute($sql, $parameters);
 
                         $cartId = SELF::createCartForUser($userId);
+                        $wishlistId = SELF::createWishListForUser($userId);
                         $cart = new Cart($cartId);
+                        $wishlist = new Wishlist($wishlistId);
                         
                         $_SESSION["user"] = [
                             "id" => $userId,
                             "pseudo" => $pseudo,
                             "email" => $email,
                             "isAdmin" => false,
-                            "cart" => $cart
+                            "cart" => $cart,
+                            "wishlist" => $wishlist
                         ];
                     header("Location: profile.php");
                        echo "Bienvenue ".$_SESSION["user"]["pseudo"];
@@ -80,10 +84,11 @@ class Authentication {
                     die ("Ce n'est pas un email");
                 }
 
-                $sql = "SELECT u.id userId, u.username, u.email, u.password, u.isAdmin, c.id cartId, 
+                $sql = "SELECT u.id userId, u.username, u.email, u.password, u.isAdmin, c.id cartId, w.id wishlistId,
                 COALESCE(SUM(cp.quantity), 0) quantity 
                 FROM `users` u 
                 INNER JOIN `carts` c ON u.id = c.userId 
+                INNER JOIN `wishlists` w ON u.id = w.userId 
                 LEFT JOIN `cartsproducts` cp ON c.id = cp.cartId 
                 WHERE u.email = :email";
 
@@ -99,7 +104,9 @@ class Authentication {
                 var_dump($parameters);
                 var_dump($user);
                 $cartId = $user["cartId"];
+                $wishlistId = $user["wishlistId"];
                 $cart = new Cart($cartId);
+                $wishlist = new Wishlist($wishlistId);
                 echo $cartId;
                 $quantity = $user["quantity"];
                
@@ -119,8 +126,8 @@ class Authentication {
                     "email" => $user["email"],
                     "isAdmin" => $user["isAdmin"],
                     "quantity" => $quantity,
-                    "cart" => $cart
-                       
+                    "cart" => $cart,
+                    "wishlist"=> $wishlist    
                 ];
 
                 var_dump($_SESSION["user"]);
@@ -152,6 +159,17 @@ class Authentication {
         return PDOManager::execute($sql, $parameters);
     }
 
+    private static function createWishListForUser($userId) {
+        $sql = "INSERT INTO `wishlists` (`userId`) VALUES (:userId)";
+        $parameters = [
+            [
+                "name" => ":userId",
+                "value"=> $userId,
+                "type"=> PDO::PARAM_INT
+            ]
+        ];
+        return PDOManager::execute($sql, $parameters);
+    }
 }
 
 ?>

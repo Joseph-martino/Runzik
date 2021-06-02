@@ -5,3 +5,125 @@
 @import "common/mixins";
 @import "common/fonts";
 @import "common/responsive";
+
+
+@media #{$media-up} {
+
+    body {
+        background: rgb(0,0,0);
+        background: linear-gradient(222deg, rgba(0,0,0,1) 0%, rgba(44,38,38,1) 35%);
+    }
+
+    table {
+        width: 100%;
+    }
+
+    #products {
+        width: 100%;
+        border-collapse: collapse;
+        color: $white;
+    }
+
+    #products thead {
+        background-color: #F6AF33;
+    }
+
+    #products td, #products th {
+        padding: 8px;
+      }
+
+    #products th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        color: white;
+      }
+
+      #products button {
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      
+
+    .main-container {
+        display: flex;
+    }
+
+    .products-overview-container {
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+    }
+
+    .products-overview-container-informations-container {
+        width: 80%;
+        h2 {
+            font-size: 43px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .order-overview-card {
+        display: flex;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .order-overview-container {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        width: 50%;
+    }
+
+    .order-card-title {
+        h2 {
+            color :black;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration-color: #606060;
+            text-decoration-line: underline;
+            text-underline-offset: 15px;
+        }
+    }
+
+    .order-overview-infos-container {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+    }
+
+    .horizontal-separator {
+        height: 2px;
+        background-color: #606060;
+        width: 80%;
+    }
+
+    .order-validation-button {
+        @include button($orange);
+        color: black;
+        font-size: 20px;
+    }
+
+    .disabled-button {
+        @include button($lightGrey);
+        color: black;
+        font-size: 20px;
+        cursor: not-allowed;
+        color: currentColor;
+        opacity: 0.5;
+        text-decoration: none;
+
+
+
+    }
+    
+
+
+
+
+
+}

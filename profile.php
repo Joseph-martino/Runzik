@@ -3,6 +3,7 @@
     require_once(ROOT_PATH ."services/pdo.php");
     require_once(ROOT_PATH ."services/pdoManager.php");
     require_once(ROOT_PATH ."services/authentificationManager.php");
+    require_once(ROOT_PATH ."services/wishlistManager.php");
     session_start();
     if(!isset($_SESSION["user"])){
         header("Location: login.php");
@@ -15,6 +16,8 @@
 <?php
 var_dump($_SESSION["user"]);
 var_dump($_SESSION["user"]["cart"]->getId());
+
+$wishlistId = $_SESSION["user"]["wishlist"]->getId();
 
 if(!empty($_POST)) {
     if(isset($_POST["username"]) && !empty($_POST["username"])) {
@@ -118,7 +121,7 @@ if(!empty($_POST)) {
             }  
     }
 
-    if(isset($_POST["delete"])) {
+    if(isset($_POST["delete-user"])) {
             $pdo = myPDO::getPDO();               
             $sql = "DELETE FROM `users` WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
             $query = $pdo->prepare($sql); 
@@ -133,7 +136,14 @@ if(!empty($_POST)) {
             unset($_SESSION["user"]);
             header("Location: index.php"); 
     }
+
+    if(isset($_POST["product-id"], $_POST["delete-wishlist-product"])){
+        WishListManager::deleteProductFromWishlist($wishlistId, $productId);
+    }
 }
+
+$wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
+
         
     ?>
 
@@ -246,7 +256,7 @@ if(!empty($_POST)) {
                 </div>
 
                     <form action="#" method="POST">
-                        <input type="hidden" name="delete">
+                        <input type="hidden" name="delete-user">
                         <button type="submit">Supprimer le compte</button>
                     </form>
         </section>
@@ -272,12 +282,47 @@ if(!empty($_POST)) {
                           
                       </tbody>
                   </table>
-
-                    </div>
-
-                    
-                </div>
+                </div>   
             </div>
+
+            <div class="user-contact-informations-wrapper">
+                <div class="title-container">
+                    <img src="ressources/images/icons/profile-wishlist-heart-icon.png" alt="informations-icon">
+                    <h2>Liste de souhaits</h2>
+                </div>
+
+                <div class="user-contact-informations-container">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Produit</th> 
+                          </tr>
+                      </thead>
+
+                      <tbody>
+
+                      <?php 
+                      
+
+                      foreach($wishlistProducts as $wishlistProduct) {
+                        echo "<tr>";
+                        echo "<td>".$wishlistProduct->getProductName()."</td>";
+                        echo "<td>";
+                        echo "<form action=\"#\" method=\"POST\">";
+                        echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
+                        echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
+                        echo "</form>";
+                        echo "</td>";
+                        echo "</tr>";
+                      }
+
+                      ?>
+                          
+                      </tbody>
+                  </table>
+                </div>   
+            </div>
+          
         </section>
     </body>
 </html>

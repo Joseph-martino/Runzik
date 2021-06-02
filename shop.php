@@ -1,5 +1,8 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+require_once(ROOT_PATH ."services/productManager.php");
+require_once(ROOT_PATH ."services/wishlistManager.php");
+require_once(ROOT_PATH ."services/brandManager.php");
 session_start();
 ?>
 
@@ -22,14 +25,6 @@ session_start();
         ?>
 
         <?php
-            require_once(ROOT_PATH ."services/productManager.php");
-        ?>
-
-        <?php
-            require_once(ROOT_PATH ."services/brandManager.php");
-        ?>
-        
-        <?php
             $sortDesc = false;
             if(isset($_POST["products-prices"])) {
                 $sortDesc = $_POST["products-prices"] === "desc";
@@ -40,9 +35,23 @@ session_start();
                  $selectedBrands = $_POST["brand-products"];
             }
 
-        ?>
+            $wishList = [];
 
-        <?php
+            if(isset($_SESSION["user"])) {
+                $wishlistId = $_SESSION["user"]["wishlist"]->getId();
+
+                if(isset($_POST["add-to-wishlist"]) && $_POST["product-id"]){
+                    $productId = $_POST["product-id"];
+                    WishListManager::toggleProductIntoWishlist($wishlistId, $productId);
+                }
+
+                $wishList = WishListManager::getWishlist($wishlistId);
+                
+                var_dump($wishList);                
+            }
+
+         
+
             $selectedProduct = "";
             if (isset($_GET["product"])) {                
                 $selectedProduct = $_GET["product"];
@@ -50,8 +59,9 @@ session_start();
   
             $brands = BrandManager::getBrands();  
             $currentProduct = ProductManager::getProducts($selectedProduct, $selectedBrands, $sortDesc);
-
+            
         ?>
+
 
         <div class="banner-container"> 
             <img class="shop-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type; ?>-list-banner.png"
@@ -97,9 +107,18 @@ session_start();
                 <?php
 
                 for($i = 0; $i < count($currentProduct->items); $i++){
+ 
                         $currentItem = $currentProduct->items[$i];
+                        $productId = $currentItem->getId();
+                        $productKey = array_search($productId, $wishList);
+                         
+                        $productDisplayClass = $productKey != false ? "wishlist-selected" : "wishlist-unselected";
+                       
                         echo "<div class=\"product-card\">
-                        <button <i class=\"fas fa-heart test-colour\"></i></button>
+                        <form action=\"#\" method=\"POST\">
+                            <input type=\"hidden\" name=\"product-id\" value=\"".$currentItem->getId()."\">
+                            <button type=\"submit\" name=\"add-to-wishlist\" class=\"".$productDisplayClass."\" id=\"wishlist-button\"><i class=\"fas fa-heart test-colour\"></i></button>
+                        </form>
 
                         <img class=\"".$currentProduct->infos->type."\" src=\"".$currentItem->getImage()."\" alt=\"".$currentProduct->infos->type." picture\">
 
