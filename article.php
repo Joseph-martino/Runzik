@@ -3,6 +3,10 @@ DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
 require_once(ROOT_PATH ."services/pdo.php");
 require_once(ROOT_PATH ."services/pdoManager.php");
 require_once(ROOT_PATH ."services/authentificationManager.php");
+require_once(ROOT_PATH ."services/productManager.php");
+require_once(ROOT_PATH ."services/cartManager.php");
+require_once(ROOT_PATH . "models/products.php");
+require_once(ROOT_PATH . "models/cart.php");
 session_start();
 
 
@@ -24,17 +28,7 @@ session_start();
         <?php
         include(ROOT_PATH ."layout/header.php");
         ?>
-
-        <?php
-            require_once(ROOT_PATH ."services/productManager.php");
-            require_once(ROOT_PATH ."services/cartManager.php");
-        ?>
-
-        <?php
-            require_once(ROOT_PATH . "models/products.php");
-            require_once(ROOT_PATH . "models/cart.php");
-        ?>
-
+        
         <?php
            $selectedProduct = "";
            if (isset($_GET["product"])) {                
@@ -46,11 +40,10 @@ session_start();
             $selectedProductId = $_GET["id"];
         }
            $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
-           var_dump($_SESSION["user"]);
-           $cartId = $_SESSION["user"]["cart"]->getId();
-           $cartTest = $_SESSION["user"]["cart"];
-           var_dump($cartId);
-
+           if(isset($_SESSION["user"])){
+            $cartId = $_SESSION["user"]["cart"]->getId();
+            //$cartTest = $_SESSION["user"]["cart"];
+           }
         ?>
 
         <div class="mobile-banner-container">
@@ -113,11 +106,6 @@ session_start();
                     </div>
 
                     <?php
-                        // if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
-                        //     $basket= new Cart(2);
-                        //     var_dump($basket);  
-                        // }
-
                         if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
                             if(isset($_SESSION["user"])) {
                                 CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
@@ -133,11 +121,9 @@ session_start();
                                 // CartManager::addProductToCart($selectedProductId, $_POST["product-quantity"]);
                             } else {
                                 echo "Connectez-vous";
-                            }
-                           
+                            }  
                         }
-                    ?>
-                    
+                    ?>   
                 </form>
             </div>           
         </div>

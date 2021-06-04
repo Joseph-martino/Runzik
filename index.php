@@ -30,8 +30,8 @@ session_start();
         <section class="new-releases">
             <div class="new-realeases-title">
                 <h2 class="handwritten-font-effect">New track</h2>
-                <h3>UPCOMING<span class="pink-highlight handwritten-font-effect">Artist</span></h3>
-                <h3 class="pink-highlight">The real time shady</h3>
+                <h3 class="big-font">UPCOMING<span class="pink-highlight handwritten-font-effect"> Artist</span></h3>
+                <h3 class="pink-highlight light-font">The real time shady</h3>
             </div>
             <div class="vertical-separator"></div>
 
@@ -39,8 +39,7 @@ session_start();
                 <img src="ressources/images/effects/sound-effect.png" alt="sound effect pattern">
             </div>
             
-
-            <h3>New releases</h3>
+            <h3 class="new-releases-label-title">New releases</h3>
             <div class="vertical-separator"></div>
 
             <div class="new-trend-release">

@@ -45,9 +45,7 @@ session_start();
                     WishListManager::toggleProductIntoWishlist($wishlistId, $productId);
                 }
 
-                $wishList = WishListManager::getWishlist($wishlistId);
-                
-                var_dump($wishList);                
+                $wishList = WishListManager::getWishlist($wishlistId);               
             }
 
          
@@ -111,8 +109,8 @@ session_start();
                         $currentItem = $currentProduct->items[$i];
                         $productId = $currentItem->getId();
                         $productKey = array_search($productId, $wishList);
-                         
-                        $productDisplayClass = $productKey != false ? "wishlist-selected" : "wishlist-unselected";
+                        
+                        $productDisplayClass = $productKey !== false ? "wishlist-selected" : "wishlist-unselected";
                        
                         echo "<div class=\"product-card\">
                         <form action=\"#\" method=\"POST\">

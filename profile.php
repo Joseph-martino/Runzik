@@ -14,9 +14,6 @@
 
 
 <?php
-var_dump($_SESSION["user"]);
-var_dump($_SESSION["user"]["cart"]->getId());
-
 $wishlistId = $_SESSION["user"]["wishlist"]->getId();
 
 if(!empty($_POST)) {
@@ -322,7 +319,6 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                   </table>
                 </div>   
             </div>
-          
         </section>
     </body>
 </html>

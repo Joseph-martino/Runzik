@@ -1,13 +1,11 @@
+@import "common/fonts";
 @import "common/reset";
 @import "common/header";
 @import "common/footer";
 @import "common/colours";
-@import "common/fonts";
 @import "common/buttons";
 @import "common/mixins";
 @import "common/responsive";
-
-
 
 @media #{$media-up} {
   .banner-container {
@@ -21,11 +19,12 @@
 
   .banner-title {
     position: absolute;
-    top: 47%;
-    right: 17%;
+    font-family: "Oswald";
+    top: 45%;
+    right: 23%;
     font-weight: bold;
     font-size: 45px;
-    width: 31%;
+    width: 25%;
     color: white;
   }
 
@@ -59,7 +58,16 @@
   }
 
   .handwritten-font-effect {
-    font-family: "Rock-Salt";;
+    font-family: "Rock Salt";
+  }
+
+  .big-font {
+    font-family: "Saira";
+  }
+
+  .light-font {
+    font-family: "Roboto";
+    font-weight:100;
   }
 
   .pink-highlight {
@@ -70,6 +78,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .new-releases-label-title {
+    color: $white;
+    font-family: "Rock Salt";
+    text-align: center;
   }
 
   .vertical-separator {
@@ -143,6 +157,7 @@
   .stay-tune-title {
     font-size: 45px;
     color: $white;
+    font-family: "Rock Salt";
   }
 
   .stay-tune-title-subtitle {

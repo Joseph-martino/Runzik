@@ -14,7 +14,6 @@
        header("Location: login.php");
        exit;
    }
-    var_dump($_SESSION["user"]); 
 ?>
 
 <!DOCTYPE html>
@@ -59,16 +58,16 @@
                                     $productQuantity = $_POST["product-quantity"];
                                     if(!$productQuantity) {
                                         CartManager::deleteProductFromCart($cartId, $productId);
+                                        echo "<meta http-equiv='refresh' content='0'>";
                                     } else {
                                         CartManager::updateProductQuantityFromCart($cartId, $productId, $productQuantity);
+                                        echo "<meta http-equiv='refresh' content='0'>";
                                     }
                                     
                                 }
 
                                 if(isset($_POST["product-id"], $_POST["delete"])){
                                     CartManager::deleteProductFromCart($cartId, $productId);
-                                    //header("Location: myCart.php");
-                                
                                         echo "<meta http-equiv='refresh' content='0'>";
                                 }
 
@@ -98,9 +97,7 @@
                                 foreach($cartProducts as $cartProduct) {
                                     $allProductSubtotal = $allProductSubtotal + $cartProduct->getProductSubtotal();
                                 }
-                            ?>
-
-                            
+                            ?> 
                     </tbody>
                 </table>
             </div>
@@ -145,21 +142,11 @@
                 } else {
                     echo "<a class=\"order-validation-button\" href=\"cartAuth.php\">Valider ma commande</a>";
                 }
-                
-                    // if($_POST["product-quantity"] <= 0) {
-                    //     echo "<a class=\"order-validation-button\"  href=\"\">Ajouter des produits</a>";
-
-                    // } else {
-                    //     echo "<a class=\"order-validation-button\" href=\"\">Valider ma commande</a>";
-
-                    // }
                     
-                    ?>
-                <!--<a class="order-validation-button" href="">Valider ma commande</a>-->
+                ?>
             </div>
 
         </section>
     </div>
-    
 </body>
 </html>

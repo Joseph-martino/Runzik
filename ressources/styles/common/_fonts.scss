@@ -1,12 +1,26 @@
 @font-face {
-    font-family: "RockSalt";
-    src: url(RockSalt-Regular.ttf) format("truetype");
+    font-family: "Rock Salt";
+    src: url("/Runzik/ressources/fonts/Rock_Salt/RockSalt-Regular.ttf") format("truetype");
 }
 
 
+@font-face {
+    font-family: "Roboto";
+    src: url("/Runzik/ressources/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+    src: url("/Runzik/ressources/fonts/roboto/Roboto-Light.ttf") format("truetype");
+}
 
+@font-face {
+    font-family: "Oswald";
+    src: url("/Runzik/ressources/fonts/Oswald/Oswald-Regular.ttf") format("truetype");
 
+}
 
+@font-face {
+    font-family: "Saira";
+    src: url("/Runzik/ressources/fonts/Saira/static/Saira-Bold.ttf") format("truetype");
+
+}
 
 $mobile-main-title-font-size: 18px;
 $mobile-subitle-font-size: 14px;
