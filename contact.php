@@ -11,6 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/contact.css" type="text/css" />
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
     <title>Contact</title>
 </head>
     <body>
@@ -18,31 +19,45 @@ session_start();
         <?php
             include(ROOT_PATH ."layout/header.php");
         ?>
+    
         <div class="main-container">
-            <section class="title-wrapper">
-                <h1>On se tient au <span>courant</span></h1>
+            <section class="left-panel">
+                <h1>On se tient au <span class="orange-highlight">courant</span></h1>
             </section>
 
-            <section class="form-wrapper">
+            <section class="right-panel">
                 <div class="form-container">
-                    <h2>Une <span>question</span> ? Besoin d' <span>aide</span> ? C'est par <span>ici</span></h2>
-                    <form  class="form" action="#" method="POST">
-                        <label for="name">Nom</label>
-                        <input id ="name" type="text" name="familyName">
+                    <div>
+                        <h2 class="form-title">Une <span class="orange-highlight">question</span>
+                            ? Besoin d' <span class="orange-highlight">aide</span>
+                            ? C'est par <span class="orange-highlight">ici</span>
+                        </h2>
+                    </div>
 
-                        <label for="firstname">Prénom</label>
-                        <input id ="firstname" type="text" name="firstName">
+                    <div class="form-wrapper">
+                        <form  class="form" action="#" method="POST">
+                            <label for="name">Nom</label>
+                            <input id ="name" class="input-field" type="text" name="familyName">
 
-                        <label for="email">Email</label>
-                        <input id ="email" type="email" name="email">
+                            <label for="firstname">Prénom</label>
+                            <input id ="firstname" class="input-field" type="text" name="firstName">
 
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                            <label for="email">Email</label>
+                            <input id ="email" class="input-field" type="email" name="email">
 
-                        <input type="submit" value="Envoyer">
-                    </form>
+                            <label for="message">Message</label>
+                            <textarea name="message" class="input-field" id="message" cols="30" rows="10"></textarea>
+
+                            <div class="GDPR-verification-container">
+                                <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
+                                <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les termes et conditions</label>
+                            </div>
+
+                            <button type="submit">Envoyer</button>
+                        </form>
+                    </div>
                 </div>
             </section>
-        </div>  
+        </div>
     </body>
 </html>

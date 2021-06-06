@@ -8,27 +8,224 @@
 @import "common/responsive";
 
 
-// .main-page-banner {
-//   position: relative;
-// }
+.mobile-header {
+  position: absolute;
+  top: 0;
+}
 
-// .banner-title {
-//   position: absolute;
-//   top: 99px;
-//   right: 49px;
-//   color: white;
-//   font-size: 16px;
-//   width: 38%;
-// }
+.banner-container {
+  position: relative;
+}
 
-// .banner-button {
-//   position: absolute;
-//   top: 24%;
-//   right: 28%;
-// }
+.banner-title {
+  position: absolute;
+  // top: 15%;
+  // right: 10%;
+  // font-size: 15px;
+  width: 40%;
+  font-family: "Oswald";
+  color: $white;
+  word-spacing: 2px;
 
+  font-size: 12px;
+  top: 27%;
+  right: 4%;
+}
 
+.banner-button {
+  @include button($blue);
+  position: absolute;
+  // top: 24%;
+  // right: 28%;
 
+  font-size: 9px;
+  width: 20%;
+  top: 48%;
+  right: 24%;
+}
+
+.new-releases{
+  background-color: black;
+  position: relative;
+}
+
+.new-realeases-title {
+  padding-top: 3%;
+  padding-left: 12%;
+  color: white;
+}
+
+.sound-effect-picture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 80%;
+  }
+}
+
+.last-releases-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-trend-release-picture-container {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  img {
+    height: 186px;
+  }
+}
+
+.products-thumbnails-container {
+  display: none;
+}
+
+%vertical-separator {
+  height: 1.5px;
+  width: 30px;
+  background-color: $pink;
+}
+
+.new-releases-label-title {
+  color: $white;
+  font-family: "Rock Salt";
+  text-align: center;
+}
+
+.vertical-separator {
+  @extend %vertical-separator;
+  margin-top:25px
+}
+
+.release-separator {
+  @extend %vertical-separator;
+  margin: 0;
+}
+
+.mobile-thumbnails-products-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  margin: 10px;
+}
+
+.mobile-products-line {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mobile-thumbnails-container {
+  width: 40%;
+}
+
+.mobile-new-trend-product-picture {
+  width: 100%;
+}
+
+.last-trends-container {
+  background-color: $lightBlack;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.last-trends-title-container {
+  padding-top: 15px;
+  margin: 20px;
+  h2 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.trend-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.red-button {
+  @include button($redButtonColour);
+  width: 90%;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.stay-tune-section-container {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $black-background;
+}
+
+.stay-tune-picture {
+  width: 100%;
+}
+
+.stay-tune-text-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+}
+
+.stay-tune-text-container {
+  font-family: "Roboto Thin";
+  width: 70%;
+}
+
+.stay-tune-title {
+  font-size: 45px;
+  color: $white;
+  font-family: "Rock Salt";
+}
+
+.stay-tune-title-subtitle {
+  font-size: 35px;
+  color: $white;
+  font-family: "Roboto";
+}
+
+.stay-tune-text-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.stay-tune-title {
+  font-size: 28px;
+  color: white;
+  font-family: "Rock Salt";
+}
+
+.stay-tune-title-subtitle {
+  font-size: 28px;
+  color: white;
+  font-family: "Roboto";
+}
+
+.pink-highlight {
+  color: $pink;
+}
+
+.thin-font {
+  font-family: "Roboto Thin";
+}
+
+.handwritten-font-effect {
+  font-family: "Rock Salt";
+}
 
 @media #{$media-up} {
   .banner-container {
@@ -47,8 +244,6 @@
   }
 
   .banner-title {
-    position: absolute;
-    font-family: "Oswald";
     top: 45%;
     right: 23%;
     font-weight: bold;
@@ -56,13 +251,12 @@
     word-spacing: 20px;
     letter-spacing: 1px;
     width: 25%;
-    color: white;
+    
   }
 
   .banner-button {
     @include button($blue);
     width: 15%;
-    position: absolute;
     top: 65%;
     right: 33%;
   }
@@ -97,10 +291,6 @@
     font-size: 25px;
   }
 
-  .handwritten-font-effect {
-    font-family: "Rock Salt";
-  }
-
   .big-font {
     font-family: "Saira";
     font-size: 75px;
@@ -115,10 +305,6 @@
     font-family: "Roboto Thin";
     margin: 0;
     font-size: 30px;
-  }
-
-  .pink-highlight {
-    color: $pink;
   }
 
   .sound-effect-picture {
@@ -140,21 +326,21 @@
     text-align: center;
   }
 
-  %vertical-separator {
-    height: 1.5px;
-    width: 30px;
-    background-color: $pink;
-  }
+  // %vertical-separator {
+  //   height: 1.5px;
+  //   width: 30px;
+  //   background-color: $pink;
+  // }
 
-  .vertical-separator {
-    @extend %vertical-separator;
-    margin-top:25px
-  }
+  // .vertical-separator {
+  //   @extend %vertical-separator;
+  //   margin-top:25px
+  // }
 
-  .release-separator {
-    @extend %vertical-separator;
-    margin: 0;
-  }
+  // .release-separator {
+  //   @extend %vertical-separator;
+  //   margin: 0;
+  // }
 
   .new-trend-release-picture-container {
     position: absolute;
@@ -174,10 +360,15 @@
   // }
 
   .products-thumbnails-container {
+    display: block;
     width: 100%;
     display: flex;
     justify-content: space-around;
 
+  }
+
+  .mobile-thumbnails-products-container {
+    display: none;
   }
 
   .last-trends-container {
@@ -189,6 +380,7 @@
   }
 
   .last-trends-title-container {
+    padding-top: 0;
     margin: 20px;
     h2 {
       font-weight: bold;
@@ -243,8 +435,6 @@
     opacity: 1;
   }
 
-
-
   .new-trend-product-picture {
     transform: scale(1);
     transition: .3s ease-in-out;
@@ -257,7 +447,7 @@
 
   .stay-tune-section-container {
     display: flex;
-    background-color: $black-background;
+    flex-direction: row;
   }
 
   .picture-container {
@@ -267,11 +457,6 @@
 
   .stay-tune-text-wrapper {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    color: $white;
-    justify-content: center;
-    align-items: center;
   }
 
   .stay-tune-text-container {
@@ -281,12 +466,9 @@
 
   .stay-tune-title {
     font-size: 45px;
-    color: $white;
-    font-family: "Rock Salt";
   }
 
   .stay-tune-title-subtitle {
     font-size: 35px;
-    color: $white;
   }
 }

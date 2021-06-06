@@ -51,13 +51,21 @@ session_start();
                 <img src="ressources/images/products/trend-headphone.png" alt="headphone">
             </div>
             <div class="products-thumbnails-container">
-            <?php 
-                for($i = 0; $i < 4; $i++) {
+                <?php 
+                    for($i = 0; $i < 4; $i++) {
 
-                    echo "<div class=\"thumbnails-container\"><img class=\"new-trend-product-picture\"src=\"ressources/images/products/release-product".$i.".png\" alt=\"release product\"></div>";
-                }    
-            ?>
-            </div>
+                        echo "<div class=\"thumbnails-container\"><img class=\"new-trend-product-picture\"src=\"ressources/images/products/release-product".$i.".png\" alt=\"release product\"></div>";
+                    }    
+                ?>
+                </div>
+
+                <div class="mobile-thumbnails-products-container">
+                    <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product0.png" alt="release product">
+                    <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product1.png" alt="release product">
+                    <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product2.png" alt="release product">
+                    <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product3.png" alt="release product">
+                </div>
+                
         </section>
 
         <section class="last-trends-container">
@@ -83,7 +91,7 @@ session_start();
 
         <section class="stay-tune-section-container">
             <div class="picture-container">
-                <img src="ressources/images/photos/man-with-earphones" alt="man-with-earphones">
+                <img class="stay-tune-picture" src="ressources/images/photos/man-with-earphones" alt="man-with-earphones">
             </div>
 
             <div class="stay-tune-text-wrapper">

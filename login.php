@@ -30,6 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/login.css" type="text/css" />
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
     <title>Inscription</title>
 </head>
 <body>
@@ -45,7 +46,6 @@
                         <div class="separator-container">
                             <div class="orange-horizontal-line"></div>
                         </div>
-                        
                     </div>
 
                     <form action="#" method="POST">

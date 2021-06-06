@@ -23,6 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/myCart.css" type="text/css"/>
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
     <title>Panier</title>
 </head>
 <body>
@@ -37,6 +38,7 @@
                 <table id="products">
                     <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>Détail produit</th>
                             <th>Quantité</th>
                             <th>Prix</th>
@@ -74,7 +76,7 @@
                                 foreach($cartProducts as $cartProduct) {
 
                                     echo "<tr>";
-                                    
+                                    echo "<td><img class=\"product-picture\"src=\"".$cartProduct->getProductImage()."\" alt=\"product-picture\"></td>";
                                     echo "<td>".$cartProduct->getProductName()."</td>";
                                     echo "<td>";
                                     echo "<form action=\"#\" method=\"POST\">";
@@ -146,6 +148,39 @@
                 ?>
             </div>
 
+        </section>
+
+        <section class="mobile-order-overview-container">
+            <div class="mobile-card-container">
+                <div class="order-card-title">
+                    <h2>Résumé de commande</h2>
+                </div>
+
+                <div class="mobile-order-overview-card">
+                    <div class="mobile-order-overview-labels-container">
+                        <h3>SOUS TOTAL:</h3>
+                        <h3>FRAIS DE PORT:</h3>
+                        <h3>TOTAL:</h3>
+                    </div>
+
+                    <div class="mobile-order-overview-labels-container">
+                        <h3><?php echo $allProductSubtotal?>€</h3>
+                        
+                        <h3>
+                            <?php 
+                                $shippingCost = CartManager::calculateShippingCost($allProductSubtotal);
+                                echo $shippingCost;
+                            ?> €
+                        </h3>
+
+                        <h3>
+                            <?php 
+                                echo $allProductSubtotal + $shippingCost;
+                            ?> €
+                        </h3>
+                    </div>
+                </div>
+            </div>  
         </section>
     </div>
 </body>

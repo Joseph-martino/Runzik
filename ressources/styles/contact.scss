@@ -9,27 +9,108 @@
 
 
 body {
-    background-image: url("../images/banners/contact-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: rgb(34,32,32);
+    background: linear-gradient(143deg, rgba(34,32,32,1) 0%, rgba(65,59,59,1) 63%);
 }
 
-.main-container {
+.left-panel {
     display: flex;
+    justify-content: center;
+    h1 {
+        color: $white;
+        font-size: 20px;;
+    }
 }
 
-.title-wrapper {
-    width: 50%;
-    text-align: center;
+.orange-highlight {
+    color: $orange;
 }
 
-.form-wrapper {
-    width: 50%;
+.form-container {
+        display: flex;
+        flex-direction: column;
+        /* width: 80%; */
+        align-items: center;
+        background-color: #2A2828;
+        padding: 20px;
+        border-radius: 8%;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    color: $white;
+    label, input, #message, button{
+        margin: 8px;
+    }
+    button {
+        @include button($blue);
+        width: 100%;
+    }
 }
+
+.input-field {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 7px;
+    border: 1px solid white;
+}
+
+.GDPR-verification-container {
+    display: flex; 
+}
+
+.grpd-message {
+    font-family: "Roboto Thin";
+}
+
+
+@media #{$media-up} {
+    body {
+        background-image: url("../images/banners/contact-background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Roboto Bold";
+    }
+    
+    .main-container {
+        display: flex;
+    }
+    
+    .left-panel {
+        width: 50%;
+        text-align: center;
+        h1 {
+            font-size: 40px;;
+        }
+    }
+    
+    .right-panel {
+        width: 50%;
+    }
+    
+    .form-container { 
+        width: 65%;
+        padding: 40px;
+        border-radius: 8%;
+ 
+    }
+    
+    .form-title {
+        margin: 15px;
+        font-size: 18px;
+        color: white;
+    }
+    
+    .form-wrapper {
+        width: 85%;
+    }
+    
+    .form {
+        label, input, #message, button{
+            margin: 8px;
+        }
+    }
+}
+
 

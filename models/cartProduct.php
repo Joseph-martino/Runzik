@@ -25,6 +25,12 @@
          return $this->product->getPrice();
       }
 
+      public function getProductImage() 
+        {
+         return $this->product->getImage();
+      }
+
+
         public function getQuantity() 
         {
            return $this->quantity;
