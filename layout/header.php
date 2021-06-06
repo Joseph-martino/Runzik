@@ -36,7 +36,7 @@
 
         <div class="tabs-menu">
             <nav class="navbar">
-                <ul>
+                <ul class=menu-links-list>
                     <li><a href="runzik.php">La marque</a></li>
                     <li><a href="#">La boutique</a>
                         <ul class="submenu">

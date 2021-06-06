@@ -1,3 +1,4 @@
+@import "common/fonts";
 @import "common/reset";
 @import "common/header";
 @import "common/footer";
@@ -57,13 +58,12 @@ body {
 }
 
 .beats-card-logo {
-  width: 40px;
-  height: 40px;
+  width: 62%;
 }
 
-.jbl-card-logo {
-  width: 60px;
-  height: 40px;
+.brand-card-logo {
+  width: 62%;
+  height: auto;
 }
 
 .scroll-list-container {
@@ -107,12 +107,12 @@ body {
 
 
 .wishlist-unselected{
-  background-color: #A5A5A5;
+  background-color: $add-to-wishlist-unselected;
   
 }
 
 .wishlist-selected {
-  background-color: #EF3340;
+  background-color: $add-to-wishlist-selected;
   
 }
 
@@ -120,13 +120,13 @@ body {
   width: 70%;
 }
 
-// .headphone {
+.headphone {
+  width: 70%;
+}
 
-// }
-
-// .armband {
-
-// }
+.armband {
+  width: 70%;
+}
 
 .miniature-product-container {
   display: flex;
@@ -157,6 +157,15 @@ body {
   .banner-container {
     display: block;
     position: relative;
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .header-container {
+    width: 100%;
+    position: absolute;
+    top:0;
   }
 
   .banner-title {
@@ -164,6 +173,8 @@ body {
     top: 37%;
     left: 16%;
     font-weight: bold;
+    color: $white;
+    font-family: "Oswald";
   }
 
   .orange-highlight {
@@ -176,7 +187,16 @@ body {
     top: 53%;
     left: 16%;
     font-style: italic;
+    color: $white;
+    font-size: 20px;
+    font-family: "Roboto Light";
+    word-spacing: 3px;
   }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
   .products-research-options-container {
     display: flex;
     justify-content: space-around;
@@ -196,7 +216,8 @@ body {
 
   .subtitle {
     margin: 25px 0px;
-    font-family: "play";
+    font-family: "Play Bold";
+    font-size: 18px;
   }
 
   .brand-card {
@@ -225,6 +246,7 @@ body {
   #product-select {
     background-color: transparent;
     border: solid $white 2px;
+    color: white;
   }
 
   .scroll-list-options {
@@ -250,6 +272,13 @@ body {
     justify-self: center;
   }
 
+  .add-to-wishlist-form-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-right: 30px;
+  }
+
   .wishlist-icon {
     height: 30px;
   }
@@ -263,18 +292,18 @@ body {
      display: block;
    }
 
-  .watch {
-    width: auto;
-    height: 200px;
-  }
+  // .watch {
+  //   width: auto;
+  //   height: 200px;
+  // }
 
-  .headphone {
-    width: auto;
-    height: 200px;
-  }
+  // .headphone {
+  //   width: auto;
+  //   height: 200px;
+  // }
 
-  .armband {
-    width: 100%;
-  }
+  // .armband {
+  //   width: 100%;
+  // }
   
 }

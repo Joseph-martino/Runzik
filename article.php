@@ -21,6 +21,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/article.css" type="text/css"/>
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
     <title><?php echo "test"; ?></title>
     
 </head>
@@ -96,7 +97,7 @@ session_start();
                     
                 ?>
    
-                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="1">
+                        <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="1" value="1">
                         <label for="quantity"></label>
                         <input type="hidden" name="add-to-cart" value="true">
                         <p id="product-colour-text"></p>

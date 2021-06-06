@@ -11,58 +11,69 @@ session_start();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="ressources/css/style.css" type="text/css" />
-        <title>Document</title>
+        <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
+        <title>Runzik</title>
     </head>
 
     <body>
-
-        <?php
-            include( ROOT_PATH . "layout/header.php");
-        ?>
-
         <section class="banner-container"> 
             <img class="main-page-banner" src="ressources/images/banners/main-page-banner.png"
                 alt=" main page banner">
             <h1 class="banner-title">BOUGER PLUS VITE QUE LA MU’<span class="orange-highlight">ZIK</span></h1>
             <a class="banner-button" href="runzik.php">Rejoignez-nous</a>
+            <div class="header-container">
+                <?php
+            include( ROOT_PATH . "layout/header.php");
+        ?>
+            </div>
         </section>
 
         <section class="new-releases">
             <div class="new-realeases-title">
-                <h2 class="handwritten-font-effect">New track</h2>
-                <h3 class="big-font">UPCOMING<span class="pink-highlight handwritten-font-effect"> Artist</span></h3>
-                <h3 class="pink-highlight light-font">The real time shady</h3>
+                <h2 class="handwritten-font-effect medium-title">New track</h2>
+                <h3 class="big-font">UPCOMING<span class="pink-highlight handwritten-font-effect medium-font"> Artist</span></h3>
+                <h3 class="pink-highlight thin-font">The real time shady</h3>
+                <div class="vertical-separator"></div>
             </div>
-            <div class="vertical-separator"></div>
+            
 
             <div class="sound-effect-picture">
                 <img src="ressources/images/effects/sound-effect.png" alt="sound effect pattern">
             </div>
             
-            <h3 class="new-releases-label-title">New releases</h3>
-            <div class="vertical-separator"></div>
+            <div class="last-releases-title-container">
+                <h3 class="new-releases-label-title">New releases</h3>
+                <div class="release-separator"></div>
+            </div>
+            
 
-            <div class="new-trend-release">
+            <div class="new-trend-release-picture-container">
                 <img src="ressources/images/products/trend-headphone.png" alt="headphone">
             </div>
             <div class="products-thumbnails-container">
             <?php 
                 for($i = 0; $i < 4; $i++) {
-                    echo "<img src=\"ressources/images/products/release-product".$i.".png\" alt=\"release product\">";
+
+                    echo "<div class=\"thumbnails-container\"><img class=\"new-trend-product-picture\"src=\"ressources/images/products/release-product".$i.".png\" alt=\"release product\"></div>";
                 }    
             ?>
             </div>
         </section>
 
         <section class="last-trends-container">
-            <h2>LES DERNIÈRES TENDANCES</h2>
+            <div class="last-trends-title-container">
+                <h2>LES DERNIÈRES TENDANCES</h2>
+            </div>
+            
             <div class="trends-products-container">
                 <?php
                     for($i=0; $i < 3; $i++) {
                         echo "<div class=\"trend-product\">
-                        <img src=\"ressources/images/products/trend".$i.".png\" alt=\"release product\">
+                        <img class=\"trend-product-image\" src=\"ressources/images/products/trend".$i.".png\" alt=\"release product\">
+                        <div class=\"trend-product-hidden-link-container\">
                         <h3 class=\"trend-product-name\">Product</h3>
-                        <a class=\"red-button\" href=\"jbk\">Découvrir</a>  
+                        <a class=\"red-button\" href=\"jbk\">Découvrir</a> 
+                        </div> 
                         </div>";
 
                     }
@@ -98,7 +109,7 @@ session_start();
         <?php
             include( ROOT_PATH . "layout/footer.php");
         ?>
-        
+        <script type="text/javascript" src="ressources/scripts/index.js"></script>
     </body>
 
 </html>

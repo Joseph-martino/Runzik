@@ -6,6 +6,11 @@
   display: none;
 }
 
+
+.main-page-banner {
+  width: 100%;
+}
+
 .mobile-header {
   background: $black-background;
   width: 100%;
@@ -15,6 +20,10 @@
   align-items: center;
   padding-left: 10%;
   box-sizing: border-box;
+
+  position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .runzik-logo {
@@ -74,13 +83,12 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #2c2626;
   }
 
   .logo-container {
     img {
-      height: 60px;
-      width: 115px;
+      height: 100px;
+      width: auto;
     }
   }
 
@@ -113,6 +121,8 @@
       &:visited {
         text-decoration: none;
         color: white;
+        font-size: 20px;
+        font-family: "Roboto Light";
       }
     }
   }
@@ -122,14 +132,23 @@
   display: flex;
   flex-direction: column;
 }
-  .submenu {
-    display: none;
-    background-color: $footerBlack;
-    flex-direction: column;
-    li {
-      :hover {
-        display: block;
-      }
+  // .submenu {
+  //   display: none;
+  //   background-color: $footerBlack;
+  //   flex-direction: column;
+  //   li {
+  //     :hover {
+  //       display: block;
+  //     }
+  //   }
+  // }
+
+
+  // .submenu {
+  //   display: none;
+  // }
+
+  .dropdown:hover .submenu {
+    display: block;
     }
-  }
 }

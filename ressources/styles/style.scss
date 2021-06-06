@@ -7,10 +7,39 @@
 @import "common/mixins";
 @import "common/responsive";
 
+
+// .main-page-banner {
+//   position: relative;
+// }
+
+// .banner-title {
+//   position: absolute;
+//   top: 99px;
+//   right: 49px;
+//   color: white;
+//   font-size: 16px;
+//   width: 38%;
+// }
+
+// .banner-button {
+//   position: absolute;
+//   top: 24%;
+//   right: 28%;
+// }
+
+
+
+
 @media #{$media-up} {
   .banner-container {
     display: block;
     position: relative;
+  }
+
+  .header-container {
+    width: 100%;
+    position: absolute;
+    top:0;
   }
 
   .main-page-banner {
@@ -24,6 +53,8 @@
     right: 23%;
     font-weight: bold;
     font-size: 45px;
+    word-spacing: 20px;
+    letter-spacing: 1px;
     width: 25%;
     color: white;
   }
@@ -54,7 +85,16 @@
   }
 
   .new-realeases-title {
+    padding-top: 3%;
+    padding-left: 12%;
     color: $white;
+    span {
+      font-size: 45px;
+    }
+  }
+
+  .medium-title {
+    font-size: 25px;
   }
 
   .handwritten-font-effect {
@@ -63,11 +103,18 @@
 
   .big-font {
     font-family: "Saira";
+    font-size: 75px;
+    margin:0;
   }
 
-  .light-font {
-    font-family: "Roboto";
-    font-weight:100;
+  .medium-font-size {
+    font-size: 40px;
+  }
+
+  .thin-font {
+    font-family: "Roboto Thin";
+    margin: 0;
+    font-size: 30px;
   }
 
   .pink-highlight {
@@ -80,26 +127,51 @@
     justify-content: center;
   }
 
+  .last-releases-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
   .new-releases-label-title {
     color: $white;
     font-family: "Rock Salt";
     text-align: center;
   }
 
-  .vertical-separator {
-    height: 2px;
+  %vertical-separator {
+    height: 1.5px;
     width: 30px;
-    color: $pink;
+    background-color: $pink;
   }
 
-  .new-trend-release {
+  .vertical-separator {
+    @extend %vertical-separator;
+    margin-top:25px
+  }
+
+  .release-separator {
+    @extend %vertical-separator;
+    margin: 0;
+  }
+
+  .new-trend-release-picture-container {
     position: absolute;
     right: 2%;
-    top: 1%;
+    top: 3%;
+    // opacity: 0;
+    // transform: scale(0.1);
+    // transition: all 1s ease-in-out;
     img {
-      height: 450px;
+      height: 600px;
     }
   }
+
+  // .active {
+  //   opacity: 1;
+  //   transform: scale(1);
+  // }
 
   .products-thumbnails-container {
     width: 100%;
@@ -113,23 +185,75 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+    padding-bottom: 50px;
+  }
 
+  .last-trends-title-container {
+    margin: 20px;
+    h2 {
+      font-weight: bold;
+      font-size: 40px;
+    }
   }
 
   .trends-products-container {
     display: flex;
+    justify-content: center;
   }
 
   .trend-product {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
+    img {
+      height: 500px;
+      width: auto;
+      opacity: 1;
+      transition: .5s ease;
+    }
     a {
       @include button($redButtonColour);
     }
   }
+
+  //test
+
+  .trend-product:hover .trend-product-image {
+    opacity: 0.3;
+  }
+
+  .trend-product-hidden-link-container {
+    opacity: 0;
+    transition: .5s ease;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .trend-product:hover .trend-product-hidden-link-container {
+    opacity: 1;
+  }
+
+
+
+  .new-trend-product-picture {
+    transform: scale(1);
+    transition: .3s ease-in-out;
+  }
+
+  .thumbnails-container:hover .new-trend-product-picture{
+    transform: scale(1.3);
+  }
+  
 
   .stay-tune-section-container {
     display: flex;
@@ -151,6 +275,7 @@
   }
 
   .stay-tune-text-container {
+    font-family: "Roboto Thin";
     width: 70%;
   }
 
