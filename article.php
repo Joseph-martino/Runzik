@@ -8,11 +8,7 @@ require_once(ROOT_PATH ."services/cartManager.php");
 require_once(ROOT_PATH . "models/products.php");
 require_once(ROOT_PATH . "models/cart.php");
 session_start();
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +19,8 @@ session_start();
     <link rel="stylesheet" href="ressources/css/article.css" type="text/css"/>
     <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
     <title><?php echo "test"; ?></title>
-    
 </head>
     <body>
-        <?php
-        include(ROOT_PATH ."layout/header.php");
-        ?>
-        
         <?php
            $selectedProduct = "";
            if (isset($_GET["product"])) {                
@@ -54,8 +45,8 @@ session_start();
                     <span class="slider round"></span>
                 </label>
             </div>
-            <img class="mobile-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner-font" alt="mobile-banner">
-            <img class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner" alt="<?php echo $currentProduct->infos->type ?>-banner">
+            <img class="mobile-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner-background" alt="mobile-banner">
+            <img class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-mobile-banner".$currentProduct->items->getId() ?>" alt="<?php echo $currentProduct->infos->type ?>-banner">
             <div class="mobile-banner-title">
                 <p class="product-name"><?php echo $currentProduct->items->getName() ?></p>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
@@ -70,6 +61,11 @@ session_start();
                 <h1><?php echo $currentProduct->items->getName() ?></h1>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
                 <p class="price"><?php echo $currentProduct->items->getPrice() ?>€</p>
+            </div>
+            <div class="header-container">
+                <?php
+                    include(ROOT_PATH ."layout/header.php");
+                ?>
             </div>
             
             
@@ -96,12 +92,10 @@ session_start();
                     }
                     
                 ?>
-   
                         <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="1" value="1">
                         <label for="quantity"></label>
                         <input type="hidden" name="add-to-cart" value="true">
-                        <p id="product-colour-text"></p>
-                   
+                        <p id="product-colour-text"></p> 
                     <div class="add-to-cart-button-container">
                         <input id="button-test" class="blue-button" type="submit" value="Ajouter au panier">
                     </div>
@@ -139,7 +133,6 @@ session_start();
                 if (colors.length) {
                     colors.forEach(function (elem) {
                     elem.addEventListener("change", function(event) {
-                       
                         productColourText.innerHTML = elem.value;
                         if(elem.id === "0" || event.target.value === undefined) {
         
@@ -266,6 +259,9 @@ session_start();
             </div>
             <img class="product-picture"src="ressources/images/products/<?php echo $currentProduct->infos->pluralName ?>.png" alt="<?php echo $currentProduct->infos->pluralName ?>">
         </section>
+        <?php
+            include(ROOT_PATH ."layout/footer.php");
+        ?>
 
         <!-- <div class="mobile-add-to-cart-menu">
             <input class="mobile-quantity-input-container" type="number" id="quantity" name="product-quantity">

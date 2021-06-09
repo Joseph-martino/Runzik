@@ -162,165 +162,166 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
         ?>
 
         <div class="main-container">
-        <div class="profile-header">
-            <h1><?php echo $_SESSION["user"]["pseudo"]?></h1>
-            <div class="top-line horizontal-separator"></div>
-            <div class="middle-line horizontal-separator"></div>
-            <div class="bottom-line horizontal-separator"></div>
-        </div>
-        
-        <div class="sections-container">
-                <section>
-                    <div class="user-general-informations-wrapper mobile-sections-margins">
-                        <div class="title-container long-title-size cell-margin">
-                            <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
-                            <h2>Informations générales</h2>
-                        </div>
+            <div class="profile-header">
+                <h1><?php echo $_SESSION["user"]["pseudo"]?></h1>
+                <div class="top-line horizontal-separator"></div>
+                <div class="middle-line horizontal-separator"></div>
+                <div class="bottom-line horizontal-separator"></div>
+            </div>
 
-                        <div class="user-general-informations-container pink-borders cell-margin cell-padding">
-                            <div class="line">
-                                <p>Nom:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                            </div>
-
-                            <div class="line">
-                                <p>Prénom:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                            </div>
-
-                            <div class="line">
-                                <p>Pseudo:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                                <form action="#" method="POST">
-                                    <input class="input-field" type="text" name="username">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="line">
-                                <p>Mot de passe:</p>
-                                <form action="#" method="POST">
-                                    <input class="input-field" type="password" name="password">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="line">
-                                <p>Adresse mail:</p>
-                                <p><?php echo $_SESSION["user"]["email"] ?></p>
-                                <form action="#" method="POST">
-                                <input class="input-field" type="email" name="email">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>  
-                        </div>
-                    </div>
-
-                    <div class="user-contact-informations-wrapper mobile-sections-margins">
-                            <div class="title-container cell-margin">
+            <div class="sections-container">
+                    <section>
+                        <div class="user-general-informations-wrapper mobile-sections-margins">
+                            <div class="title-container long-title-size cell-margin">
                                 <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
-                                <h2>Coordonnées</h2>
+                                <h2>Informations générales</h2>
                             </div>
 
-                        <div class="user-contact-informations-container blue-borders cell-margin cell-padding">
+                            <div class="user-general-informations-container pink-borders cell-margin cell-padding">
+                                <div class="line">
+                                    <p>Nom:</p>
+                                    <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
+                                </div>
 
-                            <div class="line">
-                                <p>Adresse de livraison:</p>
-                                <form action="#" method="POST">
-                                    <input class="input-field" type="text" name="adress">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
+                                <div class="line">
+                                    <p>Prénom:</p>
+                                    <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
+                                </div>
 
-                            <div class="line">
-                                <p>Numéro de téléphone:</p>
-                                <form action="#" method="POST">
-                                    <input class="input-field" type="text" name="phoneNumber">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
+                                <div class="line">
+                                    <p>Pseudo:</p>
+                                    <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
+                                    <form action="#" method="POST">
+                                        <input class="input-field" type="text" name="username">
+                                        <button class="modify-background" type="submit">
+                                            <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="line">
+                                    <p>Mot de passe:</p>
+                                    <form action="#" method="POST">
+                                        <input class="input-field" type="password" name="password">
+                                        <button class="modify-background" type="submit">
+                                            <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="line">
+                                    <p>Adresse mail:</p>
+                                    <p><?php echo $_SESSION["user"]["email"] ?></p>
+                                    <form action="#" method="POST">
+                                    <input class="input-field" type="email" name="email">
+                                        <button class="modify-background" type="submit">
+                                            <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                        </button>
+                                    </form>
+                                </div>  
                             </div>
                         </div>
+
+                        <div class="user-contact-informations-wrapper mobile-sections-margins">
+                                <div class="title-container cell-margin">
+                                    <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
+                                    <h2>Coordonnées</h2>
+                                </div>
+
+                            <div class="user-contact-informations-container blue-borders cell-margin cell-padding">
+
+                                <div class="line">
+                                    <p>Adresse de livraison:</p>
+                                    <form action="#" method="POST">
+                                        <input class="input-field" type="text" name="adress">
+                                        <button class="modify-background" type="submit">
+                                            <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="line">
+                                    <p>Numéro de téléphone:</p>
+                                    <form action="#" method="POST">
+                                        <input class="input-field" type="text" name="phoneNumber">
+                                        <button class="modify-background" type="submit">
+                                            <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                            <form class="desktop-delete-account-form" action="#" method="POST">
+                                <input type="hidden" name="delete-user">
+                                <button class="delete-button" type="submit">Supprimer le compte</button>
+                            </form>
+                </section>
+
+                <section>
+                    <div class="user-contact-informations-wrapper orders-cell-size mobile-sections-margins">
+                        <div class="title-container cell-margin">
+                            <img src="ressources/images/icons/profile-cart-icon.png" alt="informations-icon">
+                            <h2>Commandes</h2>
+                        </div>
+
+                        <div class="user-contact-informations-container  orders-cell-size orange-borders cell-margin">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Quantité</th>
+                                    <th>Prix</th>   
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        </div>   
                     </div>
 
-                        <form class="desktop-delete-account-form" action="#" method="POST">
-                            <input type="hidden" name="delete-user">
-                            <button class="delete-button" type="submit">Supprimer le compte</button>
-                        </form>
-            </section>
+                    <div class="user-contact-informations-wrapper wishlist-cell-size mobile-sections-margins">
+                        <div class="title-container medium-title-size cell-margin">
+                            <img src="ressources/images/icons/profile-wishlist-heart-icon.png" alt="informations-icon">
+                            <h2>Liste de souhaits</h2>
+                        </div>
 
-            <section>
-                <div class="user-contact-informations-wrapper orders-cell-size mobile-sections-margins">
-                    <div class="title-container cell-margin">
-                        <img src="ressources/images/icons/profile-cart-icon.png" alt="informations-icon">
-                        <h2>Commandes</h2>
+                        <div class="user-contact-informations-container green-borders cell-margin">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produit</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                    foreach($wishlistProducts as $wishlistProduct) {
+                                        echo "<tr>";
+                                        echo "<td>".$wishlistProduct->getProductName()."</td>";
+                                        echo "<td>";
+                                        echo "<form action=\"#\" method=\"POST\">";
+                                        echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
+                                        echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
+                                        echo "</form>";
+                                        echo "</td>";
+                                        echo "</tr>";
+                                    }
+                                ?> 
+                            </tbody>
+                        </table>
+                        </div>   
                     </div>
-
-                    <div class="user-contact-informations-container  orders-cell-size orange-borders cell-margin">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Produit</th>
-                                <th>Quantité</th>
-                                <th>Prix</th>   
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                    </div>   
-                </div>
-
-                <div class="user-contact-informations-wrapper wishlist-cell-size mobile-sections-margins">
-                    <div class="title-container medium-title-size cell-margin">
-                        <img src="ressources/images/icons/profile-wishlist-heart-icon.png" alt="informations-icon">
-                        <h2>Liste de souhaits</h2>
-                    </div>
-
-                    <div class="user-contact-informations-container green-borders cell-margin">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Produit</th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                foreach($wishlistProducts as $wishlistProduct) {
-                                    echo "<tr>";
-                                    echo "<td>".$wishlistProduct->getProductName()."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"#\" method=\"POST\">";
-                                    echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
-                                    echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?> 
-                        </tbody>
-                    </table>
-                    </div>   
-                </div>
-            </section>
+                </section>
+            </div>
+            <form class="mobile-delete-account-form" action="#" method="POST">
+                <input type="hidden" name="delete-user">
+                <button class="mobile-delete-button" type="submit">Supprimer le compte</button>
+            </form>
         </div>
-        <form class="mobile-delete-account-form" action="#" method="POST">
-            <input type="hidden" name="delete-user">
-            <button class="delete-button" type="submit">Supprimer le compte</button>
-        </form>
-
-        </div>
-        
+        <?php
+            include(ROOT_PATH ."layout/footer.php");
+        ?>
     </body>
 </html>

@@ -23,8 +23,8 @@ session_start();
             <a class="banner-button" href="runzik.php">Rejoignez-nous</a>
             <div class="header-container">
                 <?php
-            include( ROOT_PATH . "layout/header.php");
-        ?>
+                    include( ROOT_PATH . "layout/header.php");
+                ?>
             </div>
         </section>
 

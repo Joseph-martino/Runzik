@@ -116,6 +116,18 @@ html, body {
     display: none;
 }
 
+.mobile-delete-button {
+    cursor: pointer;
+    background-color: #cd2222;
+    color: white;
+    padding: 5px 0;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 39%;
+    font-size: 12px;
+    margin: 5px 8px 10px 18px;
+}
+
 
 
 @media #{$media-up} {
@@ -228,7 +240,7 @@ html, body {
     }
     
     .orders-cell-size {
-        height: 72%;
+        height: 66%;
     }
 
     .mobile-delete-account-form {

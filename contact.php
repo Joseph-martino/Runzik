@@ -59,5 +59,8 @@ session_start();
                 </div>
             </section>
         </div>
+        <?php
+            include(ROOT_PATH ."layout/footer.php");
+        ?>
     </body>
 </html>
