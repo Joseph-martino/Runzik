@@ -11,10 +11,66 @@ body {
     background: linear-gradient(222deg, rgba(0,0,0,1) 0%, rgba(44,38,38,1) 35%);
 }
 
+.main-container {
+    display: none;
+}
+
+.mobile-order-overview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-cart-product-infos-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.product-picture {
+    height: 115px;
+    width: auto;
+}
+
+.product-general-infos {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 65%;
+}
+
+.mobile-product-quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quantities-form {
+    width: 27%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 30%;
+        height: auto;
+        padding: 5px;
+    }
+}
+
 .order-card-title {
     display: flex;
     flex-direction: column;
     align-items: center;
+    h2 {
+        color:black;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 10px;
+        text-decoration-color: #606060;
+        text-decoration-line: underline;
+        text-underline-offset: 15px;
+    }
 }
 
 .order-overview-card {
@@ -22,11 +78,6 @@ body {
 }
 
 .mobile-order-overview-infos-container {
-    display: flex;
-    justify-content: center;
-}
-
-.mobile-order-overview-container {
     display: flex;
     justify-content: center;
 }
@@ -43,8 +94,42 @@ body {
     margin: 15px;
 }
 
+.delete-button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.highlight-grey {
+    color: #867E7E;
+}
+
+.highlight-black {
+    color: black;
+}
+
+.order-validation-button {
+    @include button($orange);
+    color: black;
+    font-size: 20px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.disabled-button {
+    @include button($lightGrey);
+    color: black;
+    font-size: 20px;
+    cursor: not-allowed;
+    color: currentColor;
+    opacity: 0.5;
+    text-decoration: none;
+    width: 80%;
+    margin-top: 20px;
+}
 
 @media #{$media-up} {
+
+ 
 
     table {
         width: 100%;
@@ -81,8 +166,6 @@ body {
         cursor: pointer;
       }
 
-      
-
     .main-container {
         display: flex;
     }
@@ -101,9 +184,18 @@ body {
         }
     }
 
+    .table-products-container {
+        overflow-y: auto;
+        height: 100%;
+    }
+
+    .icon-size{
+        height: 30px;
+        width: auto;
+    }
+
     .order-overview-card {
-        display: flex;
-        justify-content: center;
+        display: block;
         width: 40%;
     }
 

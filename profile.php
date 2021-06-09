@@ -173,12 +173,12 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
             <section>
 
                 <div class="user-general-informations-wrapper">
-                    <div class="title-container">
+                    <div class="title-container long-title-size cell-margin">
                         <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
                         <h2>Informations générales</h2>
                     </div>
 
-                    <div class="user-general-informations-container">
+                    <div class="user-general-informations-container pink-borders cell-margin cell-padding">
                         <div class="line">
                             <p>Nom:</p>
                             <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
@@ -224,12 +224,12 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                 </div>
 
                 <div class="user-contact-informations-wrapper">
-                        <div class="title-container">
+                        <div class="title-container cell-margin">
                             <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
                             <h2>Coordonnées</h2>
                         </div>
 
-                    <div class="user-contact-informations-container">
+                    <div class="user-contact-informations-container blue-borders cell-margin cell-padding">
 
                         <div class="line">
                             <p>Adresse de livraison:</p>
@@ -260,13 +260,13 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
         </section>
 
         <section>
-            <div class="user-contact-informations-wrapper">
-                <div class="title-container">
+            <div class="user-contact-informations-wrapper orders-cell-size">
+                <div class="title-container cell-margin">
                     <img src="ressources/images/icons/profile-cart-icon.png" alt="informations-icon">
                     <h2>Commandes</h2>
                 </div>
 
-                <div class="user-contact-informations-container">
+                <div class="user-contact-informations-container  orders-cell-size orange-borders cell-margin">
                   <table>
                       <thead>
                           <tr>
@@ -283,39 +283,33 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                 </div>   
             </div>
 
-            <div class="user-contact-informations-wrapper">
-                <div class="title-container">
+            <div class="user-contact-informations-wrapper wishlist-cell-size">
+                <div class="title-container medium-title-size cell-margin">
                     <img src="ressources/images/icons/profile-wishlist-heart-icon.png" alt="informations-icon">
                     <h2>Liste de souhaits</h2>
                 </div>
 
-                <div class="user-contact-informations-container">
+                <div class="user-contact-informations-container green-borders cell-margin">
                   <table>
                       <thead>
                           <tr>
                               <th>Produit</th> 
                           </tr>
                       </thead>
-
                       <tbody>
-
-                      <?php 
-                      
-
-                      foreach($wishlistProducts as $wishlistProduct) {
-                        echo "<tr>";
-                        echo "<td>".$wishlistProduct->getProductName()."</td>";
-                        echo "<td>";
-                        echo "<form action=\"#\" method=\"POST\">";
-                        echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
-                        echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
-                        echo "</form>";
-                        echo "</td>";
-                        echo "</tr>";
-                      }
-
-                      ?>
-                          
+                        <?php 
+                            foreach($wishlistProducts as $wishlistProduct) {
+                                echo "<tr>";
+                                echo "<td>".$wishlistProduct->getProductName()."</td>";
+                                echo "<td>";
+                                echo "<form action=\"#\" method=\"POST\">";
+                                echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
+                                echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
+                                echo "</form>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                        ?> 
                       </tbody>
                   </table>
                 </div>   

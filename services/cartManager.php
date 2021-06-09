@@ -48,6 +48,11 @@ class CartManager {
         $result = PDOManager::execute($sql);
     }
 
+    public static function deleteAllProductsFromCart($cartId){
+        $sql = "DELETE FROM `cartsproducts` WHERE cartId = ".$cartId."";
+        PDOManager::execute($sql);
+    }
+
     public static function updateProductQuantityFromCart($cartId, $productId, $quantity) {
         $sql = "UPDATE `cartsproducts` SET quantity = ".$quantity."
         WHERE cartId = '".$cartId."' AND productId = '".$productId."'";

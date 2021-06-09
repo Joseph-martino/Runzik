@@ -45,7 +45,7 @@
                             for($i = 0; $i < count($types); $i++) {
                                 $type = $types[$i];
                                 echo "
-                                <li><a href=\"shop.php?product=".$type->type."\">".$type->pluralName."</a></li>
+                                <li><a class=\"dropdown-link\" href=\"shop.php?product=".$type->type."\">".$type->pluralName."</a></li>
                                 ";
                                 }
                         ?>
@@ -62,7 +62,6 @@
                     alt="login icon"></a>
 
             <?php else: ?>
-                <p>Bonjour <?php echo $_SESSION["user"]["pseudo"]?></p>
                 <a href="profile.php"><img class="menu-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
                 <a href="logout.php"><img class="menu-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
             <?php endif;?>

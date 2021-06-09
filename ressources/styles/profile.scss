@@ -6,6 +6,7 @@
 @import "common/buttons";
 @import "common/mixins";
 @import "common/responsive";
+@import "common/scrollbar";
 
 html, body {
     background: rgb(34,32,32);
@@ -13,66 +14,137 @@ html, body {
     color: $white;
 }
 
-.horizontal-separator {
-    background-color: $lightYellow;
-    height: 2px;
-    margin: 5px;
-}
-
-.top-line {
-    width: 85%;
-}
-
-.middle-line {
-    width: 80%;
-}
-
-.bottom-line {
-    width: 75%;
-}
-
 .sections-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-section {
-    width: 50%;
+.pink-borders {
+    border: 1px solid $pink;
+}
+
+.blue-borders {
+    border: 1px solid $blue;
+}
+
+.orange-borders {
+    border: 1px solid $lightYellow;
+}
+
+.green-borders {
+    border: 1px solid $lightGreen;
 }
 
 .user-general-informations-wrapper {
-    display: flex;
-    flex-direction: column;
+    padding: 30px;
 }
 
 .title-container {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 17%;
 }
 
-.user-general-informations-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid $pink;
+.long-title-size {
+    width: 27%;
 }
 
-.line {
-    display: flex;
+.medium-title-size {
+    width: 22%;
 }
 
-.modify-background {
-    background-color: transparent;
-}
 
-.user-contact-informations-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid $blue;
-}
 
-table {
-    border-collapse: collapse;
-
-    thead {
-        background-color: white;
-        color: black;
+@media #{$media-up} {
+    .horizontal-separator {
+        background-color: $lightYellow;
+        height: 2px;
+        margin: 5px;
     }
+    
+    .top-line {
+        width: 85%;
+    }
+    
+    .middle-line {
+        width: 80%;
+    }
+    
+    .bottom-line {
+        width: 75%;
+    }
+    
+    .sections-container {
+        display: flex;
+        flex-direction: row;
+        align-items: unset;
+        justify-content: space-around;
+        margin: 20px;
+    }
+    
+    section {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .user-general-informations-wrapper {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .user-general-informations-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .line {
+        display: flex;
+    }
+    
+    .modify-background {
+        background-color: transparent;
+    }
+    
+    .user-contact-informations-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    table {
+        border-collapse: collapse;
+    
+        thead {
+            background-color: white;
+            color: black;
+        }
+    }
+    
+    .cell-margin {
+        margin: 15px;
+    }
+    
+    .cell-padding{
+        padding: 20px;
+    }
+    
+    .orders-cell-size {
+        height: 61%;
+        overflow-y: auto;
+    }
+    
+    .wishlist-cell-size {
+        height: 32%;
+        overflow-y: auto;
+    }
+    
+    .orders-cell-size {
+        height: 72%;
+    }
+
+
 }
+

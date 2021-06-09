@@ -7,8 +7,7 @@
 @import "common/buttons";
 @import "common/mixins";
 @import "common/responsive";
-
-
+@import "common/scrollbar";
 
 html,
 body {
@@ -305,5 +304,6 @@ body {
   // .armband {
   //   width: 100%;
   // }
+
   
 }
