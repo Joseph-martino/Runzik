@@ -12,12 +12,41 @@ html, body {
     background: rgb(34,32,32);
     background: linear-gradient(142deg, rgba(34,32,32,1) 35%, rgba(65,59,59,1) 100%);
     color: $white;
+    font-size: 11px;
+}
+
+.profile-header {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.horizontal-separator {
+    background-color: $lightYellow;
+    height: 2px;
+    margin: 5px;
+}
+
+.top-line {
+    width: 85%;
+}
+
+.middle-line {
+    width: 80%;
+}
+
+.bottom-line {
+    width: 75%;
 }
 
 .sections-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.long-title-size {
+    width: 50%;
 }
 
 .pink-borders {
@@ -36,8 +65,36 @@ html, body {
     border: 1px solid $lightGreen;
 }
 
-.user-general-informations-wrapper {
+.mobile-sections-margins {
+    margin: 20px 0 20px 0;
+}
+
+.cell-margin {
+    margin: 0 0 15px 0;
+}
+
+.user-general-informations-container {
     padding: 30px;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+        display: flex;
+        //justify-content: flex-end;
+        //height: 30px;
+        align-items: center;
+        width: 130px;
+        justify-content: flex-end;
+    }
+}
+
+.input-field {
+    width: 50%;
+    margin: 0 5px 0 5px;
 }
 
 .title-container {
@@ -48,33 +105,47 @@ html, body {
 }
 
 .long-title-size {
-    width: 27%;
+    width: 50%;
 }
 
 .medium-title-size {
-    width: 22%;
+    width: 40%;
+}
+
+.desktop-delete-account-form {
+    display: none;
 }
 
 
 
 @media #{$media-up} {
-    .horizontal-separator {
-        background-color: $lightYellow;
-        height: 2px;
-        margin: 5px;
+
+    html, body {
+        font-size: 16px;
+    }
+
+    .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .profile-header {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+
+    .long-title-size {
+        width: 28%;
+    }
+
+    .medium-title-size {
+        width: 22%;
     }
     
-    .top-line {
-        width: 85%;
-    }
-    
-    .middle-line {
-        width: 80%;
-    }
-    
-    .bottom-line {
-        width: 75%;
-    }
     
     .sections-container {
         display: flex;
@@ -95,14 +166,29 @@ html, body {
         display: flex;
         flex-direction: column;
     }
+
+    .mobile-sections-margins {
+        margin: 0;
+    }
     
     .user-general-informations-container {
         display: flex;
         flex-direction: column;
+        padding: 0;
     }
     
     .line {
         display: flex;
+        justify-content: space-between;
+        form {
+            display: flex;
+            //justify-content: flex-end;
+            //height: 30px;
+        }
+    }
+
+    .input-field {
+        width: auto;
     }
     
     .modify-background {
@@ -145,6 +231,25 @@ html, body {
         height: 72%;
     }
 
+    .mobile-delete-account-form {
+        display: none;
+    }
 
+    .desktop-delete-account-form {
+        display: block;
+    }
+
+    .delete-button {
+        @include button($redButtonColour);
+        cursor: pointer;
+        background-color: #cd2222;
+        color: white;
+        padding: 5px 0;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 30%;
+        font-size: 14px;
+        margin: 0 15px 0 15px;
+    }
 }
 

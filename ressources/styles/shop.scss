@@ -138,6 +138,7 @@ body {
 .product-name {
   font-weight: bold;
   margin: 11px;
+  font-size: 10px;
 }
 
 .product-price {
@@ -269,6 +270,14 @@ body {
     justify-content: center;
     border-radius: 20px;
     justify-self: center;
+  }
+
+  .product-name {
+    font-size: 14px;
+  }
+
+  .mobile-product-card {
+    display: none;
   }
 
   .add-to-wishlist-form-container {
