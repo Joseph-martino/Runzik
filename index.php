@@ -16,6 +16,9 @@ session_start();
     </head>
 
     <body>
+        <?php
+            include(ROOT_PATH ."layout/mobileHeader.php");
+        ?>
         <section class="banner-container"> 
             <img class="main-page-banner" src="ressources/images/banners/main-page-banner.png"
                 alt=" main page banner">

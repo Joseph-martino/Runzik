@@ -1,0 +1,112 @@
+@import "colours";
+@import "buttons";
+@import "responsive";
+
+.desktop-menu {
+  display: none;
+}
+
+
+.main-page-banner {
+  width: 100%;
+}
+
+.mobile-header {
+  background: $black-background;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  align-items: center;
+  padding-left: 10%;
+  box-sizing: border-box;
+  //position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.mobile-logo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.runzik-logo {
+  width: 67px;
+  height: 34px;
+}
+
+.cart-link {
+  @extend %button;
+  margin-right: 20px;
+  margin-left: auto;
+}
+
+.cart-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.login-icon {
+  width: 27px;
+  height: auto;
+}
+
+.profile-icon {
+  width: 30px;
+  height: auto;
+  margin: 4px;
+}
+
+.logout-icon {
+  width: 22px;
+  height: auto;
+  margin: 4px;
+}
+
+
+.mobile-menu {
+  width: 100%;
+  background-color: $black-background;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  .menu-top-line {
+    width: 75%;
+    height: 3px;
+    margin: 5px auto;
+    background-color: $lightGrey;
+  }
+}
+
+.bottom-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mobile-menu-icon {
+  width: 30px;
+  height: 25px;
+}
+
+@media #{$media-up} {
+
+    .mobile-header {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .desktop-menu {
+      display: flex;
+    }
+
+
+
+}

@@ -159,6 +159,7 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
 
         <?php
             include(ROOT_PATH ."layout/header.php");
+            include(ROOT_PATH ."layout/mobileHeader.php");
         ?>
 
         <div class="main-container">

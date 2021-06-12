@@ -5,7 +5,7 @@
 ?>
 
 
-<div class="mobile-header">
+<!-- <div class="mobile-header">
     <img class="runzik-logo" src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo">
     <a class="cart-link" href="cart.php"><img class="cart-icon" src="ressources/images/icons/cart-icon.png"
             alt="cart icon"></a>
@@ -27,7 +27,7 @@
         <a class="account-link" href="account.php"><img class="mobile-menu-icon"
                 src="ressources/images/icons/my-account-icon.png" alt="account icon"></a>
     </div>
-</div>
+</div> -->
 
     <div class="desktop-menu">
         <div class="logo-container">

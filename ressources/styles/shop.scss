@@ -1,6 +1,7 @@
 @import "common/fonts";
 @import "common/reset";
 @import "common/header";
+@import "common/mobileHeader";
 @import "common/footer";
 @import "common/colours";
 @import "common/fonts";
@@ -146,11 +147,8 @@ body {
 }
 
 .red-button {
- display: none;
-}
-
-.button-content {
-  display: none;
+  @include button($redButtonColour);
+  font-size: 12px;
 }
 
 @media #{$media-up} {
@@ -292,8 +290,8 @@ body {
   }
 
   .red-button {
-    display: block;
     @include button($redButtonColour);
+    font-size: 25px;
    }
 
    .button-content {

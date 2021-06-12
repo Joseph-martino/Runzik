@@ -10,127 +10,104 @@ session_start();
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="ressources/css/brand.css" type="text/css" />
+        <link rel="stylesheet" href="ressources/css/runzik.css" type="text/css" />
         <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
         <title>Runzik</title>
     </head>
 
     <body>
         <?php
-        include(ROOT_PATH ."layout/header.php");
+        include(ROOT_PATH ."layout/mobileHeader.php");
         ?>
 
         <div class="banner-container">
             <img class="brand-banner" src="ressources/images/banners/brand-banner.png" alt="brand-banner">
-            <h1 class="main-title">Comment <span class="orange-highlight">l'aventure</span> à <span
-                    class="orange-highlight">
-                    commencé</span></h1>
+            <h1 class="main-title">Comment <span class="orange-highlight">l'aventure</span> à 
+                <span class="orange-highlight"> commencé</span>
+            </h1>
+            <div class="header-container">
+                <?php
+                    include(ROOT_PATH ."layout/header.php");
+                ?>
+            </div>
         </div>
 
-
-        <section class="first-part">
-            <div class="first-section">
-                <div class="yellow-side-line"></div>
-
-                <div class="content-container">
-                    <h2 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit
-                    </h2>
-
-                    <div class="text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed.
-                            Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie
-                            volutpat.
-                            Sagittis,
-                            volutpat nunc justo pulvinar tincidunt duis. Sit nunc sed vulputate aliquam, a blandit
-                            magna.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed.
-                            Amet, a lorem augue aliquam commodo turpis id.<br />
-
-                            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed.
-                            Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie
-                            volutpat.
-                            Sagittis,
-                            volutpat nunc justo pulvinar tincidunt duis. Sit nunc sed vulputate aliquam, a blandit
-                            magna.<br />
-
-                            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed.
-                            Amet, a lorem augue aliquam commodo turpis id.
-                        </p>
-                    </div>
-                </div>
+        <div class="informations-panels-container">
+            <div class="information-panel">
+                <h2>Lorem ipsum dolor</h2>
+                <img class="panel-icon" src="ressources/images//icons/brand-icon.png">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="yellow-box"></div>
-            <img class="man-watch-picture" src="ressources/images/photos/man-using-watch.png" alt="brand-banner">
+
+            <div class="information-panel">
+                <h2>Lorem ipsum dolor</h2>
+                <img class="panel-icon" src="ressources/images//icons/brand-icon.png">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+
+            <div class="information-panel">
+                <h2>Lorem ipsum dolor</h2>
+                <img class="panel-icon" src="ressources/images//icons/brand-icon.png">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <section class="first-section-container">
+            <div class="first-section-text-container">
+                <h2>Lorem <span class="pink-highlight">ipsum</span> dolor sit amet, consectetur adipiscing elit. Id lacus 
+                <span class="pink-highlight">mi blandit.</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus tincidunt sed. 
+                    Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie volutpat. Sagittis, 
+                    volutpat nunc justo pulvinar tincidunt duis. Sit nunc sed vulputate aliquam, a blandit magna.Lorem ipsum 
+                    dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus tincidunt sed. Amet, a lorem augue 
+                    aliquam commodo turpis id. Dictum non aliquam lobortis molestie volutpat. Sagittis, volutpat nunc justo pulvinar 
+                    tincidunt duis. Sit nunc sed vulputate aliquam, a blandit magna.
+                </p>
+            </div>
+            <div>
+                <img class="character-picture" src="ressources/images/photos/man-using-watch.png" alt="man who is looking his watch">
+                <img class="smoke-effect-picture" src="ressources/images/photos/smoke-effect.png" alt="smoke effect">
+            </div>
         </section>
 
-
-        <section class="second-part">
-            <div class="second-section">
-                <div class="white-side-line"></div>
-                <div class="content-container">
-                    <h2 class="subtitle">Lorem ipsum dolor sit amet</h2>
-                    <div class="text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed. Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie
-                            volutpat. Sagittis, volutpat nunc justo<br />
-
-                            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed. Amet, a lorem augue aliquam commodo turpis id.<br />
-
-                            <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed. Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie
-                            volutpat. Sagittis, volutpat nunc justo<br />
-
-                            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus
-                            tincidunt
-                            sed. Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam lobortis molestie
-                            volutpat. Sagittis, volutpat nunc justo pulvinar tincidunt duis. Sit nunc sed vulputate
-                            aliquam,
-                            a blandit magna.<br />
-
-                            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                    </div>
-                </div>
+        <section class="first-section-container">
+            <div>
+                <img src="ressources/images/photos/man-using-watch.png" alt="man who is looking his watch">
+                <img src="ressources/images/photos/smoke-effect.png" alt="smoke effect">
             </div>
-            <img class="running-woman-picture" src="ressources/images/photos/woman-running.png">
+
+            <div>
+                <h2>Lorem ipsum</h2>
+                <img src="ressources/images/photos/smoke-effect.png" alt="smoke effect">
+            </div>
+
+            <div>
+                <img src="ressources/images/photos/man-using-watch.png" alt="man who is looking his watch">
+                <img src="ressources/images/photos/smoke-effect.png" alt="smoke effect">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus 
+                    tincidunt sed. Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam 
+                    lobortis molestie volutpat. Sagittis, volutpat nunc justo pulvinar tincidunt duis. 
+                    Sit nunc sed vulputate aliquam, a blandit magna.
+                </p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandit faucibus 
+                    tincidunt sed. Amet, a lorem augue aliquam commodo turpis id. Dictum non aliquam 
+                    lobortis molestie volutpat. Sagittis, volutpat nunc justo pulvinar tincidunt duis. 
+                    Sit nunc sed vulputate aliquam, a blandit magna.
+                </p>
+            </div>
         </section>
 
         <section>
-            <div class="third-section">
-                <h2 class="subtitle">Lorem ipsum dolor sit amet</h2>
-                <div class="character-container">
-                    <img class="character-picture" src="ressources/images/photos/character.png">
-                    <img class="character-picture" src="ressources/images/photos/character.png">
-                </div>
-
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id lacus mi blandi</p>
+            <div>
+                <img src="ressources/images/photos/man-using-watch.png" alt="man who is looking his watch">
+                <img src="ressources/images/photos/smoke-effect.png" alt="smoke effect">
             </div>
         </section>
-
-
         <?php
         include(ROOT_PATH ."layout/footer.php");
         ?>
-
-
-
-
-
-
-
-
-
     </body>
-
 </html>

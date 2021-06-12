@@ -28,7 +28,7 @@ session_start();
 
             $selectedBrands = [];
             if(isset($_POST["brand-products"])) {
-                 $selectedBrands = $_POST["brand-products"];
+                $selectedBrands = $_POST["brand-products"];
             }
 
             $wishList = [];
@@ -53,6 +53,10 @@ session_start();
             $brands = BrandManager::getBrands();  
             $currentProduct = ProductManager::getProducts($selectedProduct, $selectedBrands, $sortDesc);
             
+        ?>
+
+        <?php
+            include(ROOT_PATH ."layout/mobileHeader.php");
         ?>
 
 
@@ -113,7 +117,7 @@ session_start();
                         $productKey = array_search($productId, $wishList);
                         
                         $productDisplayClass = $productKey !== false ? "wishlist-selected" : "wishlist-unselected";
-                       
+                
                         echo "<div class=\"product-card\">
                         <div class=\"add-to-wishlist-form-container\">
                             <form action=\"#\" method=\"POST\">
@@ -132,7 +136,7 @@ session_start();
                         </div>
                         <h2 class=\"product-name\">".$currentItem->getName()."</h2>
                         <p class=\"product-price\">".$currentItem->getPrice()."€</p>
-                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=".$currentItem->getId()."\"><p class=\"button-content\">Découvrir</p></a>
+                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=".$currentItem->getId()."\">Découvrir</p></a>
                     </div>";
                     }
                 ?>

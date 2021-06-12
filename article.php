@@ -38,21 +38,54 @@ session_start();
            }
         ?>
 
+        <?php
+            include(ROOT_PATH ."layout/mobileHeader.php");
+        ?>
+
         <div class="mobile-banner-container">
-            <div class="switch-container">
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+            <form action="#" method="POST">
+            <?php
+                $mobileColour1 = $currentProduct->items->getColour1();
+                $mobileColour2 = $currentProduct->items->getColour2();
+             ?>
+
+                <div class="switch-container">
+                    <label class="switch">
+                        <input id="mobile-colour-checkbox" type="checkbox" name="mobile-product-colour" value="">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p id="mobile-colour-text"><?php echo $mobileColour1;?></p>
+            </form>
+
             <img class="mobile-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-mobile-banner-background" alt="mobile-banner">
-            <img class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-mobile-banner".$currentProduct->items->getId() ?>" alt="<?php echo $currentProduct->infos->type ?>-banner">
+            <img id = "mobile-banner-product" class="mobile-<?php echo $currentProduct->infos->type ?>-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type."-mobile-banner".$currentProduct->items->getId() ?>" alt="<?php echo $currentProduct->infos->type ?>-banner">
             <div class="mobile-banner-title">
                 <p class="product-name"><?php echo $currentProduct->items->getName() ?></p>
                 <p class="product-description">Profitez pleinement de vos sorties sportives</p>
                 <p class="product-price"><?php echo $currentProduct->items->getPrice() ?>€</p>
             </div>   
+            <div class="mobile-header-container">
+            </div>
         </div>
+
+        <script>
+                const productType = "<?php echo $selectedProduct ?>";
+                const mobileProductId = "<?php echo $selectedProductId ?>";
+                let mobileProductBannerPicture = document.getElementById("mobile-banner-product");
+                let mobileColourtext = document.getElementById("mobile-colour-text");
+
+                const colourCheckbox = document.querySelector("input[name=mobile-product-colour]");
+                colourCheckbox.addEventListener("change", function() {
+                    if(!this.checked) {
+                        mobileColourtext.innerHTML = "<?php echo $mobileColour1; ?>";
+                        mobileProductBannerPicture.src = "ressources/images/banners/" + productType + "-mobile-banner" + mobileProductId + ".png";
+                    } else {
+                        mobileColourtext.innerHTML = "<?php echo $mobileColour2; ?>";
+                        mobileProductBannerPicture.src = "ressources/images/banners/" + productType + "-mobile-banner" + mobileProductId + "-colour2.png";
+                    }
+                });
+            </script>
         
         <div class="banner-container">
             <img class="desktop-page-banner" src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-banner-background" alt="product banner">
@@ -115,7 +148,7 @@ session_start();
                                 // mettre le cartId en paramètre
                                 // CartManager::addProductToCart($selectedProductId, $_POST["product-quantity"]);
                             } else {
-                                echo "Connectez-vous";
+                                echo "<p>Connectez-vous</p>";
                             }  
                         }
                     ?>   
@@ -145,7 +178,6 @@ session_start();
                     });
                     });
                 }
-       
         </script> 
 
         <section class="product-informations-container">
@@ -228,6 +260,49 @@ session_start();
                 }
                 ?>
             </div>
+
+            <div class="mobile-product-features-container">
+                <?php
+                $cardClassSwitch = true;
+                for($i = 0; $i < 6; $i++){
+                    $featureName;
+                    $numberBox = "odd-numbers-box";
+                                switch ($i) {
+                                    case 0:
+                                        $featureName ="phone";
+                                        break;
+                                    case 1: 
+                                        $featureName ="music";
+                                        break;
+                                    case 2:
+                                        $featureName ="bluetooth";
+                                        break;
+                                    case 3:
+                                        $featureName ="heart-with-pulse";
+                                        break;
+                                    case 4: 
+                                        $featureName ="meteo";
+                                        break;
+                                    case 5:
+                                        $featureName ="location";
+                                    break;
+                                }
+                                
+                                if($cardClassSwitch) {
+                                    $numberBox = "even-numbers-box";
+                                }
+
+                                $cardClassSwitch = !$cardClassSwitch;
+                                
+                            echo "<div class=\"feature-container ".$numberBox."\">
+                                    <img class=\"feature-icon\" src=\"ressources/images/icons/".$featureName."-icon.png\" alt=\"".$featureName." icon\">
+                                    <h3>Lorem ipsum</h3>
+                                    <p class=\"white-text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida venenatis sit donec parturient neque at tempus. 
+                                    Eget felis lorem cursus dignissim id at facilisis enim.</p>
+                                </div>";
+                }
+                ?>
+            </div>
         </section>
 
         <img class="second-banner"src="ressources/images/banners/<?php echo $currentProduct->infos->type ?>-article-picture.png" alt="<?php echo $currentProduct->infos->type ?>">
@@ -248,14 +323,12 @@ session_start();
                 </p>
                 </div>
                <div class="desktop-pictures-container">
-               <div class="technology-pictures-container">
-                    <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
-                    <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
-                    <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
-                </div>
-
+                    <div class="technology-pictures-container">
+                        <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
+                        <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
+                        <img src="ressources/images/photos/watching-<?php echo $currentProduct->infos->type ?>-man.png" alt="watching-<?php echo $currentProduct->infos->type ?>-man">
+                    </div>
                </div>
-            
             </div>
             <img class="product-picture"src="ressources/images/products/<?php echo $currentProduct->infos->pluralName ?>.png" alt="<?php echo $currentProduct->infos->pluralName ?>">
         </section>
@@ -263,14 +336,32 @@ session_start();
             include(ROOT_PATH ."layout/footer.php");
         ?>
 
-        <!-- <div class="mobile-add-to-cart-menu">
-            <input class="mobile-quantity-input-container" type="number" id="quantity" name="product-quantity">
-            <label for="quantity"></label>
-                   
-            <div class="mobile-add-to-cart-button-container">
-            <input class="blue-button" type="submit" value="Ajouter au panier">
+        <div class="mobile-add-to-cart-menu">
+            <form action="#" method = "POST">
+                <div class="mobile-quantity-input-container">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                    <input class="mobile-quantity-input" type="number" id="quantity" name="mobile-product-quantity" min="1" value="1">
+                    <label for="quantity"></label> 
+                    <input type="hidden" name="mobile-add-to-cart" value="true">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                    <button class="mobile-add-to-cart" type="submit">Ajouter au panier</button>
+                </div>
+                <!-- <div class="mobile-add-to-cart-button-container">
+                    <button class="mobile-add-to-cart" type="submit">Ajouter au panier</button>
+                </div> -->
+            </form>
+        </div>
 
-        </div> -->
+        <?php
+            if(isset($_POST["mobile-add-to-cart"]) && !empty($_POST["mobile-add-to-cart"])) {
+                if(isset($_SESSION["user"])) {
+                    CartManager::addProductToCart($cartId, $selectedProductId, $_POST["mobile-product-quantity"]);
+                    } else {
+                echo "Connectez-vous";
+            }  
+        }
+        ?> 
+
         <script type="text/javascript" src="ressources/scripts/article.js"></script>
     </body>
 </html>

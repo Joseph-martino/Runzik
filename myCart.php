@@ -29,6 +29,7 @@
 <body>
     <?php
         include( ROOT_PATH . "layout/header.php");
+        include( ROOT_PATH ."layout/mobileHeader.php");
     ?>
 
     <div class="main-container">
@@ -176,8 +177,10 @@
                                 <p>".$cartProduct->getProductPrice()."€</p>
 
                                 <form class=\"quantities-form\" action=\"#\" method=\"POST\">
+                                <button onclick=\"this.parentNode.querySelector('input[type=number]').stepDown()\">-</button>
                                     <input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">
                                     <input type=\"number\" name=\"product-quantity\" min=\"0\" value=\"".$cartProduct->getQuantity()."\" onChange=\"submit()\">
+                                    <button onclick=\"this.parentNode.querySelector('input[type=number]').stepUp()\">+</button>
                                 </form>
 
                                 <form action=\"#\" method=\"POST\">

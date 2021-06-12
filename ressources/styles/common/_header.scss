@@ -2,71 +2,75 @@
 @import "buttons";
 @import "responsive";
 
+// .desktop-menu {
+//   display: none;
+// }
+
+
+// .main-page-banner {
+//   width: 100%;
+// }
+
+// .mobile-header {
+//   background: $black-background;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   padding: 10px 0;
+//   align-items: center;
+//   padding-left: 10%;
+//   box-sizing: border-box;
+
+//   // position: absolute;
+//   //   top: 0;
+//   //   left: 0;
+// }
+
+// .runzik-logo {
+//   width: 67px;
+//   height: 34px;
+//   margin-left: auto;
+// }
+
+// .cart-link {
+//   @extend %button;
+//   margin-right: 20px;
+//   margin-left: auto;
+// }
+
+// .cart-icon {
+//   width: 20px;
+//   height: 20px;
+// }
+
+// .mobile-menu {
+//   width: 100%;
+//   background-color: $black-background;
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   .menu-top-line {
+//     width: 75%;
+//     height: 3px;
+//     margin: 5px auto;
+//     background-color: $lightGrey;
+//   }
+// }
+
+// .bottom-menu {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+// .mobile-menu-icon {
+//   width: 30px;
+//   height: 25px;
+// }
+
 .desktop-menu {
   display: none;
-}
-
-
-.main-page-banner {
-  width: 100%;
-}
-
-.mobile-header {
-  background: $black-background;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  align-items: center;
-  padding-left: 10%;
-  box-sizing: border-box;
-
-  // position: absolute;
-  //   top: 0;
-  //   left: 0;
-}
-
-.runzik-logo {
-  width: 67px;
-  height: 34px;
-  margin-left: auto;
-}
-
-.cart-link {
-  @extend %button;
-  margin-right: 20px;
-  margin-left: auto;
-}
-
-.cart-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.mobile-menu {
-  width: 100%;
-  background-color: $black-background;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  .menu-top-line {
-    width: 75%;
-    height: 3px;
-    margin: 5px auto;
-    background-color: $lightGrey;
-  }
-}
-
-.bottom-menu {
-  display: flex;
-  justify-content: space-around;
-}
-
-.mobile-menu-icon {
-  width: 30px;
-  height: 25px;
 }
 
 @media #{$media-up} {
