@@ -18,6 +18,7 @@ session_start();
 
         <?php
             include(ROOT_PATH ."layout/header.php");
+            include(ROOT_PATH ."layout/mobileHeader.php");
         ?>
     
         <div class="main-container">

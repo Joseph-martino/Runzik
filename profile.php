@@ -290,7 +290,7 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                         </div>
 
                         <div class="user-contact-informations-container green-borders cell-margin">
-                        <table>
+                        <table class="wishlist-table">
                             <thead>
                                 <tr>
                                     <th>Produit</th> 

@@ -42,8 +42,5 @@ $types = ProductTypeManager::getProductTypes();
 
         <a class="contact-link" href="contact.php"><img class="mobile-menu-icon"
                 src="ressources/images/icons/contact-icon.png" alt="contact-icon"></a>
-
-        <a class="more-links" href="#"><img class="mobile-menu-icon"
-                src="ressources/images/icons/mobile-menu-hamburger-icon.png" alt="more link icon"></a>
-    </div>
+        </div>
 </div>
