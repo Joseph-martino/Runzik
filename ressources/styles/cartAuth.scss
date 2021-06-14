@@ -1,0 +1,155 @@
+@import "common/reset";
+@import "common/header";
+@import "common/mobileHeader";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+@import "common/scrollbar";
+
+html, body {
+    background: rgb(34,32,32);
+    background: linear-gradient(142deg, rgba(34,32,32,1) 35%, rgba(65,59,59,1) 100%);
+    color: $white;
+    font-size: 11px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.horizontal-separator {
+    height: 1px;
+    background-color: $lightYellow;
+    margin: 5px 0 5px 0;
+}
+
+.top-line {
+    width: 73%;
+}
+
+.middle-line {
+    width: 79%;
+}
+
+.bottom-line {
+    width: 85%;
+}
+
+.title-container {
+    display: flex;
+}
+
+.blue-borders {
+    border: 1px solid $blue;
+}
+
+.pink-borders {
+    border: 1px solid $pink;
+}
+
+.user-infos-container {
+    margin: 15px 0 15px 0;
+    padding: 15px;
+}
+
+.line {
+    display: flex;
+}
+
+.mobile-input-line {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-validation-button {
+    @include button($orange);
+    width: 70%;
+    font-size: 12px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 15px 0;
+}
+
+
+.right-panel {
+    display: none;
+}
+
+
+
+@media #{$media-up} {
+
+    html, body {
+        font-size: 16px;
+    }
+
+    section {
+        width: 40%;
+    }
+
+    .main-container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        padding: 0;
+    }
+
+    .left-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-header {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 10px 0;
+    }
+
+    .title-container {
+        display: flex;
+    }
+    
+    .line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mobile-input-line {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .update-information-button {
+        background-color: transparent;
+    }
+
+    form {
+        display: block;
+    }
+
+    .order-validation-button {
+        @include button($orange);
+        font-size: 16px;
+        width: 30%;
+    }
+
+    .right-panel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 70%;
+        }
+    }
+
+}
+

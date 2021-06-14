@@ -129,8 +129,8 @@
         }
     }
             
-        ?>
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -138,99 +138,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="ressources/css/cartAuth.css" type="text/css"/>
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
+    <title>Validation de ma commande</title>
 </head>
 <body>
     <?php
         include( ROOT_PATH . "layout/header.php");
+        include( ROOT_PATH . "layout/mobileHeader.php");
     ?>
 
-    <div class="sections-container">
-                <section>
+        <div class="main-container">
+            <section class="left-panel">
+                <div class="profile-header">
+                    <h1><?php echo $_SESSION["user"]["pseudo"]?></h1>
+                    <div class="top-line horizontal-separator"></div>
+                    <div class="middle-line horizontal-separator"></div>
+                    <div class="bottom-line horizontal-separator"></div>
+                </div>
 
-                    <div class="user-general-informations-wrapper">
-                        <div class="title-container">
-                            <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
-                            <h2>Informations générales</h2>
-                        </div>
-
-                        <div class="user-general-informations-container">
-                            <div class="line">
-                                <p>Nom:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                            </div>
-
-                            <div class="line">
-                                <p>Prénom:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                            </div>
-
-                            <div class="line">
-                                <p>Pseudo:</p>
-                                <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
-                                <form action="#" method="POST">
-                                    <input type="text" name="username">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="line">
-                                <p>Mot de passe:</p>
-                                <form action="#" method="POST">
-                                    <input type="password" name="password">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="line">
-                                <p>Adresse mail:</p>
-                                <p><?php echo $_SESSION["user"]["email"] ?></p>
-                                <form action="#" method="POST">
-                                <input type="email" name="email">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>  
-                        </div>
+                <div class="user-general-informations-wrapper mobile-sections-margins">
+                    <div class="title-container">
+                        <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
+                        <h2>Informations générales</h2>
                     </div>
 
-                    <div class="user-contact-informations-wrapper">
-                            <div class="title-container">
-                                <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
-                                <h2>Coordonnées</h2>
-                            </div>
+                    <div class="user-infos-container pink-borders">
+                        <div class="line">
+                            <p>Nom:</p>
+                            <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
+                        </div>
 
-                        <div class="user-contact-informations-container">
-
-                            <div class="line">
-                                <p>Adresse de livraison:</p>
-                                <form action="#" method="POST">
-                                    <input type="text" name="adress">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="line">
-                                <p>Numéro de téléphone:</p>
-                                <form action="#" method="POST">
-                                    <input type="text" name="phoneNumber">
-                                    <button class="modify-background" type="submit">
-                                        <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
-                                    </button>
-                                </form>
-                            </div>
+                        <div class="line">
+                            <p>Prénom:</p>
+                            <p><?php echo $_SESSION["user"]["pseudo"] ?></p>
                         </div>
                     </div>
+                </div>
 
-                        
+                <div class="user-contact-informations-wrapper mobile-sections-margins">
+                    <div class="title-container">
+                        <img src="ressources/images/icons/profile-information-icon.png" alt="informations-icon">
+                        <h2>Coordonnées</h2>
+                    </div>
+
+                    <div class="user-infos-container blue-borders">
+
+                        <div class="line mobile-input-line">
+                            <p>Adresse de livraison:</p>
+                            <form action="#" method="POST">
+                                <input class="input-field" type="text" name="adress">
+                                <button class="update-information-button" type="submit">
+                                    <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="line mobile-input-line">
+                            <p>Numéro de téléphone:</p>
+                            <form action="#" method="POST">
+                                <input class="input-field" type="text" name="phoneNumber">
+                                <button class="update-information-button" type="submit">
+                                    <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <form action="#" method="POST"> 
+                        <button class="order-validation-button" type="submit" name="order-validation">Valider la commande</button>
+                    </form>
+                </div>
             </section>
-    
-</body>
+                
+            <section  class="right-panel">
+                <img src="ressources/images/illustrations/order-confirmation-picture.png" alt="order confirmation picture">
+            </section>
+        </div>
+        <?php
+            include(ROOT_PATH ."layout/footer.php");
+        ?>
+    </body>
 </html>

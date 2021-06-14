@@ -4,31 +4,6 @@
     $types = ProductTypeManager::getProductTypes();
 ?>
 
-
-<!-- <div class="mobile-header">
-    <img class="runzik-logo" src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo">
-    <a class="cart-link" href="cart.php"><img class="cart-icon" src="ressources/images/icons/cart-icon.png"
-            alt="cart icon"></a>
-</div>
-
-
-<div class="mobile-menu">
-
-    <div class="menu-top-line"></div>
-    <div class="bottom-menu">
-        <a class="brand-link" href="brand.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/brand-icon.png" alt="brand icon"></a>
-        <a class="wishlist-link" href="account.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/wishlist-icon.png" alt="wishlist icon"></a>
-        <a class="buy-link" href="shop.php?product=watch"><img class="mobile-menu-icon" src="ressources/images/icons/buy-icon.png"
-                alt="buy icon"></a>
-        <a class="contact-link" href="contact.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/contact-icon.png" alt="contact-icon"></a>
-        <a class="account-link" href="account.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/my-account-icon.png" alt="account icon"></a>
-    </div>
-</div> -->
-
     <div class="desktop-menu">
         <div class="logo-container">
             <a href="index.php"><img src="ressources/images/logos/logo-runzik.png" alt="Runzik Logo"></a>
