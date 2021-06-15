@@ -16,19 +16,12 @@ class Authentication {
                         $sql = "SELECT COUNT(*) OCC FROM users WHERE email = '".$email."'";
 
                         $result = PDOManager::fetch($sql);
-                        var_dump($result);
                         if((int)$result["OCC"] >= 1) {
-                            echo "l'adresse existe déjà";
-                            return;
-        
-                        } else {
-                            echo "l'adresse est correcte";
+                            return false;
                         }
                     }
                         
                     if(SELF::isCorrectPassword($password)){
-                        echo "mot de passe correct";
-
                         $pass = password_hash($password, PASSWORD_ARGON2ID);
                         
                         $sql = "INSERT INTO `users` (`username`,`email`, `password`, `isAdmin`) VALUES (:pseudo, :email, '$pass', false)";
@@ -58,17 +51,21 @@ class Authentication {
                             "email" => $email,
                             "isAdmin" => false,
                             "cart" => $cart,
-                            "wishlist" => $wishlist
+                            "wishlist" => $wishlist,
+                            "address" => null,
+                            "phoneNumber" => null
                         ];
                     header("Location: profile.php");
                        echo "Bienvenue ".$_SESSION["user"]["pseudo"];
 
                     } else {
-                        echo "Entrez un mot de passe de 8 à 15 caractères comprenant au moins: une minuscule, une majuscule, un chiffre et un caractère -+!*$@%_";
+                        //echo "Entrez un mot de passe de 8 à 15 caractères comprenant au moins: une minuscule, une majuscule, un chiffre et un caractère -+!*$@%_";
+                        return false;
                     }
         
                 } else {
-                    die("Le formulaire est incomplet");
+                    //die("Le formulaire est incomplet");
+                    return false;
                 }
     }
 
@@ -84,9 +81,10 @@ class Authentication {
                     die ("Ce n'est pas un email");
                 }
 
-                $sql = "SELECT u.id userId, u.username, u.email, u.password, u.isAdmin, c.id cartId, w.id wishlistId,
+                $sql = "SELECT u.id userId, u.username, u.email, u.password, u.isAdmin, a.adress address, a.phoneNumber phoneNumber, c.id cartId, w.id wishlistId,
                 COALESCE(SUM(cp.quantity), 0) quantity 
                 FROM `users` u 
+                LEFT JOIN `addresses` a ON u.adressId = a.id
                 INNER JOIN `carts` c ON u.id = c.userId 
                 INNER JOIN `wishlists` w ON u.id = w.userId 
                 LEFT JOIN `cartsproducts` cp ON c.id = cp.cartId 
@@ -99,17 +97,15 @@ class Authentication {
                         "type" => PDO::PARAM_STR
                     ]
                 ];
- 
+
                 $user = PDOManager::fetch($sql, $parameters);
-                var_dump($parameters);
-                var_dump($user);
                 $cartId = $user["cartId"];
                 $wishlistId = $user["wishlistId"];
+                $address = $user["address"];
+                $phoneNumber = $user["phoneNumber"];
                 $cart = new Cart($cartId);
                 $wishlist = new Wishlist($wishlistId);
-                echo $cartId;
                 $quantity = $user["quantity"];
-               
                 
                 if(!$user){
                     echo "L'utilisateur et/ou le mot de passe est incorrect";
@@ -127,7 +123,9 @@ class Authentication {
                     "isAdmin" => $user["isAdmin"],
                     "quantity" => $quantity,
                     "cart" => $cart,
-                    "wishlist"=> $wishlist    
+                    "wishlist"=> $wishlist,
+                    "address"=> $address,
+                    "phoneNumber" => $phoneNumber  
                 ];
 
                 var_dump($_SESSION["user"]);

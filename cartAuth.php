@@ -59,7 +59,6 @@
     
         if(isset($_POST["phoneNumber"]) && !empty($_POST["phoneNumber"])) {
             if(preg_match("#^0[1-9]([-. ]?[0-9]{2}){4}$#" , $_POST["phoneNumber"])) {
-                 var_dump($_POST["phoneNumber"]);
                 $query = "SELECT a.phoneNumber FROM `addresses` a INNER JOIN `users` u ON u.adressId = a.id WHERE u.id = ".$_SESSION["user"]["id"]."";
                 $phoneNumber = PDOManager::fetch($query);
                 var_dump($phoneNumber);
@@ -81,9 +80,9 @@
                     $statement = $pdo->prepare($query); 
                     $statement->execute();
                 }
+                $_SESSION["user"]["phoneNumber"] = $_POST["phoneNumber"]; 
             } else {
                 echo "numéro de téléphone incorrect";
-               
             }    
         }
     
@@ -94,7 +93,7 @@
                 var_dump($adress);
                 if($adress == null){
                     $pdo = myPDO::getPDO();
-                    $query = "INSERT INTO `addresses` (`adress`) VALUES ('".$_POST["adress"]."')"; 
+                    $query = "INSERT INTO `addresses` (`adress`) VALUES ('".$_POST["adress"]."')"; // faire un bind value
                     $statement = $pdo->prepare($query); 
                     $statement->execute();
                     $id = $pdo->lastInsertId();
@@ -109,7 +108,8 @@
                     $query = "UPDATE addresses a INNER JOIN users u ON a.id = u.adressId SET adress = '".$_POST["adress"]."' WHERE u.id = ".$_SESSION["user"]["id"]."";
                     $statement = $pdo->prepare($query); 
                     $statement->execute();
-                }  
+                }
+                $_SESSION["user"]["address"] = $_POST["adress"];  
         }
     
         if(isset($_POST["delete"])) {
@@ -146,6 +146,7 @@
     <?php
         include( ROOT_PATH . "layout/header.php");
         include( ROOT_PATH . "layout/mobileHeader.php");
+        var_dump($_SESSION["user"]);
     ?>
 
         <div class="main-container">
@@ -187,7 +188,7 @@
                         <div class="line mobile-input-line">
                             <p>Adresse de livraison:</p>
                             <form action="#" method="POST">
-                                <input class="input-field" type="text" name="adress">
+                                <input class="input-field" type="text" name="adress" value="<?php echo $_SESSION["user"]["address"]?>">
                                 <button class="update-information-button" type="submit">
                                     <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
                                 </button>
@@ -197,7 +198,7 @@
                         <div class="line mobile-input-line">
                             <p>Numéro de téléphone:</p>
                             <form action="#" method="POST">
-                                <input class="input-field" type="text" name="phoneNumber">
+                                <input class="input-field" type="text" name="phoneNumber" value="<?php echo $_SESSION["user"]["phoneNumber"]?>">
                                 <button class="update-information-button" type="submit">
                                     <img src="ressources/images/icons/profile-modify-icon.png" alt="informations-icon">
                                 </button>

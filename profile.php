@@ -87,17 +87,17 @@ if(!empty($_POST)) {
                 $statement = $pdo->prepare($query); 
                 $statement->execute();
             }
+
+            $_SESSION["user"]["phoneNumber"] = $_POST["phoneNumber"];
+            
         } else {
             echo "numéro de téléphone incorrect";
-           
         }    
     }
 
     if(isset($_POST["adress"]) && !empty($_POST["adress"])) {
-            var_dump($_POST["adress"]);
             $query = "SELECT a.adress FROM `addresses` a INNER JOIN `users` u ON u.adressId = a.id WHERE u.id = ".$_SESSION["user"]["id"]."";
             $adress = PDOManager::fetch($query);
-            var_dump($adress);
             if($adress == null){
                 $pdo = myPDO::getPDO();
                 $query = "INSERT INTO `addresses` (`adress`) VALUES ('".$_POST["adress"]."')"; 
@@ -115,7 +115,8 @@ if(!empty($_POST)) {
                 $query = "UPDATE addresses a INNER JOIN users u ON a.id = u.adressId SET adress = '".$_POST["adress"]."' WHERE u.id = ".$_SESSION["user"]["id"]."";
                 $statement = $pdo->prepare($query); 
                 $statement->execute();
-            }  
+            } 
+            $_SESSION["user"]["address"] = $_POST["adress"];
     }
 
     if(isset($_POST["delete-user"])) {

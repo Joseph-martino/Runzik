@@ -22,7 +22,7 @@ session_start();
 
         <div class="banner-container">
             <img class="brand-banner" src="ressources/images/banners/brand-banner.png" alt="brand-banner">
-            <h1 class="main-title">Comment <span class="orange-highlight">l'aventure</span> à 
+            <h1 class="main-title">Comment <span class="orange-highlight">l'aventure</span> a 
                 <span class="orange-highlight"> commencé</span>
             </h1>
             <div class="header-container">

@@ -10,10 +10,11 @@
         exit;
     }
 
+    $registerSuccess = true;
     if(!empty($_POST)) {
         switch($_POST["action"]) {
             case "register": 
-                Authentication::register($_POST["nickname"], $_POST["email"], $_POST["password"]);
+                $registerSuccess = Authentication::register($_POST["nickname"], $_POST["email"], $_POST["password"]);
             break;
 
             case "login":
@@ -46,6 +47,11 @@
                         <div class="separator-container">
                             <div class="orange-horizontal-line"></div>
                         </div>
+                        <?php
+                        if(!$registerSuccess) {
+                            echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
+                        }
+                        ?>
                     </div>
 
                     <form action="#" method="POST">
@@ -53,10 +59,10 @@
                         <input type="text" name="nickname" id="pseudo">
 
                         <label for="mail">Adresse email</label>
-                        <input type="email" name="email" id="mail">
+                        <input <?php if(!$registerSuccess) echo "class=\"red-borders\""; ?> type="email" name="email" id="mail">
 
                         <label for="pass">Mot de passe</label>
-                        <input type="password" name="password" id="pass">
+                        <input <?php if(!$registerSuccess) echo "class=\"red-borders\""; ?> type="password" name="password" id="pass">
 
                         <div class="GDPR-verification-container">
                             <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
@@ -83,10 +89,7 @@
                         <img src="ressources/images//icons/register-google-icon.png" alt="Google icon">
                         <img src="ressources/images//icons/register-twitter-icon.png" alt="Twitter icon">
                     </div>
-                </div>
-
-            
-                
+                </div>  
             </section>
 
             <section class="login">
@@ -103,5 +106,8 @@
                 </form>
             </section>
         </div>
+        <?php
+            include(ROOT_PATH ."layout/footer.php");
+        ?>
     </body>
 </html>
