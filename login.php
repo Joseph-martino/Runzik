@@ -11,6 +11,7 @@
     }
 
     $registerSuccess = true;
+    $loginSuccess = true;
     if(!empty($_POST)) {
         switch($_POST["action"]) {
             case "register": 
@@ -18,7 +19,7 @@
             break;
 
             case "login":
-                Authentication::login($_POST["connexion-email"], $_POST["connexion-password"]);
+                $loginSuccess = Authentication::login($_POST["connexion-email"], $_POST["connexion-password"]);
             break;       
         }
     }
@@ -93,12 +94,18 @@
             </section>
 
             <section class="login">
+            <?php
+                        if(!$loginSuccess) {
+                            echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
+                        }
+                        ?>
+                        
                 <form action="#" method="POST">
                     <label for="connexion-mail">Adresse email</label>
-                    <input type="email" name="connexion-email" id="connexion-mail">
+                    <input <?php if(!$loginSuccess) echo "class=\"red-borders\""; ?> type="email" name="connexion-email" id="connexion-mail">
 
                     <label for="connexion-pass">Mot de passe</label>
-                    <input type="password" name ="connexion-password" id="connexion-pass">
+                    <input <?php if(!$loginSuccess) echo "class=\"red-borders\""; ?> type="password" name ="connexion-password" id="connexion-pass">
 
                     <input type="hidden" name="action" value="login">
 

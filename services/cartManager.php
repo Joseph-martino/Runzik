@@ -16,6 +16,7 @@ class CartManager {
             $totalQuantity = $quantity + $quantityFromDB;
             SELF::updateProductQuantity($cartId, $productId, $totalQuantity);    
         }
+        SELF::updateSessionTotalQuantity($cartId);
     }
 
     public static function getCartProducts($cartId) {
@@ -45,20 +46,24 @@ class CartManager {
 
     public static function deleteProductFromCart($cartId, $productId) {
         $sql = "DELETE FROM `cartsproducts` WHERE cartId = ".$cartId." AND productId = ".$productId."";
-        $result = PDOManager::execute($sql);
+        PDOManager::execute($sql);
+        SELF::updateSessionTotalQuantity($cartId);
+        
     }
 
     public static function deleteAllProductsFromCart($cartId){
         $sql = "DELETE FROM `cartsproducts` WHERE cartId = ".$cartId."";
         PDOManager::execute($sql);
+        SELF::updateSessionTotalQuantity($cartId);
     }
 
     public static function updateProductQuantityFromCart($cartId, $productId, $quantity) {
         $sql = "UPDATE `cartsproducts` SET quantity = ".$quantity."
         WHERE cartId = '".$cartId."' AND productId = '".$productId."'";
-        $updateProductQuantity = PDOManager::execute($sql); 
+        PDOManager::execute($sql); 
 
         SELF::deleteFromDBIfQuantityIsNull($cartId, $productId);
+        SELF::updateSessionTotalQuantity($cartId);
     }
 
     public static function calculateShippingCost($price) {
@@ -85,19 +90,32 @@ class CartManager {
     private static function updateProductQuantity($cartId, $productId, $quantity) {
         $sql = "UPDATE `cartsproducts` SET quantity = ".$quantity."
         WHERE cartId = '".$cartId."' AND productId = '".$productId."'";
-        $updateProductQuantity = PDOManager::execute($sql);
+        PDOManager::execute($sql);
+    }
+
+    public static function updateSessionTotalQuantity($cartId) {
+        $_SESSION["user"]["quantity"] = SELF::getCartProductTotalQuantity($cartId);
+    }
+
+
+
+    private static function getCartProductTotalQuantity($cartId){
+        $sql = "SELECT COALESCE(SUM(cp.quantity), 0) totalQuantity 
+        FROM `cartsproducts` cp 
+        WHERE cp.cartId = ".$cartId;
+        $result = PDOManager::fetch($sql);
+        return $result["totalQuantity"];
     }
 
     private static function deleteFromDBIfQuantityIsNull($cartId, $productId) {
         $sql = "DELETE FROM `cartsproducts` WHERE cartId = '".$cartId."' AND productId = '".$productId."' AND quantity = 0";
-        $result = PDOManager::execute($sql);
+        PDOManager::execute($sql);
     }
 
     private static function insertProductIntoCart($cartId, $productId, $quantity) {
         $sql = "INSERT INTO `cartsproducts` (`cartId`, `productId`, `quantity`) 
         VALUES ('$cartId', '$productId', '$quantity')";
-
-        $insertProduct = PDOManager::execute($sql);
+        PDOManager::execute($sql);
     }
 
 

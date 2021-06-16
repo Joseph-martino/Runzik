@@ -34,7 +34,6 @@ session_start();
            $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
            if(isset($_SESSION["user"])){
             $cartId = $_SESSION["user"]["cart"]->getId();
-            //$cartTest = $_SESSION["user"]["cart"];
            }
         ?>
 
@@ -137,6 +136,9 @@ session_start();
                         if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
                             if(isset($_SESSION["user"])) {
                                 CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
+                                // $totalQuantity = CartManager::getTotalProductsQuantity($cartId);
+                                // echo "<p><style> p { color: red }</style>".$totalQuantity."</p>";
+                                // $_SESSION["user"]["quantity"] = $totalQuantity;
                                 //  $test = CartManager::getProductTest($selectedProductId);
                                 //  var_dump($test);
                                 //  $cartTest->addProduct($test);

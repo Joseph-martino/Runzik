@@ -41,6 +41,13 @@
                 <a href="logout.php"><img class="menu-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
             <?php endif;?>
             
-            <a href="myCart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
+            <div class="cart-icon-container">
+                <a href="myCart.php"><img class="menu-icon" src="ressources/images/icons/cart-icon.png" alt="cart icon"></a>
+                <?php 
+                    if(isset($_SESSION["user"], $_SESSION["user"]["quantity"])) {
+                        echo "<span class=\"total-quantity-bubble\">".$_SESSION["user"]["quantity"]."<span>";
+                    }
+                 ?>
+            </div>
         </div>
     </div>

@@ -17,7 +17,7 @@ session_start();
 
     <body>
         <?php
-        include(ROOT_PATH ."layout/mobileHeader.php");
+            include(ROOT_PATH ."layout/mobileHeader.php");
         ?>
 
         <div class="banner-container">

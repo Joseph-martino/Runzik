@@ -53,7 +53,7 @@ session_start();
             <div class="new-trend-release-picture-container">
                 <img src="ressources/images/products/trend-headphone.png" alt="headphone">
             </div>
-            <div class="products-thumbnails-container"><!--probleme largeur-->
+            <div class="products-thumbnails-container">
                 <?php 
                     for($i = 0; $i < 4; $i++) {
 
@@ -62,7 +62,7 @@ session_start();
                 ?>
                 </div>
 
-                <div class="mobile-thumbnails-products-container"><!--probleme largeur-->
+                <div class="mobile-thumbnails-products-container">
                     <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product0.png" alt="release product">
                     <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product1.png" alt="release product">
                     <img class="mobile-new-trend-product-picture"src="ressources/images/products/release-product2.png" alt="release product">
@@ -76,7 +76,7 @@ session_start();
                 <h2>LES DERNIÈRES TENDANCES</h2>
             </div>
             
-            <div class="trends-products-container"><!--probleme largeur-->
+            <div class="trends-products-container">
                 <?php
                     for($i=0; $i < 3; $i++) {
                         echo "<div class=\"trend-product\">

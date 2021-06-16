@@ -7,10 +7,8 @@ class Authentication {
 
     public static function register($nickname, $email, $password){
         if(isset($nickname, $email, $password)
-                && !empty($nickname) && !empty($email) && !empty($password)
-                ) {
-                    $pseudo = strip_tags($nickname);
-                  
+            && !empty($nickname) && !empty($email) && !empty($password)) {
+                $pseudo = strip_tags($nickname);
                     if(SELF::isCorrectMail($email)) {
                         
                         $sql = "SELECT COUNT(*) OCC FROM users WHERE email = '".$email."'";
@@ -67,18 +65,17 @@ class Authentication {
                     //die("Le formulaire est incomplet");
                     return false;
                 }
+                return true;
     }
 
     public static function login($email, $password) {
     
-        if(!empty($_POST)){
             if(isset($email, $password)
             && !empty($email && !empty($password))) 
             {
-                if(SELF::isCorrectMail($email)) {
-                    echo "email correcte";
-                } else {
-                    die ("Ce n'est pas un email");
+                if(!SELF::isCorrectMail($email)) {
+                    //echo "email correcte";
+                    return false;
                 }
 
                 $sql = "SELECT u.id userId, u.username, u.email, u.password, u.isAdmin, a.adress address, a.phoneNumber phoneNumber, c.id cartId, w.id wishlistId,
@@ -108,12 +105,14 @@ class Authentication {
                 $quantity = $user["quantity"];
                 
                 if(!$user){
-                    echo "L'utilisateur et/ou le mot de passe est incorrect";
-                    return;
+                    // echo "L'utilisateur et/ou le mot de passe est incorrect";
+                    // return;
+                    return false;
                 }
                 if(!password_verify($password, $user["password"])){
-                    echo "L'utilisateur et/ou le mot de passe est incorrect";
-                    return;
+                    // echo "L'utilisateur et/ou le mot de passe est incorrect";
+                    // return;
+                    return false;
                 }
                 
                 $_SESSION["user"] = [
@@ -128,12 +127,10 @@ class Authentication {
                     "phoneNumber" => $phoneNumber  
                 ];
 
-                var_dump($_SESSION["user"]);
-
             header("Location: profile.php");
             echo "Bienvenue ".$_SESSION["user"]["pseudo"];
             }
-        }  
+            return true; 
     }
 
     public static function isCorrectPassword($password) {
