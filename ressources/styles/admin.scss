@@ -1,0 +1,68 @@
+@import "common/reset";
+@import "common/header";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+
+
+
+.add-user-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    label {
+        margin: 10px 0 10px 0;
+    }
+    input {
+        margin: 10px 0 10px 0;
+    }
+}
+
+#users, #products {
+    font-family: "Roboto";
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#users td, #products td, #users th, #products th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#users tr:nth-child(even), #products tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#users tr:hover , #products tr:hover {
+    background-color: #ddd;
+}
+
+#users th, #products th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $orange;
+    color: $white;
+}
+
+.update-link-button {
+    @include button($redButtonColour);
+    font-size: 14px;
+    width: 50%;
+    margin: 0 auto;
+}
+    

@@ -136,6 +136,7 @@ session_start();
                         if(isset($_POST["add-to-cart"]) && !empty($_POST["add-to-cart"])) {
                             if(isset($_SESSION["user"])) {
                                 CartManager::addProductToCart($cartId, $selectedProductId, $_POST["product-quantity"]);
+                                echo "<meta http-equiv='refresh' content='0'>";
                                 // $totalQuantity = CartManager::getTotalProductsQuantity($cartId);
                                 // echo "<p><style> p { color: red }</style>".$totalQuantity."</p>";
                                 // $_SESSION["user"]["quantity"] = $totalQuantity;

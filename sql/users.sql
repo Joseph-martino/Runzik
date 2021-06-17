@@ -7,9 +7,8 @@ CREATE TABLE IF NOT EXISTS users
     lastName VARCHAR(50),
     password VARCHAR(255) NOT NULL,
     isAdmin BOOLEAN NOT NULL,
-    adressId INT UNSIGNED,
+    adressId INT UNSIGNED NULL,
     CONSTRAINT FK_users_addresses
         FOREIGN KEY (adressId)
         REFERENCES addresses(id)
-        ON DELETE CASCADE
 ) ENGINE=INNODB;

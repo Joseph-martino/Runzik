@@ -10,8 +10,10 @@ CREATE TABLE IF NOT EXISTS products
     typeId INT UNSIGNED NOT NULL,
     CONSTRAINT FK_products_brands
         FOREIGN KEY (brandId)
-        REFERENCES brands(id),
+        REFERENCES brands(id)
+        ON DELETE CASCADE,
     CONSTRAINT FK_products_productTypes
         FOREIGN KEY (typeId)
         REFERENCES productTypes(id)
+        ON DELETE CASCADE
 ) ENGINE=INNODB;

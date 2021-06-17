@@ -55,6 +55,5 @@ class Product implements iProduct {
       {
          return $this->brand;
       }
-
 }
 ?>

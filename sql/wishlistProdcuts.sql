@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS wishlistProducts
     PRIMARY KEY(wishlistId, productId),
     CONSTRAINT FK_wishlistProducts_wishlists
         FOREIGN KEY (wishlistId)
-        REFERENCES wishlists(id),
+        REFERENCES wishlists(id)
+        ON DELETE CASCADE,
     CONSTRAINT FK_wishlistProducts_products
         FOREIGN KEY (productId)
         REFERENCES products(id)

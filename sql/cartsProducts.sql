@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS cartsProducts
     PRIMARY KEY(cartId, productId),
     CONSTRAINT FK_cartProducts_carts
         FOREIGN KEY (cartId)
-        REFERENCES carts(id),
+        REFERENCES carts(id)
+        ON DELETE CASCADE,
     CONSTRAINT FK_cartProducts_products
         FOREIGN KEY (productId)
         REFERENCES products(id)

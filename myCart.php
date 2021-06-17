@@ -47,7 +47,8 @@
                                 <th>Sous total</th>
                                 <th><form action="#" method="POST">
                                         <button  type="submit" name="delete-all-products">
-                                            <img class="icon-size" src="ressources/images/icons/cart-delete-all-icon.png" alt="delete all products icon"></button>
+                                            <img class="icon-size" src="ressources/images/icons/cart-delete-all-icon.png" alt="delete all products icon">
+                                        </button>
                                     </form>
                                 </th>
                             </tr>

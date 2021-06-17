@@ -136,7 +136,7 @@ session_start();
                         </div>
                         <h2 class=\"product-name\">".$currentItem->getName()."</h2>
                         <p class=\"product-price\">".$currentItem->getPrice()."€</p>
-                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=".$currentItem->getId()."\">Découvrir</p></a>
+                        <a class=\"red-button\" href=\"article.php?product=$selectedProduct&amp;id=".$currentItem->getId()."\">Découvrir</a>
                     </div>";
                     }
                 ?>

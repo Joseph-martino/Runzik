@@ -5,4 +5,5 @@ CREATE TABLE IF NOT EXISTS carts
     CONSTRAINT FK_carts_users
         FOREIGN KEY (userId)
         REFERENCES users(id)
+        ON DELETE CASCADE
 ) ENGINE=INNODB;

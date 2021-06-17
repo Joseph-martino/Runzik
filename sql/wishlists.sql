@@ -5,4 +5,5 @@ CREATE TABLE IF NOT EXISTS wishlists
     CONSTRAINT FK_wishlists_users
         FOREIGN KEY (userId)
         REFERENCES users(id)
+        ON DELETE CASCADE
 ) ENGINE=INNODB;
