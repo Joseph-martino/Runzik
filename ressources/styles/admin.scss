@@ -1,5 +1,6 @@
 @import "common/reset";
 @import "common/header";
+@import "common/mobileHeader";
 @import "common/footer";
 @import "common/colours";
 @import "common/fonts";
@@ -13,6 +14,7 @@
 // }
 
 .banner-container {
+    display: block;
     width: 100%;
     position: relative;
     img {
@@ -22,46 +24,17 @@
 
 .banner-title {
     position: absolute;
-    top: 30%;
-    left: 9%;
+    top: 34%;
+    left: 7%;
     width: 40%;
     font-family: "Oswald";
     color: white;
     word-spacing: 2px;
-    font-size: 53px;
+    font-size: 22px;
 }
 
 .orange-highlight {
     color: $orange;
-}
-
-.header-container {
-    width: 100%;
-    position: absolute;
-    top:0;
-  }
-
-.add-user-form {
-    display: flex;
-    justify-content: space-around;
-}
-
-.form-button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-    label {
-        margin: 10px 0 10px 0;
-    }
-    input {
-        margin: 10px 0 10px 0;
-    }
 }
 
 #users, #products {
@@ -91,17 +64,158 @@
     color: $white;
 }
 
-.update-link-button {
-    @include button($redButtonColour);
-    font-size: 14px;
-    width: 50%;
+.update-table-icon-container {
+    width: 44%;
     margin: 0 auto;
 }
 
-.product-update-link-button {
+
+.section-title {
+    font-size: 30px;
+}
+
+.title-icon {
+    height: 40px;
+}
+
+.update-table-icon-container {
+    width: 28%;
+    margin: 0 auto;
+}
+
+
+
+
+// .desktop-update-link-button {
+//     @include button($redButtonColour);
+//     font-size: 14px;
+//     width: 50%;
+//     margin: 0 auto;
+// }
+
+// .mobile-update-link-button {
+//     width: 50%;
+//     margin: 0 auto;
+// }
+
+.desktop-product-update-link-button {
     @include button($redButtonColour);
     font-size: 14px;
     width: 100%;
     margin: 0 auto;
+}
+
+@media #{$media-up} {
+
+    .banner-container {
+        display: block;
+        width: 100%;
+        position: relative;
+        img {
+            width: 100%;
+        }
+    }
+
+    .banner-title {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        width: 40%;
+        font-family: "Oswald";
+        color: white;
+        word-spacing: 2px;
+        font-size: 80px;
+    }
+
+    .header-container {
+        width: 100%;
+        position: absolute;
+        top:0;
+      }
+    
+      .title-container {
+        display: flex;
+        align-items: center;
+        margin: 10px 10px 10px 10px;
+      }
+    
+      .section-title {
+        margin: 10px 10px 10px 10px;
+        font-size: 12px;
+        color: $black-background;
+      }
+    
+      .title-icon {
+        height: 20px;
+      }
+    
+    .add-user-form {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .form-button-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        label {
+            margin: 10px 0 10px 0;
+        }
+        input {
+            margin: 10px 0 10px 0;
+        }
+    }
+    
+    #users, #products {
+        font-family: "Roboto";
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #users td, #products td, #users th, #products th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #users tr:nth-child(even), #products tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    
+    #users tr:hover , #products tr:hover {
+        background-color: #ddd;
+    }
+    
+    #users th, #products th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $orange;
+        color: $white;
+    }
+    
+    .update-table-icon-container {
+        width: 44%;
+        margin: 0 auto;
+    }
+    
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .title-icon {
+        height: 40px;
+    }
+
+    .update-table-icon-container {
+        width: 28%;
+        margin: 0 auto;
+    }
 }
     

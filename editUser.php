@@ -87,7 +87,7 @@
                     </form>
                 </div>
                 
-                <img src="ressources/images/photos/admin-edit-user-picture.png" alt="woman running picture">
+                <img class="user-edit-banner-picture" src="ressources/images/photos/admin-edit-user-picture.png" alt="woman running picture">
             </div>
         </section>
         <?php

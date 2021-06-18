@@ -19,42 +19,6 @@ section {
     flex-direction: column;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid $pink;
-    padding: 30px;
-    label, input {
-        margin: 5px 0 5px 0;
-        font-size: 14px;
-        width: 40%;
-    }
-    input {
-        padding: 5px;
-        width: 40%;
-    }
-}
-
-button {
-    @include button($blue);
-    font-size: 15px;
-    width: 40%;
-    margin: 10px 0 10px 0;
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.btn-back-to-dashboard {
-    @include button($redButtonColour);
-    font-size: 15px;
-    width: 40%;
-    margin: 10px 0 10px 0;
-
-}
-
 .title-container {
     width: 100%;
     display: flex;
@@ -65,25 +29,50 @@ button {
     }
 }
 
+.main-content-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column-reverse;
+}
+
+.user-edit-banner-picture {
+    height: 400px;
+    width: auto;
+}
+
 .form-container {
-    width: 40%;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $pink;
+    padding: 12px;
+    label, input {
+        margin: 5px 0 5px 0;
+        font-size: 14px;
+        width: 65%;
+    }
+    input {
+        padding: 5px;
+        width: 65%;
+    }
 }
 
 .label-container {
     display: flex;
     margin: 10px 0 10px 0;
+    align-items: center;
     img {
-        height: 20px;
+        height: 17px;
         margin: 0 10px 0 0;
     }
 }
 
-.main-content-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px;
-}
+
 
 .product-price-input-container {
     display: flex;
@@ -112,3 +101,78 @@ button {
     display: flex;
     flex-direction: column;
 }
+
+button {
+    @include button($blue);
+    font-size: 12px;
+    width: 40%;
+    margin: 10px 0 10px 0;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-back-to-dashboard {
+    @include button($redButtonColour);
+    font-size: 12px;
+    width: 40%;
+    padding: 5px 10px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.product-picture {
+    width: 100%;
+    height: auto;
+}
+
+@media #{$media-up} {
+
+    .user-edit-banner-picture {
+        height: 100%;
+        width: auto;
+    }
+
+    .main-content-container {
+        flex-direction: row;
+        padding: 40px;
+    }
+
+    .form-container {
+        width: 40%;
+    }
+
+    form {
+        padding: 30px;
+        label, input { 
+            width: 40%;
+        }
+        input {
+            width: 40%;
+        }
+    }
+
+    .label-container {
+        img {
+            height: 20px;
+        }
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .btn-back-to-dashboard {
+        @include button($redButtonColour);
+        font-size: 14px;
+        width: 40%;
+        margin: 10px 0 10px 0;
+    }
+
+    .product-picture {
+        width: 25%;
+    }
+}
+

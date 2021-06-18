@@ -28,34 +28,17 @@ if (isset($_GET["product"])) {
                 alt="login icon"></a>
 
         <?php else: ?>
-                <a class="profile-link" href="profile.php"><img class="profile-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
+                <?php if($_SESSION["user"]["isAdmin"]): ?>
+                    <a href="admin.php"><img class="dashboard-admin-icon" src="ressources/images/icons/dashboard-icon.png" alt="dashboard icon"></a>
+                <?php else: ?>
+                    <a href="profile.php"><img class="menu-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
+                <?php endif;?>
                 <a class="logout-link" href="logout.php"><img class="logout-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
         <?php endif;?>
 </div>
 
 <div class="mobile-menu">
         <div class="menu-top-line"></div>
-        <!-- <div class="bottom-menu">
-        <a class="home-link" href="index.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/mobile-menu-home-icon.png" alt="home icon"></a>
-
-        <a class="brand-link" href="runzik.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/brand-icon.png" alt="brand icon"></a>
-
-        <a class="watch-link" href="shop.php?product=watch"><img class="mobile-menu-icon" src="ressources/images/icons/mobile-watch-menu-icon .png"
-                alt="watch icon"></a>
-
-        <a class="headphone-link" href="shop.php?product=headphone"><img class="mobile-menu-icon" src="ressources/images/icons/mobile-headphone-menu-icon.png"
-                alt="watch icon"></a>
-
-        <a class="armband-link" href="shop.php?product=armband"><img class="mobile-menu-icon" src="ressources/images/icons/mobile-armband-menu-icon.png"
-                alt="watch icon"></a>
-
-        <a class="contact-link" href="contact.php"><img class="mobile-menu-icon"
-                src="ressources/images/icons/contact-icon.png" alt="contact-icon"></a>
-        </div> -->
-        
-
         <div class="bottom-menu">
         <?php if($url === "/Runzik/index.php"): ?>
                 <a class="home-link" href="index.php"><img class="mobile-menu-icon"

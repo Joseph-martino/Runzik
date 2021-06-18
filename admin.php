@@ -27,8 +27,9 @@
 <?php
     $users = AdminManager::getAllUsers();
     $products = AdminManager::getAllProductsFromDatabase();
+    include(ROOT_PATH ."layout/mobileHeader.php");
 ?>
-
+            
     <div class="banner-container">
         <img src="ressources/images/banners/admin-dasboard-banner.png" alt="people who are running">
         <h1 class="banner-title">Tableau de <span class="orange-highlight">bord</span></h1>
@@ -40,9 +41,9 @@
     </div>
 
     <section class="users-management-section">
-        <div>
-            <h2>Gestion des utilisateurs</h2>
-            <img src="" alt="">
+        <div class="title-container">
+            <img class="title-icon" src="ressources/images//icons/my-account-icon.png" alt="user management icon">
+            <h2 class="section-title">Gestion des utilisateurs</h2> 
         </div>
     </section>
 
@@ -55,19 +56,6 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-
-                <?php
-
-                    if(isset($_POST["user-username-validation-button"])){
-                        if(isset($_POST["user-username"])
-                        && !empty($_POST["user-username"])) {
-                            $username = $_POST["user-username"];
-                            $userId = $_POST["user-id"];
-                            //AdminManager::changeUserUsername($username, $userId);
-                            echo "<meta http-equiv='refresh' content='0'>";
-                        }
-                    }
-                ?>
 
                 <tbody>
                     <?php
@@ -89,7 +77,9 @@
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<a class=\"update-link-button\" href=\"editUser.php?userid=".$user->getId()."\">Modifier</a>";
+                                    echo "<div class=\"update-table-icon-container\">";
+                                        echo "<a class=\"update-link-button\" href=\"editUser.php?userid=".$user->getId()."\"><img class=\"update-icon\" src=\"ressources/images//icons/update-icon.png\" alt=\"update-icon\"></a>";
+                                    echo "</div>";
                                 echo "</td>";
                             echo "</tr>";  
                         }
@@ -99,33 +89,12 @@
 
 
     <section class="users-management-section">
-        <div>
-            <h2>Gestion des produits</h2>
-            <img src="" alt="">
+        <div class="title-container">
+            <img src="ressources/images/icons//product-icon.png" alt="product icon">
+            <h2 class="section-title">Gestion des produits</h2>
+            
         </div>
 
-        <!-- <form action="#" method="POST">
-
-            <label for="new-product-picture">Saisissez le chemin de l'image du produit</label>
-            <input type="text" name="new-product-picture" id="new-product-picture" placeholder="Ex: ressources/images/products/">
-
-            <label for="new-product-name">Saisissez le nom du produit</label>
-            <input type="text" name="new-product-name" id="new-product-name" placeholder="Ex: Montre Zysce GS">
-
-            <label for="new-product-price">Saisissez le prix du produit</label>
-            <input type="text" name="new-product-price" id="new-product-price" placeholder="Ex: 999">
-
-            <label for="new-product-colour1">Saisissez le couleur 1 du produit</label>
-            <input type="text" name="new-product-colour1" id="new-product-colour1" placeholder="Ex: Bleu">
-
-            <label for="new-product-colour2">Saisissez le couleur 2 du produit</label>
-            <input type="text" name="new-product-colour2" id="new-product-colour2" placeholder="Ex: Vert">
-
-            <label for="new-product-brand">Saisissez la marque du produit</label>
-            <input type="text" name="new-product-brand" id="new-product-brand" placeholder="Ex: Runzik">
-
-            <button class="btn" type="submit" name="add-new-product">Ajouter produit</button>
-        </form> -->
 
         <div>
             <table id="products">
@@ -161,7 +130,7 @@
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<a class=\"product-update-link-button\" href=\"editProduct.php?productid=".$product->getId()."\">Modifier</a>";
+                                    echo "<a class=\"desktop-product-update-link-button\" href=\"editProduct.php?productid=".$product->getId()."\">Modifier</a>";
                                 echo "</td>";
                             echo "</tr>";
                         }

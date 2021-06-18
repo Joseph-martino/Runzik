@@ -53,8 +53,17 @@ class Authentication {
                             "address" => null,
                             "phoneNumber" => null
                         ];
-                    header("Location: profile.php");
-                       echo "Bienvenue ".$_SESSION["user"]["pseudo"];
+
+                        if($_SESSION["user"]["isAdmin"]) 
+                        {
+                            header("Location: admin.php");
+                            exit;
+                        } else {
+                            header("Location: profile.php");
+                            exit;
+                        }
+                    
+                       //echo "Bienvenue ".$_SESSION["user"]["pseudo"];
 
                     } else {
                         //echo "Entrez un mot de passe de 8 à 15 caractères comprenant au moins: une minuscule, une majuscule, un chiffre et un caractère -+!*$@%_";
@@ -127,8 +136,14 @@ class Authentication {
                     "phoneNumber" => $phoneNumber  
                 ];
 
-            header("Location: profile.php");
-            echo "Bienvenue ".$_SESSION["user"]["pseudo"];
+                if($_SESSION["user"]["isAdmin"]) 
+                {
+                    header("Location: admin.php");
+                    exit;
+                } else {
+                    header("Location: profile.php");
+                    exit;
+                }
             }
             return true; 
     }
