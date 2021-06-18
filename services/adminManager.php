@@ -2,11 +2,12 @@
 
 require_once(ROOT_PATH . "models/product.php");
 require_once(ROOT_PATH . "models/user.php");
+require_once(ROOT_PATH ."services/pdoManager.php"); 
 
 class AdminManager {
 
     public static function getAllUsers() {
-        $sql = "SELECT u.id, u.username, u.email, u.password, u.isAdmin role
+        $sql = "SELECT u.id, u.username, u.email, u.isAdmin role
         FROM `users` u";
         $users = PDOManager::fetchAll($sql);
         $allUsers = [];
@@ -16,11 +17,22 @@ class AdminManager {
                 $user["id"],
                 $user["username"],
                 $user["email"],
-                $user["password"],
                 $user["role"]
             );
         }
         return $allUsers;
+    }
+
+    public static function getUser($id) {
+        $sql = "SELECT id, username, email, isAdmin role FROM `users` WHERE id = ".$id."";
+        $result = PDOManager::fetch($sql);
+        $user = new User (
+            $result["id"],
+            $result["username"],
+            $result["email"],
+            $result["role"]
+        );
+        return $user;
     }
 
     public static function deleteUserFromDatabase($userId) {
@@ -28,13 +40,27 @@ class AdminManager {
         PDOManager::execute($sql);
     }
 
-    public static function changeUserUsername($username, $userId) {
-        $sql = "UPDATE `users` SET username = :username WHERE id = ".$userId."";
+    public static function updateUser($username, $email, $isAdmin, $userId) {
+        $sql = "UPDATE `users` SET 
+        username = :username,
+        email = :email,
+        isAdmin = :isAdmin
+        WHERE id = ".$userId."";
         $parameters = [
             [
                 "name" => ":username",
                 "value" => $username,
                 "type" => PDO::PARAM_STR
+            ],
+            [
+                "name" => ":email",
+                "value" => $email,
+                "type" => PDO::PARAM_STR
+            ],
+            [
+                "name" => ":isAdmin",
+                "value" => $isAdmin,
+                "type" => PDO::PARAM_BOOL
             ]
         ];
 
@@ -60,6 +86,57 @@ class AdminManager {
             );
         }
         return $allProducts;
+    }
+
+    public static function getProduct($id) {
+        $sql = "SELECT p.*, b.name brandName
+        FROM `products` p 
+        INNER JOIN `brands` b ON p.brandId = b.id WHERE p.id = ".$id."";
+        $result = PDOManager::fetch($sql);
+        $product = new Product(
+                $result["id"],
+                $result["name"], 
+                $result["price"], 
+                $result["image"], 
+                $result["colour1"], 
+                $result["colour2"], 
+                $result["brandName"],
+                $result["brandId"]
+        );
+        return $product;
+    }
+
+    public static function updateProduct($name, $price, $brandId, $id) {
+        $sql = "UPDATE `products` SET 
+        name = :name,
+        price = :price,
+        brandId = :brandId
+        WHERE id = ".$id."";
+
+        $parameters = [
+            [
+                "name" => ":name",
+                "value" => $name,
+                "type" => PDO::PARAM_STR
+            ],
+            [
+                "name" => ":price",
+                "value" => $price,
+                "type" => PDO::PARAM_INT
+            ],
+            [
+                "name" => ":brandId",
+                "value" => $brandId,
+                "type" => PDO::PARAM_INT
+            ]
+        ];
+        PDOManager::execute($sql, $parameters);
+    }
+
+    public static function getAllBrands() {
+        $sql = "SELECT id, name FROM `brands`";
+        $result = PDOManager::fetchAll($sql);
+        return $result;
     }
 
     public static function createNewProductInDatabase($name, $price, $image, $colour1, $colour2, $brandId) {
@@ -98,38 +175,6 @@ class AdminManager {
             ]
         ];
         PDOManager::execute($sql, $parameters);
-    }
-
-
-
-    public static function changeProductName($name, $productId) {
-        $sql = "UPDATE `products` p SET p.name = ".$name."
-        WHERE productId = '".$productId."'";
-        PDOManager::execute($sql);
-    }
-
-    public static function changeProductPrice($price, $productId) {
-        $sql = "UPDATE `products` p SET p.price = ".$price."
-        WHERE productId = '".$productId."'";
-        PDOManager::execute($sql);
-    }
-
-    public static function changeProductColour1($colour, $productId) {
-        $sql = "UPDATE `products` p SET p.colour1 = ".$colour."
-        WHERE productId = '".$productId."'";
-        PDOManager::execute($sql);
-    }
-
-    public static function changeProductColour2($colour, $productId) {
-        $sql = "UPDATE `products` p SET p.colour2 = ".$colour."
-        WHERE productId = '".$productId."'";
-        PDOManager::execute($sql);
-    }
-
-    public static function changeProductBrand($brandId, $productId) {
-        $sql = "UPDATE `brands` b SET b.name = ".$brandId."
-        WHERE productId = '".$productId."'";
-        PDOManager::execute($sql);
     }
 
     public static function deleteProductFromDatabase($productId) {

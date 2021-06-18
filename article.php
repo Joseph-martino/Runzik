@@ -18,23 +18,43 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/article.css" type="text/css"/>
     <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
-    <title><?php echo "test"; ?></title>
-</head>
-    <body>
-        <?php
-           $selectedProduct = "";
-           if (isset($_GET["product"])) {                
-               $selectedProduct = $_GET["product"];
-           }
+    <title>
+        <?php 
+            $selectedProduct = "";
+            if (isset($_GET["product"])) {                
+                $selectedProduct = $_GET["product"];
+            }
 
-           $selectedProductId = "";
-           if (isset($_GET["id"])) {                
+            $selectedProductId = "";
+            if (isset($_GET["id"])) {                
             $selectedProductId = $_GET["id"];
-        }
-           $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
+            }
+
+            $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
            if(isset($_SESSION["user"])){
             $cartId = $_SESSION["user"]["cart"]->getId();
            }
+        
+           echo $currentProduct->items->getName();
+        ?>
+    </title>
+
+</head>
+    <body>
+        <?php
+        //    $selectedProduct = "";
+        //    if (isset($_GET["product"])) {                
+        //        $selectedProduct = $_GET["product"];
+        //    }
+
+        //    $selectedProductId = "";
+        //    if (isset($_GET["id"])) {                
+        //     $selectedProductId = $_GET["id"];
+        // }
+        //    $currentProduct = ProductManager::getProduct($selectedProduct, $selectedProductId);
+        //    if(isset($_SESSION["user"])){
+        //     $cartId = $_SESSION["user"]["cart"]->getId();
+        //    }
         ?>
 
         <?php
@@ -104,26 +124,10 @@ session_start();
             <div class="colours-choices-container">
                 <p>Coloris</p>
                 <form action="#" method="POST">
-                <?php
+                    <input type="radio" id="colour1" name="product-colour" value="<?php echo $currentProduct->items->getColour1();?>" checked>
+                    <input type="radio" id="colour2" name="product-colour" value="<?php echo $currentProduct->items->getColour2();?>">
+
                 
-                    for($i = 0; $i < 2; $i++){
-                        $radioId;
-                        $radioValue;
-                        switch($i) {
-                            case 0:
-                                $radioId = $i;
-                                $radioValue = $currentProduct->items->getColour1();
-                                break;
-                            case 1:
-                                $radioId = $i;
-                                $radioValue = $currentProduct->items->getColour2();
-                                break;                 
-                        }
-                        echo "<input type=\"radio\" id=\"".$radioId."\" name=\"product-colour\" value=\"".$radioValue."\">
-                        <label for=\"".$radioId."\"></label>";
-                    }
-                    
-                ?>
                         <input class="quantity-input-container" type="number" id="quantity" name="product-quantity" min="1" value="1">
                         <label for="quantity"></label>
                         <input type="hidden" name="add-to-cart" value="true">
@@ -160,7 +164,7 @@ session_start();
         </div>
 
         <script>
-            const productTest = "<?php echo $selectedProduct ?>";
+            const product = "<?php echo $selectedProduct ?>";
             const productId = "<?php echo $selectedProductId ?>";
             let bannerPicture = document.getElementById("banner-product");
             let productColourText = document.getElementById("product-colour-text");
@@ -170,12 +174,12 @@ session_start();
                     colors.forEach(function (elem) {
                     elem.addEventListener("change", function(event) {
                         productColourText.innerHTML = elem.value;
-                        if(elem.id === "0" || event.target.value === undefined) {
+                        if(elem.id === "colour1" || event.target.value === undefined) {
         
-                            bannerPicture.src = "ressources/images/banners/" + productTest + "-banner" + productId + ".png";
+                            bannerPicture.src = "ressources/images/banners/" + product + "-banner" + productId + ".png";
                             
-                        } else if (elem.id === "1") {
-                            bannerPicture.src = "ressources/images/banners/" + productTest + "-banner" + productId + "-colour2.png";
+                        } else if (elem.id === "colour2") {
+                            bannerPicture.src = "ressources/images/banners/" + product + "-banner" + productId + "-colour2.png";
                         
                         }
                     });

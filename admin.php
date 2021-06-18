@@ -6,12 +6,10 @@
     require_once(ROOT_PATH ."services/AdminManager.php");
 
     session_start();
-    // if(!isset($_SESSION["user"]["isAdmin"])){
-    //     header("Location: profile.php");
-    //     exit;
-    // } else {
-    //     header("Location: admin.php");
-    // }
+    if(!isset($_SESSION["user"]["isAdmin"])){
+        header("Location: profile.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +28,17 @@
     $users = AdminManager::getAllUsers();
     $products = AdminManager::getAllProductsFromDatabase();
 ?>
+
+    <div class="banner-container">
+        <img src="ressources/images/banners/admin-dasboard-banner.png" alt="people who are running">
+        <h1 class="banner-title">Tableau de <span class="orange-highlight">bord</span></h1>
+        <div class="header-container">
+            <?php
+                include( ROOT_PATH . "layout/header.php");
+            ?>
+        </div>
+    </div>
+
     <section class="users-management-section">
         <div>
             <h2>Gestion des utilisateurs</h2>
@@ -54,7 +63,7 @@
                         && !empty($_POST["user-username"])) {
                             $username = $_POST["user-username"];
                             $userId = $_POST["user-id"];
-                            AdminManager::changeUserUsername($username, $userId);
+                            //AdminManager::changeUserUsername($username, $userId);
                             echo "<meta http-equiv='refresh' content='0'>";
                         }
                     }
@@ -95,7 +104,7 @@
             <img src="" alt="">
         </div>
 
-        <form action="#" method="POST">
+        <!-- <form action="#" method="POST">
 
             <label for="new-product-picture">Saisissez le chemin de l'image du produit</label>
             <input type="text" name="new-product-picture" id="new-product-picture" placeholder="Ex: ressources/images/products/">
@@ -116,7 +125,7 @@
             <input type="text" name="new-product-brand" id="new-product-brand" placeholder="Ex: Runzik">
 
             <button class="btn" type="submit" name="add-new-product">Ajouter produit</button>
-        </form>
+        </form> -->
 
         <div>
             <table id="products">
@@ -135,38 +144,24 @@
                         foreach($products as $product) {
                             echo "<tr>";
                                 echo "<td>";
+                                    echo "<input type=\"hidden\" name=\"product-id\" value=\"".$product->getId()."\">";
                                     echo "<img class=\"product-picture\" src=\"".$product->getImage()."\" alt=\"product-picture\">";
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<form action=\"#\" method=\"POST\">";
-                                        echo "<label for=\"product-name\">Nom du produit</label>";
-                                        echo "<input type=\"text\" id=\"product-name\"name=\"product-name\" value=\"".$product->getName()."\">";
-                                        echo "<button type=\"submit\" name=\"product-name-validattion-button\">Modifier</button>";
-                                    echo "</form>";
+                                    echo "<p>".$product->getName()."</p>";
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<form action=\"#\" method=\"POST\">";
-                                        echo "<label for=\"product-price\">Prix du produit</label>";
-                                        echo "<input type=\"text\" id=\"product-price\"name=\"product-price\" value=\"".$product->getPrice()."\">";
-                                        echo "<button type=\"submit\" name=\"product-price-validattion-button\">Modifier</button>";
-                                    echo "</form>";
+                                    echo "<p>".$product->getPrice()."</p>";
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<form action=\"#\" method=\"POST\">";
-                                        echo "<label for=\"product-brand\">Marque du produit</label>";
-                                        echo "<input type=\"text\" id=\"product-brand\"name=\"product-brand\" value=\"".$product->getBrand()."\">";
-                                        echo "<button type=\"submit\" name=\"product-brand-validattion-button\">Modifier</button>";
-                                    echo "</form>";
+                                    echo "<p>".$product->getBrand()."</p>";
                                 echo "</td>";
 
                                 echo "<td>";
-                                    echo "<form action=\"#\" method=\"POST\">";
-                                        echo "<input type=\"hidden\" name=\"product-id\" value=\"".$product->getId()."\">";
-                                        echo "<button class=\"btn\" type=\"submit\" name=\"delete\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
-                                    echo "</form>";
+                                    echo "<a class=\"product-update-link-button\" href=\"editProduct.php?productid=".$product->getId()."\">Modifier</a>";
                                 echo "</td>";
                             echo "</tr>";
                         }

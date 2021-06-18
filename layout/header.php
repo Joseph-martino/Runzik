@@ -37,7 +37,12 @@
                     alt="login icon"></a>
 
             <?php else: ?>
-                <a href="profile.php"><img class="menu-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
+                <?php if($_SESSION["user"]["isAdmin"]): ?>
+                    <a href="admin.php"><img class="menu-icon" src="ressources/images/icons/dashboard-icon.png" alt="dashboard icon"></a>
+                <?php else: ?>
+                    <a href="profile.php"><img class="menu-icon" src="ressources/images/icons/logged-in-profile-icon.png" alt="logout icon"></a>
+                <?php endif;?>
+    
                 <a href="logout.php"><img class="menu-icon" src="ressources/images/icons/logout-icon.png" alt="logout icon"></a>
             <?php endif;?>
             

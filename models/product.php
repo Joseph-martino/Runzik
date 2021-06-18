@@ -10,8 +10,9 @@ class Product implements iProduct {
    private $colour1;
    private $colour2;
    private $brand;
+   private $brandId;
  
-     public function __construct($id, $name, $price, $image, $colour1, $colour2, $brand)
+     public function __construct($id, $name, $price, $image, $colour1, $colour2, $brand, $brandId = null)
      {
          $this->id = $id;
          $this->name = $name;
@@ -20,6 +21,7 @@ class Product implements iProduct {
          $this->colour1 = $colour1;
          $this->colour2 = $colour2;
          $this->brand = $brand;
+         $this->brandId = $brandId;
      }
 
      public function getId() 
@@ -54,6 +56,11 @@ class Product implements iProduct {
       public function getBrand()
       {
          return $this->brand;
+      }
+
+      public function getBrandId()
+      {
+         return $this->brandId;
       }
 }
 ?>

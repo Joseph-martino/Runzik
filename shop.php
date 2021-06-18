@@ -15,7 +15,27 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="ressources/css/shop.css" type="text/css" />
         <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
-        <title>Nos montres</title>
+        <title>
+            <?php 
+                 $selectedProduct = "";
+                 if (isset($_GET["product"])) {                
+                     $selectedProduct = $_GET["product"];
+                 }
+
+                 switch ($selectedProduct) {
+                    case "watch": 
+                        echo "Nos montres";
+                        break;
+                    case "headphone";
+                        echo "Nos casques";
+                        break;
+                    case "armband":
+                        echo "Nos brassards";
+                        break;
+                 }
+            ?>
+        
+        </title>
         <script src="https://kit.fontawesome.com/023f9dd6c0.js" crossorigin="anonymous"></script>
     </head>
 

@@ -9,12 +9,6 @@ class BrandManager {
 
         $query = "SELECT * FROM `brands`";
         $brands = PDOManager::fetchAll($query);
-    
-        // $pdo = myPDO::getPDO();
-        // $statement= $pdo->prepare("SELECT * FROM `brands`");
-        // $statement->execute();
-        // $brands = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
         $allBrands = [];
         foreach($brands as $brand){
             $allBrands[] = new Brand($brand["name"]);

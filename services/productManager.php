@@ -73,7 +73,6 @@ class ProductManager {
                 $result["brandName"]
             );
             
-              
         $type = ProductTypeManager::getProductTypeByName($productType);
     
         return new ProductList($type, $product);
