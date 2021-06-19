@@ -4,6 +4,7 @@
     require_once(ROOT_PATH ."services/pdoManager.php");
     require_once(ROOT_PATH ."services/authentificationManager.php");
     require_once(ROOT_PATH ."services/wishlistManager.php");
+    require_once(ROOT_PATH ."services/orderManager.php");
     session_start();
     if(!isset($_SESSION["user"])){
         header("Location: login.php");
@@ -15,6 +16,7 @@
 
 <?php
 $wishlistId = $_SESSION["user"]["wishlist"]->getId();
+$userId = $_SESSION["user"]["id"];
 
 if(!empty($_POST)) {
     if(isset($_POST["username"]) && !empty($_POST["username"])) {
@@ -140,9 +142,8 @@ if(!empty($_POST)) {
     }
 }
 
-$wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
-
-        
+    $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
+    $orderProducts = OrderManager::getOrderProducts($userId); 
     ?>
 
 
@@ -271,14 +272,26 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                         <table>
                             <thead>
                                 <tr>
+                                    <th>Image</th>
                                     <th>Produit</th>
                                     <th>Quantité</th>
-                                    <th>Prix</th>   
+                                    <th>Marque</th>
+                                    <th>Date</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                
+                                <?php
+                                    foreach($orderProducts as $orderProduct) {
+                                        echo "<tr>";
+                                            echo "<td><img class=\"ordered-product-picture\" src=\"".$orderProduct->getOrderProductImage()."\" alt=\"ordered product image\"</td>";
+                                            echo "<td>".$orderProduct->getOrderProductName()."</td>";
+                                            echo "<td>".$orderProduct->getProductQuantity()."</td>";
+                                            echo "<td>".$orderProduct->getOrderProductBrand()."</td>";
+                                            echo "<td>".$orderProduct->getDate()."</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
                             </tbody>
                         </table>
                         </div>   
@@ -301,13 +314,13 @@ $wishlistProducts = WishListManager::getWishlistProduct($wishlistId);
                                 <?php 
                                     foreach($wishlistProducts as $wishlistProduct) {
                                         echo "<tr>";
-                                        echo "<td>".$wishlistProduct->getProductName()."</td>";
-                                        echo "<td>";
-                                        echo "<form action=\"#\" method=\"POST\">";
-                                        echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
-                                        echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
-                                        echo "</form>";
-                                        echo "</td>";
+                                            echo "<td>".$wishlistProduct->getProductName()."</td>";
+                                            echo "<td>";
+                                                echo "<form action=\"#\" method=\"POST\">";
+                                                echo "<input type=\"hidden\" name=\"product-id\" value=\"".$wishlistProduct->getProductId()."\">";
+                                                echo "<button type=\"submit\" name=\"delete-wishlist-product\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
+                                                echo "</form>";
+                                            echo "</td>";
                                         echo "</tr>";
                                     }
                                 ?> 

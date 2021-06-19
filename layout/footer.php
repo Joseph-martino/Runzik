@@ -17,12 +17,13 @@
             <a href="gdpr.php">
                 Mentions légales
             </a>
-            <a href="Terms of Sales.php">
-                Conditions générales de vente
+
+            <a href="gdpr.php#privacy-policy">
+                Politique de confidentialité
             </a>
 
-            <a href="gdpr.php#privacy policy">
-                Politique de confidentialité
+            <a href="gdpr.php#standard-form-contract">
+                Conditions générales de vente
             </a>
         </div>
 

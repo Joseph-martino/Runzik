@@ -1,0 +1,155 @@
+@import "common/reset";
+@import "common/header";
+@import "common/mobileHeader";
+@import "common/footer";
+@import "common/colours";
+@import "common/fonts";
+@import "common/buttons";
+@import "common/mixins";
+@import "common/responsive";
+
+body {
+    background: rgb(34,32,32);
+    background: linear-gradient(143deg, rgba(34,32,32,1) 0%, rgba(65,59,59,1) 63%);
+    color :$white;
+}
+
+.mobile-header {
+    position: absolute;
+    top: 0;
+  }
+  
+  .banner-container {
+    position: relative;
+  }
+  
+  .main-page-banner {
+    width: 100%;
+  }
+
+  .orange-highlight {
+    color: $orange;
+  }
+
+.banner-title {
+    position: absolute;
+    width: 40%;
+    font-family: "Oswald";
+    color: $white;
+    word-spacing: 2px;
+    font-size: 16px;
+    top: 39%;
+    left: 16%;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 20px 0 20px 0;
+    h2 {
+        font-size: 15px;
+    }
+}
+
+.horizontal-separator {
+    height: 1px;
+    width: 14%;
+    background-color: $white;
+}
+
+.explanations-container-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3%;
+    column-gap: 3%;
+    width: 100%;
+    padding: 25px;
+}
+
+.explanation-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+        font-size: 14px;
+    }
+}
+
+.explanation-icon {
+    height: 60px;
+    width: 60px;
+}
+
+.text-container {
+    p {
+        font-size: 12px;
+        font-family: "Roboto Light";
+    }
+}
+
+  @media #{$media-up} {
+    .banner-container {
+      display: block;
+      position: relative;
+    }
+  
+    .header-container {
+      width: 100%;
+      position: absolute;
+      top:0;
+    }
+  
+    .main-page-banner {
+      width: 100%;
+    }
+  
+    .banner-title {
+        top: 37%;
+        left: 18%;
+        font-weight: bold;
+        font-size: 59px;
+        width: 34%;
+    }
+    
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-header {
+        width: 47%;
+        h2 {
+            font-size: 30px;
+        }
+    }
+
+    .horizontal-separator {
+        width: 20%;
+    }
+
+    .explanations-container-grid {
+        padding: 90px;
+    }
+
+    .explanation-container {
+        h3 {
+            font-size: 20px;
+        }
+    }
+
+    .explanation-icon {
+        height: 100px;
+        width: 100px;
+    }
+
+    .text-container {
+        width: 50%;
+        p {
+            font-size: 16px;
+        }
+    }
+}

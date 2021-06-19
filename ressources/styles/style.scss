@@ -36,9 +36,6 @@
 .banner-button {
   @include button($blue);
   position: absolute;
-  // top: 24%;
-  // right: 28%;
-
   font-size: 9px;
   width: 20%;
   top: 48%;
@@ -112,7 +109,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  margin: 10px;
+  padding: 10px;
 }
 
 .mobile-products-line {
@@ -149,6 +146,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.trend-product-name {
+  color: $white;
+  font-family: "Rock Salt";
 }
 
 .red-button {
@@ -383,8 +385,6 @@
       @include button($redButtonColour);
     }
   }
-
-  //test
 
   .trend-product:hover .trend-product-image {
     opacity: 0.3;

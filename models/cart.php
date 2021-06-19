@@ -19,8 +19,6 @@ class Cart {
     public function  getAllProducts() {
        return $this->allProducts;
      }
-
-
 }
 
 ?>

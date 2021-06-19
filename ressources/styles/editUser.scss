@@ -29,11 +29,19 @@ section {
     }
 }
 
-.update-information-panel-container {
+#update-information-panel-container {
     position: absolute;
     top: 28%;
     left: 35%;
     width: 100%;
+}
+
+.show-message {
+    display: block;
+}
+
+.hide-message {
+    display: none;
 }
 
 .update-information-panel {

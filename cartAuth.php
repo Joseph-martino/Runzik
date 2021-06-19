@@ -124,9 +124,6 @@
                 $sql = "DELETE FROM `addresses` WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
                 $query = $pdo->prepare($sql); 
                 $query->execute();
-    
-                var_dump($query);
-                var_dump($_SESSION["user"]);
                 unset($_SESSION["user"]);
                 header("Location: index.php"); 
         }
@@ -158,7 +155,6 @@
     <?php
         include( ROOT_PATH . "layout/header.php");
         include( ROOT_PATH . "layout/mobileHeader.php");
-        var_dump($_SESSION["user"]);
         $cartProducts = CartManager::getCartProducts($cartId);
     ?>
 
@@ -218,72 +214,44 @@
                             </form>
                         </div>
                     </div>
-                    <!-- <form action="#" method="POST"> 
-                        <button class="order-validation-button" type="submit" name="order-validation">Valider la commande</button>
-                    </form> -->
                 </div>
+                <form action="#" method="POST">
+                    <div class="GDPR-verification-container">
+                        <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
+                        <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les <a class="gdpr-link" href="gdpr.php">termes</a> et <a class="gdpr-link" href="gdpr.php#standart-form-contract">conditions de vente</a> </label>
+                    </div>
+                    <button id="validation-button" type="submit" name="create-order">Valider la commande</button>
+                </form>
             </section>
 
-            <section>
+            <section class="right-panel">
+                
+                    <img class="order-confirmation-banner" src="ressources/images/banners/order-confirmation-picture.png" alt="order confirmation picture">
+                
+
                 <?php
 
-if(isset($_POST["product-id"], $_POST["product-quantity"])){
-        CartManager::updateProductQuantityFromCart($cartId, $productId, $productQuantity);
-        echo "<meta http-equiv='refresh' content='0'>";
-}
-
-
-
-
-
-             
-                     foreach($cartProducts as $cartProduct) {
-
-                                echo "<img class=\"product-picture\" src=\"".$cartProduct->getProductImage()."\" alt=\"product-picture\">";
-                                echo "<h2>".$cartProduct->getProductName()."</h2>";
-                                echo "<p>".$cartProduct->getProductPrice()."</p>";
-                                echo "<p>".$cartProduct->getProductSubtotal()."</p>";
-                                
-                                
-                        // echo "<tr>";
-                        //     echo "<td><img class=\"product-picture\" src=\"".$cartProduct->getProductImage()."\" alt=\"product-picture\"></td>";
-                        //     echo "<td>".$cartProduct->getProductName()."</td>";
-                        //     // echo "<td>";
-                        //     //     echo "<form action=\"#\" method=\"POST\">";
-                        //     //     echo "<input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">";
-                        //     //     echo "<input type=\"number\" name=\"product-quantity\" min=\"0\" value=\"".$cartProduct->getQuantity()."\" onChange=\"submit()\"></td>";
-                        //     //     echo "</form>";
-                        //     // echo "</td>";
-                        //     echo "<td>".$cartProduct->getProductPrice()."</td>";
-                        //     echo "<td>".$cartProduct->getProductSubtotal()."</td>";
-                        //     echo "<td>";
-                        //         echo "<form action=\"#\" method=\"POST\">";
-                        //         echo "<input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">";
-                        //         echo "<input type=\"hidden\" name=\"product-quantity\" min=\"0\" value=\"".$cartProduct->getQuantity()."\"></td>";
-                        //         echo "<button type=\"submit\" name=\"order-validation\">VALIDER LA COMMANDE</button>";
-                        //         echo "</form>";
-                        //     echo "</td>";
-                        // echo "</tr>";
+                    if(isset($_POST["product-id"], $_POST["product-quantity"])){
+                        CartManager::updateProductQuantityFromCart($cartId, $productId, $productQuantity);
+                        echo "<meta http-equiv='refresh' content='0'>";
                     }
                 ?>
             </section>
 
-            
-
-            <form action="#" method="POST">
-                <div class="GDPR-verification-container">
-                    <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
-                    <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et <a href="gdpr.php#standart-form-contract">conditions de vente</a> </label>
+            <div id="order-success-message-container" class="hide-message">
+                <div class="order-information-panel">
+                    <img class="order-panel-background" src="ressources/images/banners/update-success-background.png" alt="order success background">
+                    <img class="order-panel-icon" class="order-information-icon" src="ressources/images/icons/update-success-icon2.png" alt="happy face icon">
+                    <div class="order-panel-content">
+                        <h2 class="order-panel-title">Merci beaucoup!</h2>
+                        <p class="order-panel-text">Votre commande est enregistrée</p>
+                    </div>
                 </div>
-                 <button type="submit" name="create-order">Valider la commande</button>
-            </form>
-                
-            <!-- <section  class="right-panel">
-                <img src="ressources/images/illustrations/order-confirmation-picture.png" alt="order confirmation picture">
-            </section> -->
+            </div>
         </div>
         <?php
             include(ROOT_PATH ."layout/footer.php");
         ?>
+        <script type="text/javascript" src="ressources/scripts/cartAuth.js"></script>
     </body>
 </html>

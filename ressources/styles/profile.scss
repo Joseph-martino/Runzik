@@ -256,6 +256,11 @@ html, body {
         display: block;
     }
 
+    .ordered-product-picture {
+        height: 60px;
+        width: auto;
+    }
+
     .delete-button {
         @include button($redButtonColour);
         cursor: pointer;

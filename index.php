@@ -1,6 +1,10 @@
 <?php 
 DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
+require_once(ROOT_PATH ."services/productManager.php");
 session_start();
+$runzikWatch = ProductManager::getProduct("watch", 1);
+$runzikArmband = ProductManager::getProduct("armband", 7);
+$runzikHeadphone = ProductManager::getProduct("headphone", 13);
 ?>
 
 <!DOCTYPE html>
@@ -78,17 +82,41 @@ session_start();
             
             <div class="trends-products-container">
                 <?php
-                    for($i=0; $i < 3; $i++) {
-                        echo "<div class=\"trend-product\">
-                        <img class=\"trend-product-image\" src=\"ressources/images/products/trend".$i.".png\" alt=\"release product\">
-                        <div class=\"trend-product-hidden-link-container\">
-                        <h3 class=\"trend-product-name\">Product</h3>
-                        <a class=\"red-button\" href=\"jbk\">Découvrir</a> 
-                        </div> 
-                        </div>";
-
-                    }
+                    // for($i=0; $i < 3; $i++) {
+                    //     echo "<div class=\"trend-product\">
+                    //              <img class=\"trend-product-image\" src=\"ressources/images/products/trend".$i.".png\" alt=\"release product\">
+                    //              <div class=\"trend-product-hidden-link-container\">
+                    //              <h3 class=\"trend-product-name\">Product</h3>
+                    //              <a class=\"red-button\" href=\"jbk\">Découvrir</a> 
+                    //          </div> 
+                    //     </div>";
+                    // }
                 ?>
+
+                <div class="trend-product">
+                    <img class="trend-product-image" src="ressources/images/products/trend0.png" alt="release product">
+                    <div class="trend-product-hidden-link-container">
+                        <h3 class="trend-product-name"><?php echo $runzikHeadphone->items->getName()?></h3>
+                        <a class="red-button" href="article.php?product=<?php echo $runzikHeadphone->infos->type ?>&amp;id="<?php echo $runzikHeadphone->items->getId() ?>>Découvrir</a> 
+                    </div>
+                </div>
+                    
+                <div class="trend-product">
+                    <img class="trend-product-image" src="ressources/images/products/trend1.png" alt="release product">
+                    <div class="trend-product-hidden-link-container">
+                        <h3 class="trend-product-name"><?php echo $runzikWatch->items->getName() ?></h3>
+                        <a class="red-button" href="article.php?product=<?php echo $runzikWatch->infos->type ?>&amp;id="<?php echo $runzikWatch->items->getId() ?>>Découvrir</a> 
+                    </div> 
+                </div>
+
+                <div class="trend-product">
+                    <img class="trend-product-image" src="ressources/images/products/trend2.png" alt="release product">
+                    <div class="trend-product-hidden-link-container">
+                        <h3 class="trend-product-name"><?php echo $runzikArmband->items->getName() ?></h3>
+                        <a class="red-button" href="article.php?product=<?php echo $runzikArmband->infos->type ?>&amp;id="<?php echo $runzikArmband->items->getId() ?>>Découvrir</a>
+                    </div> 
+                </div>
+                
             </div>
         </section>
 

@@ -93,7 +93,7 @@ if (!isset($_SESSION["user"]["isAdmin"])) {
 
     <section class="users-management-section">
         <div class="title-container">
-            <img src="ressources/images/icons//product-icon.png" alt="product icon">
+            <img class="title-icon" src="ressources/images/icons//product-icon.png" alt="product icon">
             <h2 class="section-title">Gestion des produits</h2>
 
         </div>
@@ -133,7 +133,9 @@ if (!isset($_SESSION["user"]["isAdmin"])) {
                         echo "</td>";
 
                         echo "<td>";
-                        echo "<a class=\"desktop-product-update-link-button\" href=\"editProduct.php?productid=" . $product->getId() . "\">Modifier</a>";
+                        echo "<div class=\"update-table-icon-container\">";
+                            echo "<a class=\"update-link-button\" href=\"editProduct.php?productid=" . $product->getId() . "\"><img class=\"update-icon\" src=\"ressources/images//icons/update-icon.png\" alt=\"update-icon\"></a>";
+                            echo "</div>";
                         echo "</td>";
                         echo "</tr>";
                     }

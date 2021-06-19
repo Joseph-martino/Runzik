@@ -1,5 +1,4 @@
 <?php
-
     class WishlistProduct {
 
         private $product;

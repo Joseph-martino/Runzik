@@ -54,19 +54,30 @@
             ?>
 
             <?php
-                if($updateSuccess === true) {
-                    echo "<div class=\"update-information-panel-container\">";
-                        echo "<div class=\"update-information-panel\">";
-                            echo "<img class=\"update-panel-background\" src=\"ressources/images/banners/update-success-background.png\" alt=\"update success background\">";
-                            echo "<img class=\"update-panel-icon\" class=\"update-information-icon\" src=\"ressources/images/icons/update-success-icon1.png\" alt=\"pencil icon\">";
-                            echo "<div class=\"update-panel-content\">";
-                                echo "<h2 class=\"update-panel-title\">Super !</h2>";
-                                echo "<p class=\"update-panel-text\">Mise à jour effectuée avec succès</p>";
-                            echo "</div>";
-                        echo "</div>";
-                    echo "</div>";
-                }
-            ?>
+            //     if($updateSuccess === true) {
+            //         echo "<div id=\"update-information-panel-container\" class=\"hide-message\">";
+            //             echo "<div class=\"update-information-panel\">";
+            //                 echo "<img class=\"update-panel-background\" src=\"ressources/images/banners/update-success-background.png\" alt=\"update success background\">";
+            //                 echo "<img class=\"update-panel-icon\" class=\"update-information-icon\" src=\"ressources/images/icons/update-success-icon1.png\" alt=\"pencil icon\">";
+            //                 echo "<div class=\"update-panel-content\">";
+            //                     echo "<h2 class=\"update-panel-title\">Super !</h2>";
+            //                     echo "<p class=\"update-panel-text\">Mise à jour effectuée avec succès</p>";
+            //                 echo "</div>";
+            //             echo "</div>";
+            //         echo "</div>";
+            //     }
+            // ?>
+
+                    <div id="update-information-panel-container" class="hide-message">
+                        <div class="update-information-panel">
+                            <img class="update-panel-background" src="ressources/images/banners/update-success-background.png" alt="update success background">
+                            <img class="update-panel-icon" class="update-information-icon" src="ressources/images/icons/update-success-icon1.png" alt="pencil icon">
+                            <div class="update-panel-content">
+                                <h2 class="update-panel-title">Super !</h2>
+                                <p class="update-panel-text">Mise à jour effectuée avec succès</p>
+                            </div>
+                        </div>
+                    </div>
 
             <div class="main-content-container">
                 <div class="form-container">
@@ -97,7 +108,7 @@
                         </div>
 
                         <div class="buttons-container">
-                            <button type="submit" name="product-update">Valider les changements</button>
+                            <button id="update-button" type="submit" name="product-update">Valider les changements</button>
                             <a class="btn-back-to-dashboard" href="admin.php">Retour au tableau de bord</a>
                         </div>
                         
@@ -112,6 +123,6 @@
         ?>
     
 
-    
+    <script type="text/javascript" src="ressources/scripts/edit.js"></script>
 </body>
 </html>

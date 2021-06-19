@@ -19,6 +19,16 @@ body {
     position: relative;
   }
 
+  .banner-title {
+    position: absolute;
+    top: 44%;
+    left: 20%;
+    font-family: "Roboto Bold";
+    font-weight: bold;
+    font-size: 18px;
+    width: 44%;
+  }
+
   .header-container {
     width: 100%;
     position: absolute;
@@ -27,16 +37,6 @@ body {
 
   .banner-picture {
     width: 100%;
-  }
-
-  .banner-title {
-    position: absolute;
-    top: 44%;
-    left: 17%;
-    font-family: "Roboto Bold";
-    font-weight: bold;
-    font-size: 45px;
-    width: 28%;
   }
 
   .orange-highlight {
@@ -61,4 +61,16 @@ body {
 p {
     font-size: 14px;
     margin: 0;
+}
+
+@media #{$media-up} {
+  .banner-title {
+    position: absolute;
+    top: 44%;
+    left: 17%;
+    font-family: "Roboto Bold";
+    font-weight: bold;
+    font-size: 45px;
+    width: 28%;
+  }
 }

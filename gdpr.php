@@ -168,21 +168,85 @@
             L’établissement de lien vers notre site ne requiert pas d’autorisation. Runzik® dégage toute responsabilité dans ce cas.
         </p>
 
-        <h2 id="standart-form-contract">Conditions générales de vente</h2>
+        <h2 id="standard-form-contract">Conditions générales de vente</h2>
 
+        <h3>Clause n° 1 : Objet</h3>
 
+        <p>Les conditions générales de vente décrites ci-après détaillent les droits et obligations de la société Runzik®
+         et de son client dans le cadre de la vente des marchandises suivantes : (le vendeur doit recenser les marchandises
+          soumises aux CGV). Toute prestation accomplie par la société Runzik® implique donc l'adhésion sans réserve de 
+          l'acheteur aux présentes conditions générales de vente.
+        </p>
+
+        <h3>Clause n° 2 : Prix</h3>
+
+        <p>Les prix des marchandises vendues sont ceux en vigueur au jour de la prise de commande. Ils sont libellés en euros 
+        et calculés hors taxes. Par voie de conséquence, ils seront majorés du taux de TVA et des frais de transport applicables 
+        au jour de la commande. La société Runzik® s'accorde le droit de modifier ses tarifs à tout moment. Toutefois, elle 
+        s'engage à facturer les marchandises commandées aux prix indiqués lors de l'enregistrement de la commande.
+        </p>
+
+        <h3>Clause n° 3 : Rabais et ristournes</h3>
+
+        <p>Les tarifs proposés comprennent les rabais et ristournes que la société Runzik® serait amenée à octroyer compte 
+        tenu de ses résultats ou de la prise en charge par l'acheteur de certaines prestations
+        </p>
+
+        <h3>Clause n° 4 : Escompte</h3>
+
+        <p>Aucun escompte ne sera consenti en cas de paiement anticipé.</p>
+
+        <h3>Clause n° 5 : Modalités de paiement</h3>
+
+        <p>Le règlement des commandes s'effectue :</p>
+
+        <ul>
+            <li>soit par chèque;</li>
+            <li>soit par carte bancaire;</li>
+            <li>le cas échéant, indiquer les autres moyens de paiement acceptés.</li> 
+        </ul>
+
+        <p>Lors de l'enregistrement de la commande, l'acheteur devra verser un acompte 
+        de 10% du montant global de la facture, le solde devant être payé à réception des marchandises.
+        </p>
+
+        <h3>Clause n° 6 : Retard de paiement</h3>
+
+        <p>En cas de défaut de paiement total ou partiel des marchandises livrées au jour de la réception, 
+        l'acheteur doit verser à la société Runzik® une pénalité de retard égale à trois fois le taux de l'intérêt légal.
+        Le taux de l'intérêt légal retenu est celui en vigueur au jour de la livraison des marchandises.
+        </p>
+
+        <h3>Clause n° 7 : Livraison</h3>
+
+        <p>La livraison est effectuée :</p>
+
+        <ul>
+                <li>soit par la remise directe de la marchandise à l'acheteur;</li>
+                <li>soit par l'envoi d'un avis de mise à disposition en magasin à l'attention de l'acheteur;</li>
+                <li>soit au lieu indiqué par l'acheteur sur le bon de commande.</li>
+        </ul>
+
+        <p>Le délai de livraison indiqué lors de l'enregistrement de la commande n'est donné qu'à titre indicatif 
+        et n'est aucunement garanti. Par voie de conséquence, tout retard raisonnable dans la livraison des produits 
+        ne pourra pas donner lieu au profit de l'acheteur à :
+        </p>
+
+        <ul>
+                <li>l'allocation de dommages et intérêts;</li>
+                <li>l'annulation de la commande.</li>
+        </ul>
+
+        <p>Le risque du transport est supporté en totalité par l'acheteur.
+        En cas de marchandises manquantes ou détériorées lors du transport, l'acheteur 
+        devra formuler toutes les réserves nécessaires sur le bon de commande à réception 
+        desdites marchandises. Ces réserves devront être, en outre, confirmées par écrit 
+        dans les cinq jours suivant la livraison, par courrier recommandé AR.
+        </p>
     </section>
-
-
 
         <?php
             include( ROOT_PATH . "layout/footer.php");
         ?>
-
-
-    
-
-
-    
 </body>
 </html>

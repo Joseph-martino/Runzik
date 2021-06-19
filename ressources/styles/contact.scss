@@ -34,7 +34,6 @@ body {
 .form-container {
         display: flex;
         flex-direction: column;
-        /* width: 80%; */
         align-items: center;
         background-color: #2A2828;
         padding: 20px;
@@ -69,6 +68,11 @@ body {
     font-family: "Roboto Thin";
 }
 
+.gdpr-link {
+    font-size: 16px;
+    color: $blue;
+    font-weight: bold;
+}
 
 @media #{$media-up} {
     body {

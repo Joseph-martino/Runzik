@@ -38,6 +38,8 @@
     color: $orange;
 }
 
+
+
 #users, #products {
     font-family: "Roboto";
     border-collapse: collapse;
@@ -70,13 +72,20 @@
     margin: 0 auto;
 }
 
-
 .section-title {
-    font-size: 30px;
+    color: $black-background;
+    font-size: 14px;
+    margin: 0 10px 0 10px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 15px 0;
 }
 
 .title-icon {
-    height: 40px;
+    height: 20px;
 }
 
 .update-table-icon-container {
@@ -90,22 +99,26 @@
 
     > table > thead {
         position: sticky;
-        top: 0
+        top: 0;
+        font-size: 12px;
+    }
+
+    > table > tbody {
+        p {
+            font-size: 10px;
+        }
     }
 }
 
+        .update-icon {
+            height: 25px;
+            width: auto;
+        }
 
-// .desktop-update-link-button {
-//     @include button($redButtonColour);
-//     font-size: 14px;
-//     width: 50%;
-//     margin: 0 auto;
-// }
-
-// .mobile-update-link-button {
-//     width: 50%;
-//     margin: 0 auto;
-// }
+        .product-picture {
+            height: 60px;
+            width: auto;
+        }
 
 .desktop-product-update-link-button {
     @include button($redButtonColour);
@@ -150,10 +163,10 @@
     
       .section-title {
         margin: 10px 10px 10px 10px;
-        font-size: 12px;
+        font-size: 20px;
         color: $black-background;
       }
-    
+
       .title-icon {
         height: 20px;
       }
@@ -213,11 +226,6 @@
         margin: 0 auto;
     }
     
-
-    .section-title {
-        font-size: 30px;
-    }
-
     .title-icon {
         height: 40px;
     }
@@ -226,5 +234,30 @@
         width: 28%;
         margin: 0 auto;
     }
+
+    .table-container {   
+        > table > thead {
+
+            font-size: 16px;
+        }
+    
+        > table > tbody {
+    
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .update-icon {
+        height: 50px;
+        width: auto;
+    }
+
+    .product-picture {
+        height: 130px;
+        width: auto;
+      }
+    
 }
     
