@@ -32,15 +32,16 @@
         $currentUser = AdminManager::getUser($currentUserId);
         $role = $currentUser->getRole(); 
         $checked = $role == 1 ? "checked" : "";
+        $updateSuccess = false;
     ?>
         <section>
             <div class="title-container">
                 <h2><?php echo $currentUser->getUsername() ?></h2>
             </div>
 
+
   
             <?php
-            
                 if(isset($_POST["user-update"])){
                     if(isset($_POST["user-username"], $_POST["user-email"]) 
                     && !empty($_POST["user-username"]) && !empty($_POST["user-email"])){
@@ -48,14 +49,28 @@
                         $email = $_POST["user-email"];
                         $isAdmin = isset($_POST["user-isAdmin"]) ? true : false;
                         $userId = $_POST["user-id"];
-                        AdminManager::updateUser($username, $email, $isAdmin, $userId);
+                        $updateSuccess = AdminManager::updateUser($username, $email, $isAdmin, $userId);
                         echo "<meta http-equiv='refresh' content='0'>";
                         
                     }
                 }
-            
-            
             ?>
+
+            <?php
+                if($updateSuccess === true) {
+                    echo "<div class=\"update-information-panel-container\">";
+                        echo "<div class=\"update-information-panel\">";
+                            echo "<img class=\"update-panel-background\" src=\"ressources/images/banners/update-success-background.png\" alt=\"update success background\">";
+                            echo "<img class=\"update-panel-icon\" class=\"update-information-icon\" src=\"ressources/images/icons/update-success-icon1.png\" alt=\"pencil icon\">";
+                            echo "<div class=\"update-panel-content\">";
+                                echo "<h2 class=\"update-panel-title\">Super !</h2>";
+                                echo "<p class=\"update-panel-text\">Mise à jour effectuée avec succès</p>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+            ?>
+
             <div class="main-content-container">
                 <div class="form-container">
                     <form action="#" method="POST">

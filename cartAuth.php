@@ -4,11 +4,14 @@
     require_once(ROOT_PATH ."services/pdoManager.php");
     require_once(ROOT_PATH ."services/productManager.php");
     require_once(ROOT_PATH ."services/cartManager.php");
+    require_once(ROOT_PATH ."services/orderManager.php");
     require_once(ROOT_PATH . "models/product.php");
     require_once(ROOT_PATH . "models/products.php");
     require_once(ROOT_PATH . "models/cart.php");
     require_once(ROOT_PATH . "models/cartProduct.php");
     session_start();
+
+    $cartId = $_SESSION["user"]["cart"]->getId();
 
     if(!empty($_POST)) {
         if(isset($_POST["username"]) && !empty($_POST["username"])) {
@@ -127,6 +130,15 @@
                 unset($_SESSION["user"]);
                 header("Location: index.php"); 
         }
+
+                if(isset($_POST["create-order"])) {
+                    OrderManager::createOrderFromCart($_SESSION["user"]["id"], $cartId);
+                    CartManager::deleteAllProductsFromCart($cartId);
+                }
+
+        
+
+        
     }
             
 ?>
@@ -147,6 +159,7 @@
         include( ROOT_PATH . "layout/header.php");
         include( ROOT_PATH . "layout/mobileHeader.php");
         var_dump($_SESSION["user"]);
+        $cartProducts = CartManager::getCartProducts($cartId);
     ?>
 
         <div class="main-container">
@@ -205,15 +218,69 @@
                             </form>
                         </div>
                     </div>
-                    <form action="#" method="POST"> 
+                    <!-- <form action="#" method="POST"> 
                         <button class="order-validation-button" type="submit" name="order-validation">Valider la commande</button>
-                    </form>
+                    </form> -->
                 </div>
             </section>
-                
-            <section  class="right-panel">
-                <img src="ressources/images/illustrations/order-confirmation-picture.png" alt="order confirmation picture">
+
+            <section>
+                <?php
+
+if(isset($_POST["product-id"], $_POST["product-quantity"])){
+        CartManager::updateProductQuantityFromCart($cartId, $productId, $productQuantity);
+        echo "<meta http-equiv='refresh' content='0'>";
+}
+
+
+
+
+
+             
+                     foreach($cartProducts as $cartProduct) {
+
+                                echo "<img class=\"product-picture\" src=\"".$cartProduct->getProductImage()."\" alt=\"product-picture\">";
+                                echo "<h2>".$cartProduct->getProductName()."</h2>";
+                                echo "<p>".$cartProduct->getProductPrice()."</p>";
+                                echo "<p>".$cartProduct->getProductSubtotal()."</p>";
+                                
+                                
+                        // echo "<tr>";
+                        //     echo "<td><img class=\"product-picture\" src=\"".$cartProduct->getProductImage()."\" alt=\"product-picture\"></td>";
+                        //     echo "<td>".$cartProduct->getProductName()."</td>";
+                        //     // echo "<td>";
+                        //     //     echo "<form action=\"#\" method=\"POST\">";
+                        //     //     echo "<input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">";
+                        //     //     echo "<input type=\"number\" name=\"product-quantity\" min=\"0\" value=\"".$cartProduct->getQuantity()."\" onChange=\"submit()\"></td>";
+                        //     //     echo "</form>";
+                        //     // echo "</td>";
+                        //     echo "<td>".$cartProduct->getProductPrice()."</td>";
+                        //     echo "<td>".$cartProduct->getProductSubtotal()."</td>";
+                        //     echo "<td>";
+                        //         echo "<form action=\"#\" method=\"POST\">";
+                        //         echo "<input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">";
+                        //         echo "<input type=\"hidden\" name=\"product-quantity\" min=\"0\" value=\"".$cartProduct->getQuantity()."\"></td>";
+                        //         echo "<button type=\"submit\" name=\"order-validation\">VALIDER LA COMMANDE</button>";
+                        //         echo "</form>";
+                        //     echo "</td>";
+                        // echo "</tr>";
+                    }
+                ?>
             </section>
+
+            
+
+            <form action="#" method="POST">
+                <div class="GDPR-verification-container">
+                    <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
+                    <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et <a href="gdpr.php#standart-form-contract">conditions de vente</a> </label>
+                </div>
+                 <button type="submit" name="create-order">Valider la commande</button>
+            </form>
+                
+            <!-- <section  class="right-panel">
+                <img src="ressources/images/illustrations/order-confirmation-picture.png" alt="order confirmation picture">
+            </section> -->
         </div>
         <?php
             include(ROOT_PATH ."layout/footer.php");

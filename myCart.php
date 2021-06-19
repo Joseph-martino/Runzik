@@ -101,7 +101,7 @@
                                         echo "<td>";
                                         echo "<form action=\"#\" method=\"POST\">";
                                         echo "<input type=\"hidden\" name=\"product-id\" value=\"".$cartProduct->getProductId()."\">";
-                                        echo "<button type=\"submit\" name=\"delete\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"</button>";
+                                        echo "<button type=\"submit\" name=\"delete\"><img src=\"ressources/images/icons/cart-bin-icon.png\" alt=\"delete icon\"></button>";
                                         echo "</form>";
                                         echo "</td>";
                                         echo "</tr>";

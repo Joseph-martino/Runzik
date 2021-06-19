@@ -65,6 +65,7 @@ class AdminManager {
         ];
 
         PDOManager::execute($sql, $parameters);
+        return true;
     }
 
     public static function getAllProductsFromDatabase() {
@@ -131,6 +132,7 @@ class AdminManager {
             ]
         ];
         PDOManager::execute($sql, $parameters);
+        return true;
     }
 
     public static function getAllBrands() {

@@ -32,13 +32,13 @@
         $currentProduct = AdminManager::getProduct($currentProductId);
         $currentProductBrandId = $currentProduct->getBrandId();
         $brands = AdminManager::getAllBrands();
+        $updateSuccess = false;
     ?>
         <section>
             <div class="title-container">
                 <h2><?php echo $currentProduct->getName() ?></h2>
             </div>
 
-  
             <?php
                 if(isset($_POST["product-update"])){
                     if(isset($_POST["product-name"], $_POST["product-price"], $_POST["product-brand"] ) 
@@ -47,13 +47,27 @@
                         $price = $_POST["product-price"];
                         $brandId = $_POST["product-brand"];
                         $productId = $_POST["product-id"];
-                        AdminManager::updateProduct($name, $price, $brandId, $productId);
+                        $updateSuccess = AdminManager::updateProduct($name, $price, $brandId, $productId);
                         echo "<meta http-equiv='refresh' content='0'>";  
                     }
                 }
-            
-            
             ?>
+
+            <?php
+                if($updateSuccess === true) {
+                    echo "<div class=\"update-information-panel-container\">";
+                        echo "<div class=\"update-information-panel\">";
+                            echo "<img class=\"update-panel-background\" src=\"ressources/images/banners/update-success-background.png\" alt=\"update success background\">";
+                            echo "<img class=\"update-panel-icon\" class=\"update-information-icon\" src=\"ressources/images/icons/update-success-icon1.png\" alt=\"pencil icon\">";
+                            echo "<div class=\"update-panel-content\">";
+                                echo "<h2 class=\"update-panel-title\">Super !</h2>";
+                                echo "<p class=\"update-panel-text\">Mise à jour effectuée avec succès</p>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+            ?>
+
             <div class="main-content-container">
                 <div class="form-container">
                     <form action="#" method="POST">

@@ -29,6 +29,36 @@ section {
     }
 }
 
+.update-information-panel-container {
+    position: absolute;
+    top: 28%;
+    left: 35%;
+    width: 100%;
+}
+
+.update-information-panel {
+    position: relative;
+    width: 30%;
+}
+
+.update-panel-background {
+    width: 100%;
+}
+
+.update-panel-icon {
+    position: absolute;
+    top: 25%;
+    left: 16%;
+}
+
+.update-panel-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 34%;
+}
+
 .main-content-container {
     display: flex;
     justify-content: space-around;

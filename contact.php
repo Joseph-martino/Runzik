@@ -51,7 +51,7 @@ session_start();
 
                             <div class="GDPR-verification-container">
                                 <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
-                                <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les termes et conditions</label>
+                                <label class="grpd-message" for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et conditions</label>
                             </div>
 
                             <button type="submit">Envoyer</button>

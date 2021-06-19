@@ -14,14 +14,14 @@
         <div class="footer-card">
             <h2>INFORMATIONS LEGALES</h2>
             <div class="horizontal-line"></div>
-            <a href="legalNotice.php">
+            <a href="gdpr.php">
                 Mentions légales
             </a>
             <a href="Terms of Sales.php">
                 Conditions générales de vente
             </a>
 
-            <a href="Privacy Policy .php">
+            <a href="gdpr.php#privacy policy">
                 Politique de confidentialité
             </a>
         </div>

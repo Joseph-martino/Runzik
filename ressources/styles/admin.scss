@@ -7,6 +7,7 @@
 @import "common/buttons";
 @import "common/mixins";
 @import "common/responsive";
+@import "common/scrollbar";
 
 // html,
 // body {
@@ -83,7 +84,15 @@
     margin: 0 auto;
 }
 
+.table-container {
+    height: 500px;
+    overflow: auto;
 
+    > table > thead {
+        position: sticky;
+        top: 0
+    }
+}
 
 
 // .desktop-update-link-button {

@@ -79,8 +79,7 @@ class CartManager {
             return 10;
         }
     }
-
-   
+ 
     private static function getCartProductQuantity($cartId, $productId) {
         $sql = "SELECT quantity FROM `cartsproducts` WHERE cartId = ".$cartId." AND productId = ".$productId."";
         $result = PDOManager::fetch($sql);

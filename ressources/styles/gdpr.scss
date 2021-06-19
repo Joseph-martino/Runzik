@@ -1,0 +1,64 @@
+@import "common/reset";
+@import "common/header";
+@import "common/mobileHeader";
+@import "common/footer";
+@import "common/colours";
+@import "common/mixins";
+@import "common/fonts";
+@import "common/responsive";
+
+
+body {
+    background-color: #2C2626;
+    font-family: "Roboto Thin";
+    color: $white;
+  }
+
+  .banner-container {
+    display: block;
+    position: relative;
+  }
+
+  .header-container {
+    width: 100%;
+    position: absolute;
+    top:0;
+  }
+
+  .banner-picture {
+    width: 100%;
+  }
+
+  .banner-title {
+    position: absolute;
+    top: 44%;
+    left: 17%;
+    font-family: "Roboto Bold";
+    font-weight: bold;
+    font-size: 45px;
+    width: 28%;
+  }
+
+  .orange-highlight {
+    color: $orange;
+  }
+
+  .main-content {
+    width: 80%;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 50px;
+  }
+
+  h2 {
+      font-size: 20px;
+      margin: 15px 0 15px 0;
+      font-family: "Roboto Bold";
+  }
+
+p {
+    font-size: 14px;
+    margin: 0;
+}

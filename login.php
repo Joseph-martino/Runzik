@@ -67,7 +67,7 @@
 
                         <div class="GDPR-verification-container">
                             <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
-                            <label for="grpr-verification">j'ai lu et j'accepte les termes et conditions</label>
+                            <label for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et conditions</label>
                         </div>
 
                         <input type="hidden" name="action" value="register">
