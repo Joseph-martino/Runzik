@@ -238,7 +238,7 @@
                 ?>
             </section>
 
-            <div id="order-success-message-container" class="hide-message">
+            <div id="order-success-message-container">
                 <div class="order-information-panel">
                     <img class="order-panel-background" src="ressources/images/banners/update-success-background.png" alt="order success background">
                     <img class="order-panel-icon" class="order-information-icon" src="ressources/images/icons/update-success-icon2.png" alt="happy face icon">

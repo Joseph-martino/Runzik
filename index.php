@@ -81,18 +81,6 @@ $runzikHeadphone = ProductManager::getProduct("headphone", 13);
             </div>
             
             <div class="trends-products-container">
-                <?php
-                    // for($i=0; $i < 3; $i++) {
-                    //     echo "<div class=\"trend-product\">
-                    //              <img class=\"trend-product-image\" src=\"ressources/images/products/trend".$i.".png\" alt=\"release product\">
-                    //              <div class=\"trend-product-hidden-link-container\">
-                    //              <h3 class=\"trend-product-name\">Product</h3>
-                    //              <a class=\"red-button\" href=\"jbk\">Découvrir</a> 
-                    //          </div> 
-                    //     </div>";
-                    // }
-                ?>
-
                 <div class="trend-product">
                     <img class="trend-product-image" src="ressources/images/products/trend0.png" alt="release product">
                     <div class="trend-product-hidden-link-container">

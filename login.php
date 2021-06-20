@@ -1,120 +1,132 @@
 <?php
-    DEFINE("ROOT_PATH", dirname( __FILE__ ) ."/" );
-    require_once(ROOT_PATH ."services/authentificationManager.php");
-    require_once(ROOT_PATH ."services/pdo.php");
-    require_once(ROOT_PATH ."services/pdoManager.php");
+DEFINE("ROOT_PATH", dirname(__FILE__) . "/");
+require_once(ROOT_PATH . "services/authentificationManager.php");
+require_once(ROOT_PATH . "services/pdo.php");
+require_once(ROOT_PATH . "services/pdoManager.php");
 
-    session_start();
-    if(isset($_SESSION["user"])){
-        header("Location: profile.php");
-        exit;
-    }
+session_start();
+if (isset($_SESSION["user"])) {
+    header("Location: profile.php");
+    exit;
+}
 
-    $registerSuccess = true;
-    $loginSuccess = true;
-    if(!empty($_POST)) {
-        switch($_POST["action"]) {
-            case "register": 
-                $registerSuccess = Authentication::register($_POST["nickname"], $_POST["email"], $_POST["password"]);
+$registerSuccess = true;
+$loginSuccess = true;
+if (!empty($_POST)) {
+    switch ($_POST["action"]) {
+        case "register":
+            $registerSuccess = Authentication::register($_POST["nickname"], $_POST["email"], $_POST["password"]);
             break;
 
-            case "login":
-                $loginSuccess = Authentication::login($_POST["connexion-email"], $_POST["connexion-password"]);
-            break;       
-        }
+        case "login":
+            $loginSuccess = Authentication::login($_POST["connexion-email"], $_POST["connexion-password"]);
+            break;
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ressources/css/login.css" type="text/css" />
-    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png"/>
+    <link rel="icon" type="image/png" href="ressources/images/logos/runzik-black-logo.png" />
     <title>Inscription</title>
 </head>
+
 <body>
-        <?php
-            include( ROOT_PATH . "layout/header.php");
-        ?>
+    <?php
+    include(ROOT_PATH . "layout/header.php");
+    ?>
 
-        <div class="main-container">
-            <section class="subscription">
-                <div class="subscription-content-container">
-                    <div class="form-header-container">
-                        <h2>Rejoignez le <span class="orange-highlight">mouvement</span></h2>
-                        <div class="separator-container">
-                            <div class="orange-horizontal-line"></div>
-                        </div>
-                        <?php
-                        if(!$registerSuccess) {
-                            echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
-                        }
-                        ?>
-                    </div>
-
-                    <form action="#" method="POST">
-                        <label for="pseudo">Pseudo</label>
-                        <input type="text" name="nickname" id="pseudo">
-
-                        <label for="mail">Adresse email</label>
-                        <input <?php if(!$registerSuccess) echo "class=\"red-borders\""; ?> type="email" name="email" id="mail">
-
-                        <label for="pass">Mot de passe</label>
-                        <input <?php if(!$registerSuccess) echo "class=\"red-borders\""; ?> type="password" name="password" id="pass">
-
-                        <div class="GDPR-verification-container">
-                            <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
-                            <label for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et conditions</label>
-                        </div>
-
-                        <input type="hidden" name="action" value="register">
-
-                        <button type="submit">S'enregistrer</button>
-                    </form>
+    <div id="main-container">
+        <section class="form-container subscription">
+            <div class="form-header-container">
+                <h2>Rejoignez le <span class="orange-highlight">mouvement</span></h2>
+                <div class="separator-container">
+                    <div class="orange-horizontal-line"></div>
                 </div>
-                <div class="register-separator-container">
-                    <div class="white-separator"></div>
-                    <div>
-                        <p>OU</p>
-                    </div>
-                    <div class="white-separator"></div>
+                <?php
+                if (!$registerSuccess) {
+                    echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
+                }
+                ?>
+            </div>
+
+            <form action="#" method="POST">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" name="nickname" id="pseudo">
+
+                <label for="mail">Adresse email</label>
+                <input <?php if (!$registerSuccess) echo "class=\"red-borders\""; ?> type="email" name="email" id="mail">
+
+                <label for="pass">Mot de passe</label>
+                <input <?php if (!$registerSuccess) echo "class=\"red-borders\""; ?> type="password" name="password" id="pass">
+
+                <div class="GDPR-verification-container">
+                    <input class="checkbox" type="checkbox" id="grpr-verification" name="gdpr-verification" required>
+                    <label for="grpr-verification">j'ai lu et j'accepte les <a href="gdpr.php">termes</a> et conditions</label>
                 </div>
 
-                <div class="social-network-register">
-                    <h3>Connectez-vous avec</h3>
-                    <div class="social-network-icons-container">
-                        <img src="ressources/images//icons/register-facebook-icon.png" alt="Facebook icon">
-                        <img src="ressources/images//icons/register-google-icon.png" alt="Google icon">
-                        <img src="ressources/images//icons/register-twitter-icon.png" alt="Twitter icon">
-                    </div>
-                </div>  
-            </section>
+                <input type="hidden" name="action" value="register">
 
-            <section class="login">
-            <?php
-                        if(!$loginSuccess) {
-                            echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
-                        }
-                        ?>
-                        
-                <form action="#" method="POST">
-                    <label for="connexion-mail">Adresse email</label>
-                    <input <?php if(!$loginSuccess) echo "class=\"red-borders\""; ?> type="email" name="connexion-email" id="connexion-mail">
+                <button type="submit">S'enregistrer</button>
+            </form>
+        </section>
 
-                    <label for="connexion-pass">Mot de passe</label>
-                    <input <?php if(!$loginSuccess) echo "class=\"red-borders\""; ?> type="password" name ="connexion-password" id="connexion-pass">
+        <section class="form-container login">
+            <div class="form-header-container">
+                <h2>Se connecter</h2>
+                <div class="separator-container">
+                    <div class="orange-horizontal-line"></div>
+                </div>
+                <?php
+                if (!$loginSuccess) {
+                    echo "<p class=\"red-highlight\">L'adresse et/ou le mot de passe sont incorrects</p>";
+                }
+                ?>
+            </div>
 
-                    <input type="hidden" name="action" value="login">
+            <form action="#" method="POST">
+                <label for="connexion-mail">Adresse email</label>
+                <input <?php if (!$loginSuccess) echo "class=\"red-borders\""; ?> type="email" name="connexion-email" id="connexion-mail">
 
-                    <button type="submit">Se connecter</button>
-                </form>
-            </section>
+                <label for="connexion-pass">Mot de passe</label>
+                <input <?php if (!$loginSuccess) echo "class=\"red-borders\""; ?> type="password" name="connexion-password" id="connexion-pass">
+
+                <input type="hidden" name="action" value="login">
+
+                <button type="submit">Se connecter</button>
+            </form>
+        </section>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>De retour</h1>
+                    <button id="signIn" class="ghost">
+                        Se connecter
+                    </button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Nouvel utilisateur ?</h1>
+                    <button id="signUp" class="ghost">
+                        S'enregistrer
+                    </button>
+                </div>
+            </div>
         </div>
-        <?php
-            include(ROOT_PATH ."layout/footer.php");
-        ?>
-    </body>
+
+    </div>
+
+
+    <?php
+    include(ROOT_PATH . "layout/footer.php");
+    ?>
+    <script type="text/javascript" src="ressources/scripts/login.js"></script>
+</body>
+
 </html>

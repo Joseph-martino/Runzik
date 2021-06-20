@@ -93,6 +93,47 @@ form {
     width: 59%;
 }
 
+#order-success-message-container {
+    position: absolute;
+    top: 39%;
+    left: 19%;
+    width: 100%;
+}
+
+.show-message {
+    display: block;
+}
+
+.hide-message {
+    display: none;
+}
+
+.order-information-panel {
+    position: relative;
+    width: 60%;
+}
+
+.order-panel-background {
+    width: 100%;
+}
+
+.order-panel-icon {
+    position: absolute;
+    top: 13%;
+    left: 9%;
+    height: 50px;
+    width: auto;
+}
+
+.order-panel-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 19%;
+    left: 36%;
+    font-size: 9px;
+}
+
 .right-panel {
     display: none;
 }
@@ -204,11 +245,15 @@ form {
     }
     
     .order-panel-content {
+        h2 {
+            font-size: 20px;
+        }
         display: flex;
         flex-direction: column;
         position: absolute;
         top: 31%;
         left: 38%;
+        font-size: 16px;
     }
 
 }
