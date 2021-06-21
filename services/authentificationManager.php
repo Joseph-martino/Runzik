@@ -93,7 +93,7 @@ class Authentication {
                 LEFT JOIN `addresses` a ON u.adressId = a.id
                 INNER JOIN `carts` c ON u.id = c.userId 
                 INNER JOIN `wishlists` w ON u.id = w.userId 
-                LEFT JOIN `cartsproducts` cp ON c.id = cp.cartId 
+                LEFT JOIN `cartProducts` cp ON c.id = cp.cartId 
                 WHERE u.email = :email";
 
                 $parameters = [

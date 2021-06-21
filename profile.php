@@ -122,12 +122,17 @@ if(!empty($_POST)) {
     }
 
     if(isset($_POST["delete-user"])) {
-            $pdo = myPDO::getPDO();               
-            $sql = "DELETE FROM `users` WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
-            $query = $pdo->prepare($sql); 
-            $query->execute();
+            $pdo = myPDO::getPDO(); 
+            
+            $sql = "SELECT adressId from users WHERE id = ".$_SESSION["user"]["id"];
+            $result = PDOManager::fetch($sql);
 
-            $sql = "DELETE FROM `addresses` WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
+            if (!empty($result['adressId'])) {
+                $sql = "DELETE from addresses where id = ".$result['adressId'];
+                PDOManager::execute($sql);
+            }
+
+            $sql = "DELETE FROM `users` WHERE id = ".$_SESSION["user"]["id"];
             $query = $pdo->prepare($sql); 
             $query->execute();
 
@@ -138,6 +143,7 @@ if(!empty($_POST)) {
     }
 
     if(isset($_POST["product-id"], $_POST["delete-wishlist-product"])){
+        $productId = $_POST["product-id"];
         WishListManager::deleteProductFromWishlist($wishlistId, $productId);
     }
 }

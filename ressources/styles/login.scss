@@ -9,6 +9,19 @@
 
 $overlayWidth: 50%;
 $formWidth: 50%;
+.desktop-menu {
+  background: linear-gradient(253deg, rgba(2, 0, 36, 1) 0%, rgba(44, 38, 38, 1) 35%);
+}
+
+.orange-highlight {
+  color: $orange;
+}
+
+.panel-message {
+  font-family: "Oswald";
+  color: $white;
+  font-weight: bold;
+}
 
 #main-container {
     background: linear-gradient(253deg, rgba(2, 0, 36, 1) 0%, rgba(44, 38, 38, 1) 35%);
@@ -45,6 +58,13 @@ $formWidth: 50%;
             transform: translateX(0);
             transition: transform 0.6s ease-in-out;
         }
+    }
+
+    .form {
+      
+    width: 85%;
+    margin: 0 auto;
+
     }
 
     .login,
@@ -162,7 +182,23 @@ $formWidth: 50%;
 .overlay-left,
 .overlay-right {
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+}
+
+.overlay-button {
+  background-color: transparent;
+  border: 2px solid $orange;
+  color: $orange;
+  padding: 10px;
+  width: 190px;
+  font-weight: bold;
+  font-family: "Oswald Bold";
+}
+
+.overlay-button:hover {
+  font-family: "Oswald Bold";
+  background-color: $orange;
+  color: $lightBlack;
 }
 
 
@@ -186,6 +222,14 @@ $formWidth: 50%;
     }
 }
 
+.subtitle {
+  color: $white;
+  font-size: 16px;
+  width: 35%;
+  margin: 15px 0 120px 0;
+  font-family: "Oswald";
+}
+
 .orange-highlight {
     color: $orange;
 }
@@ -201,17 +245,17 @@ $formWidth: 50%;
 }
 
 .separator-container {
-    width: 80%;
-    display: flex;
-    margin-left: 8%;
-    margin-top: 2%;
-    justify-content: flex-start;
+  width: 42%;
+  display: flex;
+  margin-left: 8%;
+  margin-top: 2%;
+  justify-content: flex-start;
 }
 
 .orange-horizontal-line {
-    height: 2px;
-    width: 20%;
-    background-color: $orange;
+  height: 3px;
+  width: 36%;
+  background-color: $orange;
 }
 
 
@@ -232,12 +276,18 @@ form {
     button {
         @include button($orange);
         width: 100%;
+        margin: 30px 0 20px 0;
     }
 
     .GDPR-verification-container {
         display: flex;
         align-items: center;
         margin-right: 5px;
+        a {
+          font-size: 16px;
+          color: $blue;
+          font-weight: bold;
+        }
     }
 }
 

@@ -56,7 +56,7 @@ if (!empty($_POST)) {
                 ?>
             </div>
 
-            <form action="#" method="POST">
+            <form class="form" action="#" method="POST">
                 <label for="pseudo">Pseudo</label>
                 <input type="text" name="nickname" id="pseudo">
 
@@ -79,7 +79,7 @@ if (!empty($_POST)) {
 
         <section class="form-container login">
             <div class="form-header-container">
-                <h2>Se connecter</h2>
+                <h2>Bon <span class="orange-highlight">retour</span> parmi nous</h2>
                 <div class="separator-container">
                     <div class="orange-horizontal-line"></div>
                 </div>
@@ -90,7 +90,7 @@ if (!empty($_POST)) {
                 ?>
             </div>
 
-            <form action="#" method="POST">
+            <form class="form" action="#" method="POST">
                 <label for="connexion-mail">Adresse email</label>
                 <input <?php if (!$loginSuccess) echo "class=\"red-borders\""; ?> type="email" name="connexion-email" id="connexion-mail">
 
@@ -106,14 +106,16 @@ if (!empty($_POST)) {
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>De retour</h1>
-                    <button id="signIn" class="ghost">
+                    <h1 class="panel-message"><span class="orange-highlight">BON RETOUR</span>PARMI NOUS !</h1>
+                    <p class="subtitle">Garde le rythme en toute circonstance</p>
+                    <button class="overlay-button" id="signIn" class="ghost">
                         Se connecter
                     </button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Nouvel utilisateur ?</h1>
-                    <button id="signUp" class="ghost">
+                    <h1 class="panel-message"><span class="orange-highlight">NOUVEL</span> UTILISATEUR ?</h1>
+                    <p class="subtitle">Rejoins une communauté fantastique présente à travers le monde entier</p>
+                    <button class="overlay-button" id="signUp" class="ghost">
                         S'enregistrer
                     </button>
                 </div>

@@ -9,7 +9,7 @@ require_once(ROOT_PATH ."models/orderProduct.php");
         public static function createOrderFromCart($userId, $cartId) {
             $orderId = SELF::createOrder($userId);
             $sql = "INSERT INTO `orderproducts` (orderId, productId, quantity)
-            SELECT :orderId, productId, quantity FROM `cartsproducts`
+            SELECT :orderId, productId, quantity FROM `cartProducts`
             WHERE cartId = :cartId";
 
             $parameters = [

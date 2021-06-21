@@ -68,9 +68,14 @@
       position: absolute;
       top: 23px;
       left: 0;
+      z-index: 1000;
 
       > li {
         margin: 20px 20px 20px 0;
+
+        &:hover{
+          font-weight: bold;
+        }
       } 
     }
 

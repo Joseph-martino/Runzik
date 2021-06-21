@@ -238,20 +238,8 @@
                 ?>
             </section>
 
-            <div id="order-success-message-container">
-                <div class="order-information-panel">
-                    <img class="order-panel-background" src="ressources/images/banners/update-success-background.png" alt="order success background">
-                    <img class="order-panel-icon" class="order-information-icon" src="ressources/images/icons/update-success-icon2.png" alt="happy face icon">
-                    <div class="order-panel-content">
-                        <h2 class="order-panel-title">Merci beaucoup!</h2>
-                        <p class="order-panel-text">Votre commande est enregistrée</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php
             include(ROOT_PATH ."layout/footer.php");
         ?>
-        <script type="text/javascript" src="ressources/scripts/cartAuth.js"></script>
     </body>
 </html>

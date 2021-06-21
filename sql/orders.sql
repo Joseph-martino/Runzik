@@ -6,4 +6,5 @@ CREATE TABLE IF NOT EXISTS orders
     CONSTRAINT FK_orders_users
     FOREIGN KEY (userId)
     REFERENCES users(id)
+    ON DELETE CASCADE
 ) ENGINE=INNODB;

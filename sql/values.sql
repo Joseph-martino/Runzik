@@ -1,17 +1,14 @@
 INSERT IGNORE INTO users (id, username, email, password, isAdmin)
 VALUES
-(1, 'Bully', 'bullymaguire@gmail.com', 'test', true),
-(2, 'Nikos', 'nico.s@gmail.com', 'test2', false);
+(1, 'Bully', 'bullymaguire@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$TGx1azZjRE9Uc0JRVE1BOQ$KdMrW0szijFWERVKuXrmcYjKq4Z3YEdipMMBuF/08HM', true),
 
 INSERT IGNORE INTO wishlists (id, userId)
 VALUES
 (1, 1),
-(2,2);
 
 INSERT IGNORE INTO carts (id, userId)
 VALUES
 (1, 1),
-(2,2);
 
 INSERT IGNORE INTO brands (id, name)
 VALUES 
@@ -19,7 +16,7 @@ VALUES
 (2, 'Hanuman'), 
 (3, 'Beats');
 
-INSERT IGNORE INTO productTypes (id, name, displayName, displayNamePlural)
+INSERT IGNORE INTO productTypes (id, type, displayName, displayNamePlural)
 VALUES
 (1, 'watch', 'montre', 'montres'),
 (2, 'headphone', 'casque', 'casques'),

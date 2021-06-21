@@ -1,13 +1,13 @@
-DROP TABLE `carts`;
-DROP TABLE `wishlists`;
-DROP TABLE `cartProducts`;
-DROP TABLE `wishlistProducts`;
-DROP TABLE `orderProducts`;
-DROP TABLE `orders`;
-DROP TABLE `users`;
-DROP TABLE `addresses`;
-DROP TABLE `products`;
-DROP TABLE `productTypes`;
-DROP TABLE `brands`;
+DROP TABLE IF EXISTS `cartProducts`;
+DROP TABLE IF EXISTS `wishlistProducts`;
+DROP TABLE IF EXISTS `carts`;
+DROP TABLE IF EXISTS `wishlists`;
+DROP TABLE IF EXISTS `orderProducts`;
+DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `addresses`;
+DROP TABLE IF EXISTS `products`;
+DROP TABLE IF EXISTS `productTypes`;
+DROP TABLE IF EXISTS `brands`;
 
 
