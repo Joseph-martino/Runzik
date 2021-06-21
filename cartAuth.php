@@ -237,7 +237,7 @@
                     }
                 ?>
             </section>
-
+        </div>
         <?php
             include(ROOT_PATH ."layout/footer.php");
         ?>
