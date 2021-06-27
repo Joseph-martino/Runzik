@@ -85,7 +85,7 @@ $runzikHeadphone = ProductManager::getProduct("headphone", 13);
                     <img class="trend-product-image" src="ressources/images/products/trend0.png" alt="release product">
                     <div class="trend-product-hidden-link-container">
                         <h3 class="trend-product-name"><?php echo $runzikHeadphone->items->getName()?></h3>
-                        <a class="red-button" href="article.php?product=<?php echo $runzikHeadphone->infos->type ?>&amp;id="<?php echo $runzikHeadphone->items->getId() ?>>Découvrir</a> 
+                        <a class="red-button" href="article.php?product=<?php echo $runzikHeadphone->infos->type ?>&amp;id=<?php echo $runzikHeadphone->items->getId() ?>">Découvrir</a> 
                     </div>
                 </div>
                     
@@ -93,7 +93,7 @@ $runzikHeadphone = ProductManager::getProduct("headphone", 13);
                     <img class="trend-product-image" src="ressources/images/products/trend1.png" alt="release product">
                     <div class="trend-product-hidden-link-container">
                         <h3 class="trend-product-name"><?php echo $runzikWatch->items->getName() ?></h3>
-                        <a class="red-button" href="article.php?product=<?php echo $runzikWatch->infos->type ?>&amp;id="<?php echo $runzikWatch->items->getId() ?>>Découvrir</a> 
+                        <a class="red-button" href="article.php?product=<?php echo $runzikWatch->infos->type ?>&amp;id=<?php echo $runzikWatch->items->getId() ?>">Découvrir</a> 
                     </div> 
                 </div>
 
@@ -101,7 +101,7 @@ $runzikHeadphone = ProductManager::getProduct("headphone", 13);
                     <img class="trend-product-image" src="ressources/images/products/trend2.png" alt="release product">
                     <div class="trend-product-hidden-link-container">
                         <h3 class="trend-product-name"><?php echo $runzikArmband->items->getName() ?></h3>
-                        <a class="red-button" href="article.php?product=<?php echo $runzikArmband->infos->type ?>&amp;id="<?php echo $runzikArmband->items->getId() ?>>Découvrir</a>
+                        <a class="red-button" href="article.php?product=<?php echo $runzikArmband->infos->type ?>&amp;id=<?php echo $runzikArmband->items->getId() ?>">Découvrir</a>
                     </div> 
                 </div>
                 

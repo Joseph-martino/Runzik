@@ -78,19 +78,6 @@ class ProductManager {
         return new ProductList($type, $product);
     }
 
-    // public static function getLastTrendRunzikWatch() {
-    //     $sql = "SELECT p.*, b.name FROM `products` p 
-    //     INNER JOIN `brands` b ON p.brandId = b.id 
-    //     WHERE brandId = 1 AND p.id = 1";
-    //     $result = PDOManager::fetch($sql);
-    //     $product = new Product(
-
-    //     )
-    //     return $product;
-    // }
-
-
-
 }
 
 

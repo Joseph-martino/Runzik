@@ -3,7 +3,6 @@
 require_once(ROOT_PATH ."services/pdoManager.php");
 require_once(ROOT_PATH ."models/brand.php");
 
-  
 class BrandManager {
     public static function getBrands() {
 
@@ -17,7 +16,5 @@ class BrandManager {
     }
 
 }
-
-
 
 ?>

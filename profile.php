@@ -21,19 +21,15 @@ $userId = $_SESSION["user"]["id"];
 if(!empty($_POST)) {
     if(isset($_POST["username"]) && !empty($_POST["username"])) {
         $pseudo = strip_tags($_POST["username"]);
-        var_dump($_POST["username"]);
         $pdo = myPDO::getPDO();               
         $sql = "UPDATE `users` SET `username` = :pseudo WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
         $query = $pdo->prepare($sql); 
         $query->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
         $query->execute();
-        var_dump($query);
-        var_dump($_SESSION["user"]);
         $_SESSION["user"]["pseudo"] = $pseudo;
     }
 
     if(isset($_POST["password"]) && !empty($_POST["password"])) {
-        var_dump($_POST["password"]);
         if(Authentication::isCorrectPassword($_POST["password"])) {
             $pass = password_hash($_POST["password"], PASSWORD_ARGON2ID);
             $pdo = myPDO::getPDO();               
@@ -41,7 +37,6 @@ if(!empty($_POST)) {
             $query = $pdo->prepare($sql); 
             $query->bindValue(":password", $pass, PDO::PARAM_STR);
             $query->execute();
-            var_dump($query);
         } else {
             die ("Mot de passe incorrect");
         }
@@ -49,15 +44,12 @@ if(!empty($_POST)) {
     }
 
     if(isset($_POST["email"]) && !empty($_POST["email"])) {
-        var_dump($_POST["email"]);
         if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#" , $_POST["email"])) {
             $pdo = myPDO::getPDO();               
             $sql = "UPDATE `users` SET `email` = :email WHERE `users`.`id` = ".$_SESSION["user"]["id"]."";
             $query = $pdo->prepare($sql); 
             $query->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
             $query->execute();
-            var_dump($query);
-            var_dump($_SESSION["user"]);
             $_SESSION["user"]["email"] = $_POST["email"];
         } else {
             die ("Ce n'est pas un email");
@@ -67,10 +59,8 @@ if(!empty($_POST)) {
 
     if(isset($_POST["phoneNumber"]) && !empty($_POST["phoneNumber"])) {
         if(preg_match("#^0[1-9]([-. ]?[0-9]{2}){4}$#" , $_POST["phoneNumber"])) {
-             var_dump($_POST["phoneNumber"]);
             $query = "SELECT a.phoneNumber FROM `addresses` a INNER JOIN `users` u ON u.adressId = a.id WHERE u.id = ".$_SESSION["user"]["id"]."";
             $phoneNumber = PDOManager::fetch($query);
-            var_dump($phoneNumber);
             if($phoneNumber == null){
                 $pdo = myPDO::getPDO();
                 $query = "INSERT INTO `addresses` (`phoneNumber`) VALUES (".$_POST["phoneNumber"].")";    
@@ -135,9 +125,6 @@ if(!empty($_POST)) {
             $sql = "DELETE FROM `users` WHERE id = ".$_SESSION["user"]["id"];
             $query = $pdo->prepare($sql); 
             $query->execute();
-
-            var_dump($query);
-            var_dump($_SESSION["user"]);
             unset($_SESSION["user"]);
             header("Location: index.php"); 
     }

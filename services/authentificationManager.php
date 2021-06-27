@@ -62,16 +62,12 @@ class Authentication {
                             header("Location: profile.php");
                             exit;
                         }
-                    
-                       //echo "Bienvenue ".$_SESSION["user"]["pseudo"];
 
                     } else {
-                        //echo "Entrez un mot de passe de 8 à 15 caractères comprenant au moins: une minuscule, une majuscule, un chiffre et un caractère -+!*$@%_";
                         return false;
                     }
         
                 } else {
-                    //die("Le formulaire est incomplet");
                     return false;
                 }
                 return true;
@@ -83,7 +79,6 @@ class Authentication {
             && !empty($email && !empty($password))) 
             {
                 if(!SELF::isCorrectMail($email)) {
-                    //echo "email correcte";
                     return false;
                 }
 
@@ -114,13 +109,9 @@ class Authentication {
                 $quantity = $user["quantity"];
                 
                 if(!$user){
-                    // echo "L'utilisateur et/ou le mot de passe est incorrect";
-                    // return;
                     return false;
                 }
                 if(!password_verify($password, $user["password"])){
-                    // echo "L'utilisateur et/ou le mot de passe est incorrect";
-                    // return;
                     return false;
                 }
                 
